@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.housekeeping.dao.user.UserLoginDao">
+<resultMap id="BaseResultMap" type="com.housekeeping.dao.user.dataobject.UserLoginDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="open_id" property="openId" jdbcType="VARCHAR" />
+    <result column="login_account" property="loginAccount" jdbcType="VARCHAR" />
+    <result column="headimgurl" property="headimgurl" jdbcType="VARCHAR" />
+    <result column="union_id" property="unionId" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="access_token" property="accessToken" jdbcType="VARCHAR" />
+    <result column="is_Bound" property="isBound" jdbcType="INTEGER" />
+    <result column="sign_in_count" property="signInCount" jdbcType="INTEGER" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, open_id, login_account, headimgurl, union_id, telephone, sex, access_token, is_Bound, sign_in_count, gmt_created, gmt_modified
+  </sql>
+  <select id="queryUserLogin" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_login
+    where open_id = #{openId,jdbcType=BIGINT}
+  </select>
+  <select id="seletUserByUnionid" resultMap="BaseResultMap" parameterType="java.lang.String">
+  	select
+  	<include refid="Base_Column_List" />
+  	from user_login
+  	where open_id = #{openId,jdbcType=VARCHAR}
+  	limit 1
+  </select>
+  <insert id="insert" parameterType="com.housekeeping.dao.user.dataobject.UserLoginDO" >
+    insert into user_login 
+    (
+    	open_id, 
+    	login_account, 
+    	sex, 
+    	union_id,
+    	headimgurl,
+    	access_token, 
+    	is_Bound,
+    	sign_in_count,
+    	gmt_created, 
+    	gmt_modified
+    )
+    values 
+    (
+    	#{openId,jdbcType=BIGINT}, 
+    	#{loginAccount,jdbcType=VARCHAR}, 
+    	#{sex,jdbcType=INTEGER}, 
+    	#{unionId,jdbcType=VARCHAR}, 
+    	#{headimgurl,jdbcType=VARCHAR}, 
+    	#{accessToken,jdbcType=VARCHAR}, 
+    	#{isBound,jdbcType=TINYINT}, 
+    	1,
+    	NOW(),
+		NOW()
+	)
+  </insert>
+  <update id="update" parameterType="com.housekeeping.dao.user.dataobject.UserLoginDO" >
+    update user_login
+    set access_token = #{accessToken,jdbcType=VARCHAR},
+		sign_in_count = sign_in_count + 1,
+		gmt_modified = NOW()
+    where open_id = #{openId,jdbcType=BIGINT}
+  </update>
+   <select id="seletUserByOpenId" resultMap="BaseResultMap" parameterType="java.lang.String">
+  	select
+  	<include refid="Base_Column_List" />
+  	from user_login
+  	where open_id = #{openId,jdbcType=VARCHAR}
+  	 order by id desc
+  	limit 1
+  </select>
+</mapper>
