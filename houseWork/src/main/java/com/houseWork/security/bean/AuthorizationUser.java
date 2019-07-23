@@ -1,6 +1,8 @@
 package com.houseWork.security.bean;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,8 +12,10 @@ import lombok.Setter;
  * </pre>
  * @author zjw
  */
+@Data
 @Getter
 @Setter
+@Builder
 public class AuthorizationUser {
 
     //@NotBlank
