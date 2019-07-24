@@ -3,6 +3,7 @@ package com.houseWork.controller.front.user;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.houseWork.entity.User;
+import com.houseWork.entity.response.ResponseResult;
 import com.houseWork.security.bean.AuthenticationInfo;
 import com.houseWork.security.bean.AuthorizationUser;
 import com.houseWork.security.config.SelfUserDetailsService;
@@ -11,8 +12,6 @@ import com.houseWork.utils.JwtTokenUtil;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +29,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private final Logger log = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private SelfUserDetailsService userDetailsService;
@@ -38,13 +36,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
-    @PostMapping("/addUser")
-    @ApiOperation(value = "添加用户", notes = "添加用户")
-    public ResponseEntity addUser(@Validated @RequestBody User user){
-        userService.addUser(user);
-        return new ResponseEntity("", HttpStatus.OK);
-    }
 
     @PostMapping("/userList")
     @ApiOperation(value = "查找用户列表",notes = "查找用户列表")
@@ -64,7 +55,7 @@ public class UserController {
         map.put("username",username);
         List<User> list = userService.selectByMap(map);
         PageInfo<User> pageInfo = new PageInfo<>(list);
-        return new ResponseEntity( pageInfo,HttpStatus.OK);
+        return new ResponseEntity(ResponseResult.successResponse(pageInfo),HttpStatus.OK);
     }
 
     @PostMapping("/updateUser")
@@ -94,7 +85,7 @@ public class UserController {
         map.put("role",role);
         map.put("image",image);
         userService.updateUser(map);
-        return new ResponseEntity("",HttpStatus.OK);
+        return new ResponseEntity(ResponseResult.successResponse("修改成功"),HttpStatus.OK);
     }
 
     @PostMapping(value = "/jwtLogin")

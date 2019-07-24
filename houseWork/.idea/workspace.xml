@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="529d1f93-28c3-4c4b-8ac1-00d498197c89" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/houseWork/controller/front/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/houseWork/controller/front/user/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/houseWork/mapper/user/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/houseWork/mapper/user/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/houseWork/quartz/Task/HelloTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/houseWork/quartz/Task/HelloTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/houseWork/service/user/Impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/houseWork/service/user/Impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/houseWork/service/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/houseWork/service/user/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/user/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/user/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/front/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/front/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/houseWork/controller/front/user/UserController.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,17 +25,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/controller/front/user/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
+            <state relative-caret-position="-1056">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/server/MainServer.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/entity/response/ResponseResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+            <state relative-caret-position="190">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/WeixinAppLoginService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -50,40 +56,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/domin/WeixinLoginResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="8" column="112" selection-start-line="8" selection-start-column="112" selection-end-line="8" selection-end-column="112" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/user/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-76">
-              <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+            <state relative-caret-position="207">
+              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/user/Impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/mapper/user/UserDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -118,19 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/controller/user/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/controller/account/domin/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/service/impl/AccountServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/AccountMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/security/config/SpringSecurityConf.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/config/Swagger2Config.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/controller/user/testController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/service/AccountService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/mapper/Account/AccountMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/service/user/Impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/service/user/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/account/AccountMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/quartz/utils/QuartzJobManage.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/quartzJob/QuartzJobMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/hu/controller/account/AccountController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hu/service/test.java" />
@@ -162,13 +128,26 @@
         <option value="$PROJECT_DIR$/src/main/java/com/houseWork/utils/LogFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/houseWork/weixin/WeixinAppService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/controller/front/user/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/houseWork/service/user/Impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/houseWork/mapper/user/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/user/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/houseWork/service/user/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/houseWork/quartz/Task/HelloTask.java" />
         <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/WeixinAppService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/weixinAppURL/weixinAppURL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/weixinApp/weixinAppCoding.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/entity/response/weixinLoginResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/utils/JsonUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/utils/AesUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/entity/response/WeixinLoginResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/entity/UserInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/entity/response/ResultCode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/entity/response/Result.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/controller/front/user/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/entity/response/ResponseResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/WeixinAppLoginService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/domin/WeixinLoginResult.java" />
       </list>
     </option>
   </component>
@@ -213,6 +192,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,6 +233,55 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="response" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -272,7 +301,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="houseWork" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="weixin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="houseWork" type="b2602c69:ProjectViewProjectNode" />
@@ -282,8 +311,17 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="houseWork" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="Impl" type="462c0819:PsiDirectoryNode" />
+              <item name="weixin" type="462c0819:PsiDirectoryNode" />
+              <item name="weixinApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="houseWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="houseWork" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="houseWork" type="b2602c69:ProjectViewProjectNode" />
@@ -309,7 +347,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -323,7 +360,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java/com" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/houseWork/entity" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -338,11 +375,6 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\user" />
-      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\quartzJob" />
-      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\account" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.hu.service" />
       <recent name="com.hu.service.user" />
@@ -350,19 +382,24 @@
       <recent name="com.hu.security" />
       <recent name="com.hu.redis" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\entity" />
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\utils" />
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\service" />
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\resources" />
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.houseWork.entity.response" />
       <recent name="com.houseWork.utils" />
       <recent name="com.houseWork.entity" />
       <recent name="com.hu.security.bean" />
       <recent name="com.hu.utils" />
-      <recent name="com.hu.security.utils" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\resources" />
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork" />
-      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\java\com\hu\controller\user" />
-      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\java\com\hu\security\config" />
-      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\java\com\hu\redis" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\user" />
+      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\quartzJob" />
+      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\account" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -422,7 +459,8 @@
       <workItem from="1563773303158" duration="2509000" />
       <workItem from="1563850928116" duration="55000" />
       <workItem from="1563870144253" duration="7069000" />
-      <workItem from="1563931864526" duration="16290000" />
+      <workItem from="1563931864526" duration="16615000" />
+      <workItem from="1563955629685" duration="7572000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1563946198723</created>
@@ -438,11 +476,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563951889531</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update">
+      <created>1563953503340</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1563953503340</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167233000" />
+    <option name="totallyTimeSpent" value="175130000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -457,7 +502,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2193646" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22239032" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -466,7 +511,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.2590164" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3229508" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -476,11 +521,11 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32459018" />
+      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.32459018" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" weight="0.35573772" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="15" visible="true" weight="0.43770492" />
+      <window_info anchor="bottom" id="Run Dashboard" order="15" weight="0.27704918" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -597,79 +642,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/controller/user/UserController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/controller/account/AccountController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/entity/QuartzJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/houseWork.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3533" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/quartzJob/QuartzJobMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/houseWork/MainApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/security/bean/AuthenticationInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/security/bean/AuthorizationUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/security/bean/JwtUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/security/config/AjaxAuthenticationEntryPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/security/config/AjaxAuthenticationFailureHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/security/config/AjaxAuthenticationSuccessHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -834,13 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/entity/LogMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/utils/LoggerQueue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -868,51 +833,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/weixin/WeixinAppService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-327">
-          <caret line="96" column="22" lean-forward="true" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="39" column="35" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/mapper/user/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/user/Impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/user/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/weixin/WeixinAppService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/quartz/Task/HelloTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -927,6 +848,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4jdbc.log4j2.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/user/Impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/mapper/user/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/WeixinAppService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="61" column="73" lean-forward="true" selection-start-line="52" selection-start-column="4" selection-end-line="61" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/entity/LogMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="14" selection-start-line="14" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/utils/AesUtils.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/utils/JsonUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/entity/UserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/cn/hutool/hutool-all/4.5.18/hutool-all-4.5.18.jar!/cn/hutool/system/UserInfo.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/user/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/weixinApp/WeixinAppURL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/controller/front/user/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1056">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/server/MainServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -937,20 +957,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/controller/front/user/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/weixinApp/WeixinAppCoding.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="38">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4jdbc.log4j2.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/entity/response/ResultCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="8" column="112" selection-start-line="8" selection-start-column="112" selection-end-line="8" selection-end-column="112" />
+        <state relative-caret-position="266">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/entity/response/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="39" column="35" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/entity/response/ResponseResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/WeixinAppLoginService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/houseWork/service/weixin/domin/WeixinLoginResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
