@@ -17,7 +17,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class AuthenticationInfo implements Serializable {
 
-    private final String token;
+    private final  String token;
 
     private final UserDetails user;
 }

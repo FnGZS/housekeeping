@@ -18,7 +18,6 @@ public class HelloTask {
     @Autowired
     private UserService userService;
 
-    public void run() {
+    public void run() {}
 
-    }
 }
