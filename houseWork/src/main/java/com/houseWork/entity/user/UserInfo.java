@@ -1,4 +1,4 @@
-package com.houseWork.entity;
+package com.houseWork.entity.user;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

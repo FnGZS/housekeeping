@@ -1,6 +1,6 @@
 package com.houseWork.service.user.Impl;
 
-import com.houseWork.entity.User;
+import com.houseWork.entity.user.User;
 import com.houseWork.mapper.user.UserDao;
 import com.houseWork.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

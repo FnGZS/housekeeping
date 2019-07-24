@@ -1,6 +1,6 @@
 package com.houseWork.quartz.config;
 
-import com.houseWork.entity.QuartzJob;
+import com.houseWork.quartz.domin.QuartzJob;
 import com.houseWork.mapper.quartz.QuartzDao;
 import com.houseWork.quartz.utils.QuartzJobManage;
 import org.springframework.beans.factory.annotation.Autowired;

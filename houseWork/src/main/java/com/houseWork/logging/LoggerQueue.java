@@ -1,6 +1,6 @@
-package com.houseWork.utils;
+package com.houseWork.logging;
 
-import com.houseWork.entity.LogMessage;
+import com.houseWork.logging.domin.LogMessage;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

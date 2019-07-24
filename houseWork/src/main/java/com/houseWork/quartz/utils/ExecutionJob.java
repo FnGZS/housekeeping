@@ -1,7 +1,7 @@
 package com.houseWork.quartz.utils;
 
 
-import com.houseWork.entity.QuartzJob;
+import com.houseWork.quartz.domin.QuartzJob;
 import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

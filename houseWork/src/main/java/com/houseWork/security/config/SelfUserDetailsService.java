@@ -1,7 +1,7 @@
 package com.houseWork.security.config;
 
 import com.houseWork.mapper.Jwt.JwtAuthenticationTokenMapper;
-import com.houseWork.entity.User;
+import com.houseWork.entity.user.User;
 import com.houseWork.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

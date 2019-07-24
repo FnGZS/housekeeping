@@ -1,4 +1,4 @@
-package com.houseWork.entity;
+package com.houseWork.quartz.domin;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;

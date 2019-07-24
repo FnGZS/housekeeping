@@ -2,7 +2,7 @@ package com.houseWork.controller.front.user;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.houseWork.entity.User;
+import com.houseWork.entity.user.User;
 import com.houseWork.entity.response.ResponseResult;
 import com.houseWork.security.bean.AuthenticationInfo;
 import com.houseWork.security.bean.AuthorizationUser;

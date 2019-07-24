@@ -1,6 +1,6 @@
 package com.houseWork.service.user;
 
-import com.houseWork.entity.User;
+import com.houseWork.entity.user.User;
 
 import java.util.List;
 import java.util.Map;
@@ -22,7 +22,7 @@ public interface UserService {
     /**
      * 查找用户列表
      * @params [map]
-     * @return java.util.List<com.houseWork.entity.User>
+     * @return java.util.List<com.houseWork.entity.user.User>
      * @date 2019/7/24 14:00
      */
     List<User> selectByMap(Map map);

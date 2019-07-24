@@ -1,6 +1,6 @@
 package com.houseWork.mapper.user;
 
-import com.houseWork.entity.User;
+import com.houseWork.entity.user.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
@@ -36,7 +36,7 @@ public interface UserDao extends Mapper<User>, MySqlMapper<User> {
     /**
      * 查找用户
      * @params [map]
-     * @return java.util.List<com.houseWork.entity.User>
+     * @return java.util.List<com.houseWork.entity.user.User>
      * @date 2019/7/24 14:01
      */
     List<User> selectByMap(Map map);

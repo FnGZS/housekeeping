@@ -1,6 +1,6 @@
 package com.houseWork.service.weixin;
 
-import com.houseWork.entity.UserInfo;
+import com.houseWork.entity.user.UserInfo;
 import com.houseWork.entity.response.ResultCode;
 import com.houseWork.service.weixin.domin.WeixinLoginResult;
 import com.houseWork.service.weixin.weixinApp.WeixinAppCoding;

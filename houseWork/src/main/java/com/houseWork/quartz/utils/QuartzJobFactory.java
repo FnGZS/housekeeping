@@ -1,6 +1,6 @@
 package com.houseWork.quartz.utils;
 
-import com.houseWork.entity.QuartzJob;
+import com.houseWork.quartz.domin.QuartzJob;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;

@@ -1,6 +1,6 @@
 package com.houseWork.quartz.utils;
 
-import com.houseWork.entity.QuartzJob;
+import com.houseWork.quartz.domin.QuartzJob;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.quartz.impl.triggers.CronTriggerImpl;

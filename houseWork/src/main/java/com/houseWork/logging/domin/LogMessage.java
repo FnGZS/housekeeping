@@ -1,4 +1,4 @@
-package com.houseWork.entity;
+package com.houseWork.logging.domin;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

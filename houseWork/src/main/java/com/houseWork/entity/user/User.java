@@ -1,4 +1,4 @@
-package com.houseWork.entity;
+package com.houseWork.entity.user;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

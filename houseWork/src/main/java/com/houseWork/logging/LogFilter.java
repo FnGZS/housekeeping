@@ -1,9 +1,9 @@
-package com.houseWork.utils;
+package com.houseWork.logging;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.filter.Filter;
 import ch.qos.logback.core.spi.FilterReply;
-import com.houseWork.entity.LogMessage;
+import com.houseWork.logging.domin.LogMessage;
 
 import java.text.DateFormat;
 import java.util.Date;
