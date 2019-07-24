@@ -2,11 +2,13 @@
 <configuration>
     <!--定义日志文件的存储地址 勿在 LogBack 中使用相对路径-->
     <property name="LOG_HOME" value="E:\home\logs\springBoot"/>
-    <!-- 不用彩色控制台输出 -->
+    <!-- 彩色控制台输出 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--&lt;!&ndash;格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符&ndash;&gt;-->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <pattern>%black(%contextName-) %red(%d{yyyy-MM-dd HH:mm:ss}) %([%thread]) %highlight(%-5level) %cyan(%logger{36}) - %gray(%msg%n)
+            </pattern>
+            <charset>utf-8</charset>
         </encoder>
     </appender>
     <!-- 按照每天生成日志文件 -->
@@ -54,44 +56,10 @@
         </triggeringPolicy>
     </appender>
 
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%black(%contextName-) %red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{36}) - %gray(%msg%n)
-            </pattern>
-            <charset>utf-8</charset>
-        </encoder>
-        <!--添加我们自定义的filter-->
-        <filter class="com.houseWork.utils.LogFilter"></filter>
-    </appender>
-
     <!-- 日志输出级别 -->
-    <!--普通日志输出到控制台-->
-    <root level="info">
-        <appender-ref ref="console"/>
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="DAYERROR"/>
+        <appender-ref ref="DAYINFO"/>
     </root>
-
-    <!--监控sql日志输出 -->
-    <logger name="jdbc.sqlonly" level="INFO" additivity="false">
-        <appender-ref ref="console"/>
-    </logger>
-
-    <logger name="jdbc.resultset" level="ERROR" additivity="false">
-        <appender-ref ref="console"/>
-    </logger>
-
-    <logger name="jdbc.resultsettable" level="INFO" additivity="false">
-        <appender-ref ref="console"/>
-    </logger>
-
-    <logger name="jdbc.connection" level="OFF" additivity="false">
-        <appender-ref ref="console"/>
-    </logger>
-
-    <logger name="jdbc.sqltiming" level="OFF" additivity="false">
-        <appender-ref ref="console"/>
-    </logger>
-
-    <logger name="jdbc.audit" level="OFF" additivity="false">
-        <appender-ref ref="console"/>
-    </logger>
 </configuration>
