@@ -85,7 +85,7 @@ public class UserController {
         map.put("role",role);
         map.put("image",image);
         userService.updateUser(map);
-        return new ResponseEntity(ResponseResult.successResponse("修改成功"),HttpStatus.OK);
+        return new ResponseEntity(ResponseResult.successResponse(),HttpStatus.OK);
     }
 
     @PostMapping(value = "/jwtLogin")
@@ -102,6 +102,6 @@ public class UserController {
         final String token = JwtTokenUtil.generateToken(jwtUser.getUsername(), "_secret");
 
         // 返回 token
-        return ResponseEntity.ok(new AuthenticationInfo(token,jwtUser));
+        return new ResponseEntity(ResponseResult.successResponse(new AuthenticationInfo(token,jwtUser)),HttpStatus.OK);
     }
 }

@@ -36,8 +36,6 @@
             <version>3.3.87.ALL</version>
         </dependency>
 
-
-
         <!-- spring-boot-starter-security-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -88,25 +86,6 @@
             <artifactId>weixin-java-miniapp</artifactId>
             <version>3.2.0</version>
         </dependency>
-
-        <!--阿里短信服务
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-java-sdk-core</artifactId>
-            <version>4.0.6</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
-            <version>1.1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.javaer.aliyun</groupId>
-            <artifactId>aliyun-spring-boot-starter-sms</artifactId>
-            <version>1.1.1</version>
-        </dependency>-->
-
 
         <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
         <dependency>
