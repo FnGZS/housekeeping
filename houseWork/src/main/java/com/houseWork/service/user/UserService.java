@@ -1,20 +1,20 @@
 package com.houseWork.service.user;
 
-import com.houseWork.entity.QuartzJob;
 import com.houseWork.entity.User;
-import org.springframework.cache.annotation.Cacheable;
-
-import java.util.List;
 
 public interface UserService {
 
-    @Cacheable(value = "proUserLogin", key = "#username")
+
+
     User findByname(String username);
 
-    //增加
-    int insertUser(String username, String password);
-
-    List<QuartzJob> findAll();
-
     void update();
+
+    /**
+     * 添加用户
+     * @params [user]
+     * @return void
+     * @date 2019/7/23 19:34
+     */
+    void addUser(User user);
 }
