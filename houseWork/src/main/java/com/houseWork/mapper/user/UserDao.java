@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * <pre>
  * 用户 mapper
@@ -22,5 +25,19 @@ public interface UserDao extends Mapper<User>, MySqlMapper<User> {
 
     int insert(User user);
 
-    void update();
+    /**
+     * 修改用户
+     * @params [map]
+     * @return void
+     * @date 2019/7/24 14:36
+     */
+    void update(Map map);
+
+    /**
+     * 查找用户
+     * @params [map]
+     * @return java.util.List<com.houseWork.entity.User>
+     * @date 2019/7/24 14:01
+     */
+    List<User> selectByMap(Map map);
 }

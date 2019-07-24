@@ -2,13 +2,14 @@ package com.houseWork.service.user;
 
 import com.houseWork.entity.User;
 
+import java.util.List;
+import java.util.Map;
+
 public interface UserService {
 
 
 
     User findByname(String username);
-
-    void update();
 
     /**
      * 添加用户
@@ -17,4 +18,20 @@ public interface UserService {
      * @date 2019/7/23 19:34
      */
     void addUser(User user);
+
+    /**
+     * 查找用户列表
+     * @params [map]
+     * @return java.util.List<com.houseWork.entity.User>
+     * @date 2019/7/24 14:00
+     */
+    List<User> selectByMap(Map map);
+
+    /**
+     * 修改用户
+     * @params [map]
+     * @return void
+     * @date 2019/7/24 14:34
+     */
+    void updateUser(Map map);
 }
