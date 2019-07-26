@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="springboot.war">
+    <root id="archive" name="housework.war">
       <element id="artifact" artifact-name="houseWork:war exploded" />
     </root>
   </artifact>
