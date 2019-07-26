@@ -2,13 +2,18 @@ package com.houseWork.controller.front.user;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.houseWork.entity.user.User;
 import com.houseWork.entity.response.ResponseResult;
+import com.houseWork.entity.user.User;
+import com.houseWork.entity.user.UserInfo;
 import com.houseWork.security.bean.AuthenticationInfo;
 import com.houseWork.security.bean.AuthorizationUser;
 import com.houseWork.security.config.SelfUserDetailsService;
 import com.houseWork.service.user.UserService;
+import com.houseWork.service.weixin.WeixinAppLoginService;
+import com.houseWork.service.weixin.domin.WeixinLoginResult;
 import com.houseWork.utils.JwtTokenUtil;
+import com.jpay.util.StringUtils;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +33,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
+@Api(tags = "用户接口", description = "用户接口")
 public class UserController {
 
     @Autowired
@@ -97,6 +103,23 @@ public class UserController {
         if(!encoder.matches(authorizationUser.getPassword(),jwtUser.getPassword())){
             throw new AccountExpiredException("密码错误");
         }
+
+        WeixinLoginResult<UserInfo> result;
+        Map<String,String> platUserInfoMap = authorizationUser.getPlatUserInfoMap();
+        if((platUserInfoMap != null)&&(platUserInfoMap.isEmpty())) {
+            if(StringUtils.isBlank(platUserInfoMap.get("encryptedData")) || StringUtils.isBlank(platUserInfoMap.get("iv"))){
+                return new ResponseEntity("微信小程序登录异常，缺少必要参数",HttpStatus.PRECONDITION_FAILED);
+            }
+            result = WeixinAppLoginService.getUserInfo(authorizationUser.getPlatCode(), authorizationUser.getPlatUserInfoMap());
+        }else {
+            result = null;
+        }
+        UserInfo userInfo = result.getDataResult();
+        userService.addUser(User.builder()
+                .image(userInfo.getHeadimgurl())
+                .openId(userInfo.getOpenId())
+                .username(userInfo.getNickName())
+                .build());
 
         // 生成令牌
         final String token = JwtTokenUtil.generateToken(jwtUser.getUsername(), "_secret");

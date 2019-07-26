@@ -83,8 +83,8 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("TEST API")
-                .description("展示先做基础功能，后面再添加业务")
+                .title("绿泡泡小程序 API")
+                .description("绿泡泡小程序")
                 .termsOfServiceUrl("https://www.cnblogs.com/xiebq/")
                 .version("1.0")
                 .build();

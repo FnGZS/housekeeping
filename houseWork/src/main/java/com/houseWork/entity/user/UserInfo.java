@@ -18,7 +18,7 @@ public class UserInfo {
 	private String country;
 	private String sessionKey;
 	private String unionId;
-	
+
 	public String getUnionId() {
 		return unionId;
 	}
