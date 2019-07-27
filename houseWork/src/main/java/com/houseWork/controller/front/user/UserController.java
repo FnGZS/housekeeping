@@ -121,7 +121,7 @@ public class UserController {
                     .build());
 
             // 生成令牌
-            final String token = JwtTokenUtil.generateToken(userInfo.getNickName(), "_secret");
+            final String token = JwtTokenUtil.generateToken(userInfo.getOpenId(), "_secret");
 
             // 返回 token
             return new ResponseEntity(ResponseResult.successResponse(new AuthenticationInfo(token,userInfo)),HttpStatus.OK);
@@ -132,11 +132,20 @@ public class UserController {
         if(!encoder.matches(authorizationUser.getPassword(),jwtUser.getPassword())){
             throw new AccountExpiredException("密码错误");
         }
-        
+
         // 生成令牌
         final String token = JwtTokenUtil.generateToken(jwtUser.getUsername(), "_secret");
 
         // 返回 token
         return new ResponseEntity(ResponseResult.successResponse(new AuthenticationInfo(token,jwtUser)),HttpStatus.OK);
+    }
+
+    @PostMapping("/deciphering")
+    @ApiOperation(value = "解密并且获取用户手机号码", notes = "解密并且获取用户手机号码")
+    @ApiImplicitParams(
+            @ApiImplicitParam(paramType = "query", name = "role", value = "用户角色", dataType = "String")
+    )
+    public ResponseEntity deciphering(){
+        return new ResponseEntity(ResponseResult.successResponse(),HttpStatus.OK);
     }
 }
