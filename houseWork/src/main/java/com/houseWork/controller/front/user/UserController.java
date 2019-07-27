@@ -10,7 +10,7 @@ import com.houseWork.security.bean.AuthorizationUser;
 import com.houseWork.security.config.SelfUserDetailsService;
 import com.houseWork.service.user.UserService;
 import com.houseWork.service.weixin.WeixinAppLoginService;
-import com.houseWork.service.weixin.domin.WeixinLoginResult;
+import com.houseWork.service.weixin.domin.WeixinGeneralResult;
 import com.houseWork.utils.JwtTokenUtil;
 import com.jpay.util.StringUtils;
 import io.swagger.annotations.Api;
@@ -102,7 +102,7 @@ public class UserController {
         //小程序登录
         if(!StringUtil.isEmpty(authorizationUser.getPlatCode())){
 
-            WeixinLoginResult<UserInfo> result;
+            WeixinGeneralResult<UserInfo> result;
             Map<String,String> platUserInfoMap = authorizationUser.getPlatUserInfoMap();
             if((platUserInfoMap != null)&&(platUserInfoMap.isEmpty())) {
                 if(StringUtils.isBlank(platUserInfoMap.get("encryptedData")) || StringUtils.isBlank(platUserInfoMap.get("iv"))){
