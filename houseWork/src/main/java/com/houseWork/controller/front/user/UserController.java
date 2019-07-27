@@ -9,7 +9,7 @@ import com.houseWork.security.bean.AuthenticationInfo;
 import com.houseWork.security.bean.AuthorizationUser;
 import com.houseWork.security.config.SelfUserDetailsService;
 import com.houseWork.service.user.UserService;
-import com.houseWork.service.weixin.WeixinAppLoginService;
+import com.houseWork.service.weixin.WeixinAppService;
 import com.houseWork.service.weixin.domin.WeixinGeneralResult;
 import com.houseWork.utils.JwtTokenUtil;
 import com.jpay.util.StringUtils;
@@ -108,7 +108,7 @@ public class UserController {
                 if(StringUtils.isBlank(platUserInfoMap.get("encryptedData")) || StringUtils.isBlank(platUserInfoMap.get("iv"))){
                     return new ResponseEntity("登录异常，缺少必要参数",HttpStatus.PRECONDITION_FAILED);
                 }
-                result = WeixinAppLoginService.getUserInfo(authorizationUser.getPlatCode(), authorizationUser.getPlatUserInfoMap());
+                result = WeixinAppService.getUserInfo(authorizationUser.getPlatCode(), authorizationUser.getPlatUserInfoMap());
             }else {
                 result = null;
             }

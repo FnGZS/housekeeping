@@ -50,7 +50,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component("weixinAppLoginService")
-public class WeixinAppLoginService {
+public class WeixinAppService {
 
     private static CloseableHttpClient httpClient = null;
 
