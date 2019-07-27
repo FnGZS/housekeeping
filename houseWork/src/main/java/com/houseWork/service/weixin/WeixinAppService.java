@@ -125,14 +125,12 @@ public class WeixinAppService {
         }
         return result;
     }
+
     /**
 	 * 微信支付
-	 * 
-	 * @param platCode
-	 * @param platUserInfoMap
-	 * @param ip
-	 * @param orederId
-	 * @return
+	 * @params [param, ip, orederId, notifyUrl]
+	 * @return com.houseWork.service.weixin.domin.WeixinGeneralResult<com.houseWork.entity.weixin.OrderResponseInfo>
+	 * @date 2019/7/27 15:57
 	 */
 	public static WeixinGeneralResult<OrderResponseInfo> wxPay(UserPayParam param, String ip, String orederId,
 			String notifyUrl) {
@@ -259,9 +257,9 @@ public class WeixinAppService {
 
 	/**
 	 * 微信退款
-	 * 
-	 * @param orederId
-	 * @return
+	 * @params [param]
+	 * @return com.houseWork.service.weixin.domin.WeixinGeneralResult<com.houseWork.entity.weixin.UserRefundInfo>
+	 * @date 2019/7/27 15:57
 	 */
 	public static WeixinGeneralResult<UserRefundInfo> refund(UserRefundParam param) {
 		WeixinGeneralResult<UserRefundInfo> result = new WeixinGeneralResult<>();
