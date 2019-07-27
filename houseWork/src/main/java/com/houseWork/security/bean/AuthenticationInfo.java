@@ -2,7 +2,6 @@ package com.houseWork.security.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 
@@ -15,9 +14,9 @@ import java.io.Serializable;
  */
 @Getter
 @AllArgsConstructor
-public class AuthenticationInfo implements Serializable {
+public class AuthenticationInfo<T> implements Serializable {
 
     private final  String token;
 
-    private final UserDetails user;
+    private final T user;
 }

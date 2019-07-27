@@ -41,9 +41,6 @@
             <if test="telephone != null">
                 telephone = #{telephone},
             </if>
-            <if test="username != null">
-                username = #{username},
-            </if>
             <if test="role != null">
                 role = #{role},
             </if>

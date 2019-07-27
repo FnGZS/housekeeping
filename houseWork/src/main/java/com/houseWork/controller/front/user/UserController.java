@@ -25,6 +25,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import tk.mybatis.mapper.util.StringUtil;
 
 import java.util.HashMap;
 import java.util.List;
@@ -98,29 +99,40 @@ public class UserController {
     @ApiOperation(value = "登录授权", notes = "登录授权")
 //    @Cacheable(value = "proUserLogin", key = "#authorizationUser.getUsername()")
     public ResponseEntity login(@Validated @RequestBody AuthorizationUser authorizationUser) {
+        //小程序登录
+        if(!StringUtil.isEmpty(authorizationUser.getPlatCode())){
+
+            WeixinLoginResult<UserInfo> result;
+            Map<String,String> platUserInfoMap = authorizationUser.getPlatUserInfoMap();
+            if((platUserInfoMap != null)&&(platUserInfoMap.isEmpty())) {
+                if(StringUtils.isBlank(platUserInfoMap.get("encryptedData")) || StringUtils.isBlank(platUserInfoMap.get("iv"))){
+                    return new ResponseEntity("登录异常，缺少必要参数",HttpStatus.PRECONDITION_FAILED);
+                }
+                result = WeixinAppLoginService.getUserInfo(authorizationUser.getPlatCode(), authorizationUser.getPlatUserInfoMap());
+            }else {
+                result = null;
+            }
+            UserInfo userInfo = result.getDataResult();
+            userService.addUser(User.builder()
+                    .image(userInfo.getHeadimgurl())
+                    .openId(userInfo.getOpenId())
+                    .username(userInfo.getNickName())
+                    .sex(userInfo.getSex())
+                    .build());
+
+            // 生成令牌
+            final String token = JwtTokenUtil.generateToken(userInfo.getNickName(), "_secret");
+
+            // 返回 token
+            return new ResponseEntity(ResponseResult.successResponse(new AuthenticationInfo(token,userInfo)),HttpStatus.OK);
+        }
+
         final UserDetails jwtUser  = userDetailsService.loadUserByUsername(authorizationUser.getUsername());
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         if(!encoder.matches(authorizationUser.getPassword(),jwtUser.getPassword())){
             throw new AccountExpiredException("密码错误");
         }
-
-        WeixinLoginResult<UserInfo> result;
-        Map<String,String> platUserInfoMap = authorizationUser.getPlatUserInfoMap();
-        if((platUserInfoMap != null)&&(platUserInfoMap.isEmpty())) {
-            if(StringUtils.isBlank(platUserInfoMap.get("encryptedData")) || StringUtils.isBlank(platUserInfoMap.get("iv"))){
-                return new ResponseEntity("微信小程序登录异常，缺少必要参数",HttpStatus.PRECONDITION_FAILED);
-            }
-            result = WeixinAppLoginService.getUserInfo(authorizationUser.getPlatCode(), authorizationUser.getPlatUserInfoMap());
-        }else {
-            result = null;
-        }
-        UserInfo userInfo = result.getDataResult();
-        userService.addUser(User.builder()
-                .image(userInfo.getHeadimgurl())
-                .openId(userInfo.getOpenId())
-                .username(userInfo.getNickName())
-                .build());
-
+        
         // 生成令牌
         final String token = JwtTokenUtil.generateToken(jwtUser.getUsername(), "_secret");
 

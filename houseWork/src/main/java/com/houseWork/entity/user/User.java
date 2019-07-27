@@ -41,4 +41,8 @@ public class User implements Serializable {
     @Column(name = "image")
     @ApiModelProperty(value = "用户头像")
     private String image;       //用户头像
+
+    @Column(name = "sex")
+    @ApiModelProperty(value = "性别")
+    private Integer sex;
 }

@@ -7,8 +7,12 @@ import java.util.Map;
 
 public interface UserService {
 
-
-
+    /**
+     * 通过名字查找
+     * @params [username]
+     * @return com.houseWork.entity.user.User
+     * @date 2019/7/27 11:20
+     */
     User findByname(String username);
 
     /**

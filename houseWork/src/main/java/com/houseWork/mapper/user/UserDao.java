@@ -40,4 +40,12 @@ public interface UserDao extends Mapper<User>, MySqlMapper<User> {
      * @date 2019/7/24 14:01
      */
     List<User> selectByMap(Map map);
+
+    /**
+     * 查找byOpenId
+     * @params [openId]
+     * @return com.houseWork.entity.user.User
+     * @date 2019/7/27 10:57
+     */
+    User selectByOpenId(String openId);
 }
