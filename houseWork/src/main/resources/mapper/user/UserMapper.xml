@@ -23,7 +23,7 @@
     <insert id="insert" parameterType="com.houseWork.entity.user.User">
         INSERT INTO user(open_id,username,password,telephone,role,image)
 		VALUES
-			(#{openId},#{username},#{password},#{telephone},#{role},#{image});
+			(#{openId},#{username},#{password},#{telephone},2,#{image});
     </insert>
 
     <update id="update">
