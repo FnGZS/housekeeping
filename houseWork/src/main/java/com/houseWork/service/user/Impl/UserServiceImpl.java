@@ -1,7 +1,7 @@
 package com.houseWork.service.user.Impl;
 
+import com.houseWork.dao.user.UserDao;
 import com.houseWork.entity.user.User;
-import com.houseWork.mapper.user.UserDao;
 import com.houseWork.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.houseWork.mapper.Jwt;
+package com.houseWork.dao.Jwt;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;

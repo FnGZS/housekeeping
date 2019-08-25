@@ -1,4 +1,4 @@
-package com.houseWork.mapper.user;
+package com.houseWork.dao.user;
 
 import com.houseWork.entity.user.User;
 import org.apache.ibatis.annotations.Param;

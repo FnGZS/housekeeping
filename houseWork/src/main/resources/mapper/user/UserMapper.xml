@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.houseWork.mapper.user.UserDao">
+<mapper namespace="com.houseWork.dao.user.UserDao">
 
     <select id="selectByMap" parameterType="java.util.Map" resultType="com.houseWork.entity.user.User">
         select * from user
