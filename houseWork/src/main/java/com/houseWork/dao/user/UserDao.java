@@ -23,8 +23,6 @@ public interface UserDao extends Mapper<User>, MySqlMapper<User> {
 
     User findByName(@Param("username") String username);
 
-    int insert(User user);
-
     /**
      * 修改用户
      * @params [map]
