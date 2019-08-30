@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @Entity
@@ -45,4 +46,8 @@ public class User implements Serializable {
     @Column(name = "sex")
     @ApiModelProperty(value = "性别")
     private Integer sex;
+
+    @Column(name = "creat_time")
+    @ApiModelProperty(value = "创建时间")
+    private Date creatTime;
 }

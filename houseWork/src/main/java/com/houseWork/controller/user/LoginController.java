@@ -1,4 +1,4 @@
-package com.houseWork.controller.front.user;
+package com.houseWork.controller.user;
 
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;

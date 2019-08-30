@@ -12,7 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.houseWork"})
-@MapperScan({"com.houseWork.mapper"})
+@MapperScan({"com.houseWork.dao"})
 @EnableSwagger2
 public class MainServer extends SpringBootServletInitializer {
 

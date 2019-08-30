@@ -1,4 +1,4 @@
-package com.houseWork.controller.front.user;
+package com.houseWork.controller.user;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -148,4 +148,11 @@ public class UserController {
     public ResponseEntity deciphering(){
         return new ResponseEntity(ResponseResult.successResponse(),HttpStatus.OK);
     }
+
+    @PostMapping("/seletById")
+    @ApiOperation(value = "用id查找",notes = "用id查找")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "id", value = "id", dataType = "int")
+    })
+    public ResponseEntity seletById(@RequestParam Integer id){ return new ResponseEntity(ResponseResult.successResponse(userService.selectById(id)), HttpStatus.OK);}
 }

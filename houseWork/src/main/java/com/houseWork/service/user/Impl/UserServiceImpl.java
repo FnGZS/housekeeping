@@ -42,4 +42,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUser(Map map) { userDao.update(map);}
 
+    @Override
+    public User selectById(Integer id) {
+        return userDao.selectByPrimaryKey(id);
+//        return null;
+    }
+
 }
