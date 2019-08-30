@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="529d1f93-28c3-4c4b-8ac1-00d498197c89" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/user/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/user/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/server/MainServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/server/MainServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/service/user/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/service/user/Impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/user/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/user/UserMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -264,8 +263,7 @@
       <workItem from="1565156723284" duration="1416000" />
       <workItem from="1566870863258" duration="1851000" />
       <workItem from="1566872966641" duration="8597000" />
-      <workItem from="1567146194020" duration="991000" />
-      <workItem from="1567146194020" duration="5685000" />
+      <workItem from="1567146194020" duration="6321000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1563946198723</created>

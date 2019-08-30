@@ -20,12 +20,6 @@
         where username = #{username,jdbcType=VARCHAR}
     </select>
 
-    <insert id="insert" parameterType="com.houseWork.entity.user.User">
-        INSERT INTO user(open_id,username,password,telephone,role,image,sex,creat_time)
-		VALUES
-			(#{openId},#{username},#{password},#{telephone},'USER',#{image},#{sex},now());
-    </insert>
-
     <update id="update">
         UPDATE user
         <set>
