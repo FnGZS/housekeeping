@@ -92,6 +92,7 @@
 			<if test="logistics != null">
 				and logistics=#{logistics}
 			</if>
+			and deflag=0
 		</where>
 		group by goodsId
 		order by gmtCreated desc
