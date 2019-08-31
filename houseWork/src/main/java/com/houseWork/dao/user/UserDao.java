@@ -17,7 +17,6 @@ import java.util.Map;
  * @author zjw
  * @date 2019/6/25 16.34
  */
-@org.apache.ibatis.annotations.Mapper
 @Repository
 public interface UserDao extends Mapper<User>, MySqlMapper<User> {
 
@@ -25,25 +24,16 @@ public interface UserDao extends Mapper<User>, MySqlMapper<User> {
 
     /**
      * 修改用户
-     * @params [map]
-     * @return void
-     * @date 2019/7/24 14:36
      */
     void update(Map map);
 
     /**
      * 查找用户
-     * @params [map]
-     * @return java.util.List<com.houseWork.entity.user.User>
-     * @date 2019/7/24 14:01
      */
     List<User> selectByMap(Map map);
 
     /**
      * 查找byOpenId
-     * @params [openId]
-     * @return com.houseWork.entity.user.User
-     * @date 2019/7/27 10:57
      */
     User selectByOpenId(String openId);
 }

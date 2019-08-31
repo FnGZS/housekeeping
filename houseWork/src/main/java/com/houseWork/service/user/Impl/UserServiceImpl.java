@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Service("userService")
+@Service("UserService")
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
