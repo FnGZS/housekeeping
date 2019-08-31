@@ -1,4 +1,239 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.houseWork.dao.pay.PayOrderDao">
+	<sql id="PayOrderBasefield">
+		id,
+		goodsId,
+		payPrice,
+		totalPrice,
+		employerId,
+		clearnerId,
+		employerName,
+		employerPhone,
+		address,
+		content,
+		picUrl,
+		videoUrl,
+		area,
+		level,
+		longTime,
+		chargingType,
+		goodsType,
+		logistics,
+		orderState,
+		delflag,
+		startTime,
+		endTime,
+		gmtCreated,
+		gmtModified
+	</sql>
+	<select id="getPayOrderById"
+		resultType="com.houseWork.entity.pay.PayOrder">
+		select
+		<include refid="PayOrderBasefield" />
+		where id=#{id}
+	</select>
+	<select id="listPayOrderByClearnerId"
+		parameterType="com.houseWork.entity.pay.SearchPayOrderParam"
+		resultType="com.houseWork.entity.pay.PayOrder">
+		select id,
+		goodsId,
+		sum(payPrice) payPrice,
+		totalPrice,
+		employerId,
+		clearnerId,
+		employerName,
+		employerPhone,
+		address,
+		content,
+		picUrl,
+		videoUrl,
+		area,
+		level,
+		longTime,
+		chargingType,
+		Max(goodsType),
+		logistics,
+		orderState,
+		delflag,
+		startTime,
+		endTime,
+		gmtCreated,
+		gmtModified
+		<where>
+			<if test="clearnerId != null">
+				clearnerId=#{clearnerId}
+			</if>
+			<if test="employerId != null">
+				and employerId=#{employerId}
+			</if>
+			<if test="goodsWay != null">
+				<choose>
+					<when test="goodsType != null">
+						and goodsType=#{goodsType}
+					</when>
+					<when test="goodsWays == 0">
+						and goodsType=#{goodsWays}
+					</when>
+					<otherwise>
+						and goodsType!=#{goodsWay}
+					</otherwise>
+				</choose>
+			</if>
+			<if test="clearnerId != null">
+				and clearnerId=#{clearnerId}
+			</if>
+			<if test="chargingType != null">
+				and chargingType=#{clearnerId}
+			</if>
+			<if test="orderState != null">
+				and orderState=#{orderState}
+			</if>
+			<if test="logistics != null">
+				and logistics=#{logistics}
+			</if>
+		</where>
+		group by goodsId
+		order by gmtCreated desc
+	</select>
+
+	<select id="listPayOrderByGoodsId"
+		resultType="com.houseWork.entity.pay.PayOrder">
+		select
+		<include refid="PayOrderBasefield"></include>
+		where goodsId=#{goodsId}
+		group by goodsId
+		order by gmtCreated desc
+	</select>
+	<update id="updatePayOrder"
+		parameterType="com.houseWork.entity.pay.PayOrder">
+		update
+		<set>
+			<if test="payPrice != null">
+				payPrice=#{payPrice},
+			</if>
+			<if test="totalPrice != null">
+				totalPrice=#{totalPrice},
+			</if>
+			<if test="employerId != null">
+				employerId=#{employerId},
+			</if>
+			<if test="clearnerId != null">
+				clearnerId=#{clearnerId},
+			</if>
+			<if test="employerName != null">
+				employerName=#{employerName},
+			</if>
+			<if test="employerPhone != null">
+				employerPhone=#{employerPhone},
+			</if>
+			<if test="address != null">
+				address=#{address},
+			</if>
+			<if test="content != null">
+				content=#{content},
+			</if>
+			<if test="picUrl != null">
+				picUrl=#{picUrl},
+			</if>
+			<if test="videoUrl != null">
+				videoUrl=#{videoUrl},
+			</if>
+			<if test="level != null">
+				level=#{level},
+			</if>
+			<if test="longTime != null">
+				longTime=#{longTime},
+			</if>
+			<if test="chargingType != null">
+				chargingType=#{chargingType},
+			</if>
+			<if test="goodsType != null">
+				goodsType=#{goodsType},
+			</if>
+			<if test="logistics != null">
+				logistics=#{logistics},
+			</if>
+			<if test="orderState != null">
+				orderState=#{orderState},
+			</if>
+			<if test="delflag != null">
+				delflag=#{delflag},
+			</if>
+			<if test="startTime != null">
+				startTime=#{startTime},
+			</if>
+			<if test="endTime != null">
+				endTime=#{endTime},
+			</if>
+			<if test="gmtModified != null">
+				gmtModified=now()
+			</if>
+		</set>
+		<where>
+			<if test="id != null">
+				id=#{id}
+			</if>
+			<if test="goodsId != null">
+				and goodsId=#{goodsId}
+			</if>
+		</where>
+	</update>
+	<insert id="insertPayOrder"
+		parameterType="com.houseWork.entity.pay.PayOrder">
+
+		insert into payOrder
+		( id,
+		goodsId,
+		payPrice,
+		totalPrice,
+		employerId,
+		clearnerId,
+		employerName,
+		employerPhone,
+		address,
+		content,
+		picUrl,
+		videoUrl,
+		area,
+		level,
+		longTime,
+		chargingType,
+		goodsType,
+		logistics,
+		orderState,
+		delflag,
+		startTime,
+		endTime,
+		gmtCreated,
+		gmtModified
+		)
+		values
+		(
+		#{id},
+		#{goodsId},
+		#{payPrice},
+		#{totalPrice},
+		#{employerId},
+		#{clearnerId},
+		#{{employerName},
+		#{employerPhone},
+		#{address},
+		#{{content},
+		#{picUrl},
+		#{videoUrl},
+		#{area},
+		#{level},
+		#{longTime},
+		#{chargingType},
+		#{goodsType},
+		#{logistics},
+		#{orderState},
+		#{delflag},
+		#{startTime},
+		#{endTime},
+		now(),
+		now()
+		)
+	</insert>
 </mapper>

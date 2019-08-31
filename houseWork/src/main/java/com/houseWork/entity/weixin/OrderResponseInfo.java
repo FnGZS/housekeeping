@@ -1,6 +1,5 @@
 package com.houseWork.entity.weixin;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 public class OrderResponseInfo {
 	private String appId;

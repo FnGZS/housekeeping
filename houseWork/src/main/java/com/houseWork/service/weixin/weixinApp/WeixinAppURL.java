@@ -17,4 +17,6 @@ public class WeixinAppURL {
     public static final String KEY_PATH = "/www/wechat/cert/apiclient_cert.p12";
     // 支付类型
     public static final String TRADE_TYPE = "JSAPI";
+    //支付回调地址
+    public static final String NOTIFY_URL = "https://www.sxscott.com/houseWork/pay/callBack/notify";
 }
