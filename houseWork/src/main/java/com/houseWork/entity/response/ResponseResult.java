@@ -32,6 +32,7 @@ public class ResponseResult<T>{
         return new Result<T>().setCode(ResultCode.SUCCESS).setMsg(SUCCESS).setData(data).setStatus(true);
     }
 
+
     /**
      * 失败响应
      * @params [message]

@@ -43,6 +43,6 @@ public class TestServiceImpl implements TestService{
 
     @Override
     public List<Test> findByMap(Map<String, Object> params) {
-        return null;
+        return testDao.selectByMap(params);
     }
 }
