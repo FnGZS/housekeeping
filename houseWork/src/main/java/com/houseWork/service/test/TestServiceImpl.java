@@ -1,7 +1,7 @@
 package com.houseWork.service.test;
 
 import com.houseWork.dao.test.TestDao;
-import com.houseWork.entity.Test.Test;
+import com.houseWork.entity.test.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,7 +2,7 @@ package com.houseWork.controller.user;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.houseWork.entity.Test.Test;
+import com.houseWork.entity.test.Test;
 import com.houseWork.entity.response.ResponseResult;
 import com.houseWork.service.test.TestService;
 import io.swagger.annotations.Api;

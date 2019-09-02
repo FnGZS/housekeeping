@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.listener.PatternTopic;
@@ -24,7 +23,7 @@ import java.util.concurrent.CountDownLatch;
  * @author zjw
  * @date 2019/7/17 13:47
  */
-@Configuration
+//@Configuration
 @EnableCaching
 public class RedisConfig extends CachingConfigurerSupport {
 

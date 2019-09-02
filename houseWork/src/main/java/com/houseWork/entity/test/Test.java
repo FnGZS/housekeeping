@@ -1,4 +1,4 @@
-package com.houseWork.entity.Test;
+package com.houseWork.entity.test;
 
 
 import io.swagger.annotations.ApiModelProperty;

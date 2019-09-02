@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="529d1f93-28c3-4c4b-8ac1-00d498197c89" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/houseWork_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/houseWork_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_7.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/houseWork.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/user/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/user/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/test/TestDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/test/TestDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/response/ResponseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/response/ResponseResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/Test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/test/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/redis/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/redis/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/service/test/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/service/test/TestService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/service/test/TestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/service/test/TestServiceImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,6 +37,7 @@
         <option value="FxmlFile" />
         <option value="Gradle Kotlin DSL Build Script" />
         <option value="Tag Library Descriptor" />
+        <option value="mybasit.xml" />
       </list>
     </option>
   </component>
@@ -63,7 +70,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -207,7 +214,7 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@499cbb20" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@159ff7de" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -271,7 +278,8 @@
       <workItem from="1566870863258" duration="1851000" />
       <workItem from="1566872966641" duration="8597000" />
       <workItem from="1567146194020" duration="7594000" />
-      <workItem from="1567212517925" duration="13726000" />
+      <workItem from="1567212517925" duration="13784000" />
+      <workItem from="1567385439651" duration="5033000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1563946198723</created>

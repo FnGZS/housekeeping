@@ -1,7 +1,7 @@
 package com.houseWork.dao.test;
 
 
-import com.houseWork.entity.Test.Test;
+import com.houseWork.entity.test.Test;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
