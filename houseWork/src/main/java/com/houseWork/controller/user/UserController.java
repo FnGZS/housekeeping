@@ -104,7 +104,7 @@ public class UserController {
 
             WeixinGeneralResult<UserInfo> result;
             Map<String,String> platUserInfoMap = authorizationUser.getPlatUserInfoMap();
-            if((platUserInfoMap != null)&&(platUserInfoMap.isEmpty())) {
+            if((platUserInfoMap != null)&&(!platUserInfoMap.isEmpty())) {
                 if(StringUtils.isBlank(platUserInfoMap.get("encryptedData")) || StringUtils.isBlank(platUserInfoMap.get("iv"))){
                     return new ResponseEntity("登录异常，缺少必要参数",HttpStatus.PRECONDITION_FAILED);
                 }
