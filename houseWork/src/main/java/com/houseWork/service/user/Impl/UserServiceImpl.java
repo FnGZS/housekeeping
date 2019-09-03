@@ -29,11 +29,12 @@ public class UserServiceImpl implements UserService {
             map.put("username",user.getUsername());
             map.put("password",user.getPassword());
             map.put("telephone",user.getTelephone());
-            map.put("role","USER");
-            map.put("creatTime",new Date());
             map.put("image",user.getImage());
             userDao.update(map);
         }else {
+            user.setRole("USER");
+            user.setCreatTime(new Date());
+            user.setBalance(0);
             userDao.insert(user);
         }
     }

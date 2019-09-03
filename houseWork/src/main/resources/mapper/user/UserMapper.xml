@@ -14,9 +14,8 @@
     </select>
 
     <select id="findByName" resultType="com.houseWork.entity.user.User" parameterType="java.lang.String">
-        select
-        id, username, password
-        from userinfo
+        select *
+        from user
         where username = #{username,jdbcType=VARCHAR}
     </select>
 

@@ -25,27 +25,31 @@ public class User implements Serializable {
 
     @Column(name = "username")
     @ApiModelProperty(value = "用户名")
-    private String username;    //用户名
+    private String username;
 
     @Column(name = "password")
     @ApiModelProperty(value = "用户密码")
-    private String password;    //用户密码
+    private String password;
 
     @Column(name = "telephone")
     @ApiModelProperty(value = "电话号码")
-    private String telephone;   //电话号码
+    private String telephone;
 
     @Column(name = "role")
     @ApiModelProperty(value = "用户角色")
-    private String role;        //用户角色
+    private String role;
 
     @Column(name = "image")
     @ApiModelProperty(value = "用户头像")
-    private String image;       //用户头像
+    private String image;
 
     @Column(name = "sex")
     @ApiModelProperty(value = "性别")
     private Integer sex;
+
+    @Column(name = "balance")
+    @ApiModelProperty(value = "余额")
+    private Integer balance;
 
     @Column(name = "creat_time")
     @ApiModelProperty(value = "创建时间")
