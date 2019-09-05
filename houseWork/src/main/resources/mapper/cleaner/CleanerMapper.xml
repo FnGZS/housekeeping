@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nbytsoft.projects.sys.dao.MenuDao">
+    <insert id="addCleaner" parameterType="com.houseWork.entity.cleaner.Cleaner">
+		INSERT INTO cleaner (name,telephone,show,time,total,back,score,place,price,type,work)
+		VALUES (#{cleaner.name},#{cleaner.telephone},#{cleaner.show},#{cleaner.time},#{cleaner.total},#{cleaner.back},#{cleaner.score},#{cleaner.place},#{cleaner.state},#{cleaner.type},#{cleaner.work})
+	</insert>
+    <delete id="deleteCleaners" parameterType="java.util.List">
+        DELETE FROM cleaner
+        WHERE id IN
+        <foreach collection="list" item="list" open="(" close=")" separator=",">
+            #{list.id}
+        </foreach>
+    </delete>
+    <update id="updateCleaners" parameterType="java.util.List">
+        <foreach collection="list" item="cleaner" index="index" open="" close="" separator=";">
+            UPDATE cleaner
+            <set>
+                name=#{cleaner.name},telephone=#{cleaner.telephone},show=#{cleaner.show},time=#{cleaner.time},
+                total#{cleaner.total},back=#{cleaner.back},score#{cleaner.score},place=#{cleaner.place},
+                state=#{cleaner.state},type=#{cleaner.type},work=#{cleaner.work}
+            </set>
+            <where>
+                id=#{cleaner.id}
+            </where>
+        </foreach>
+    </update>
+    <select id="findCleaners" parameterType="java.lang.Long" resultType="com.houseWork.entity.cleaner.Cleaner">
+        SELECT * FROM cleaner
+        <if test="namelike !=null">
+            where name like '%'+#{namelike}+'%'
+        </if>
+        <if test="sortName !=null">
+            order by ${sortName} ${sortOrder}
+        </if>
+    </select>
+    <select id="loadCleanerByName" resultType="com.houseWork.entity.cleaner.Cleaner" >
+        select * from cleaner where name=#{name}
+    </select>
+</mapper>
