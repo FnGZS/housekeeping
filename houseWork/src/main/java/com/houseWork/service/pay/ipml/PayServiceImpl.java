@@ -60,6 +60,14 @@ public class PayServiceImpl implements PayService{
 		payOrderDao.insertPayOrder(payOrder);	
 		return payOrder;	
 	}
+
+	@Override
+	public void deletePayOrder(String goodsId) {
+		PayOrder order = new PayOrder();
+		order.setDelflag(1);
+		order.setGoodsId(goodsId);
+		payOrderDao.updatePayOrder(order);
+	}
 	/**
 	 * 获取订单详细信息
 	 * @param payOrder 系统订单实体
@@ -69,16 +77,8 @@ public class PayServiceImpl implements PayService{
 		//获取保洁人员信息
 		payOrder.setClearner(userDao.selectByPrimaryKey(payOrder.getClearnerId()));
 		//获取业主信息
-		payOrder.setEmployer(userDao.selectByPrimaryKey(payOrder.getEmployerId()));			
-		return payOrder;	
-	}
-
-	@Override
-	public void deletePayOrder(String goodsId) {
-		PayOrder order = new PayOrder();
-		order.setDelflag(1);
-		order.setGoodsId(goodsId);
-		payOrderDao.updatePayOrder(order);
+		payOrder.setEmployer(userDao.selectByPrimaryKey(payOrder.getEmployerId()));
+		return payOrder;
 	}
 
 

@@ -5,13 +5,16 @@ import com.houseWork.entity.response.Result;
 import com.houseWork.entity.upload.UploadPicParam;
 import com.houseWork.service.upload.UploadService;
 import com.houseWork.utils.DateUtil;
+import com.houseWork.utils.JwtTokenUtil;
 import com.houseWork.utils.RandomUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,6 +24,7 @@ import java.util.List;
  * @author zzc
  */
 @Service
+@Slf4j
 public class UploadServiceImpl implements UploadService {
 
     /**
@@ -58,7 +62,7 @@ public class UploadServiceImpl implements UploadService {
     protected long videoSizeLimit = 300 * 1024 * 1024;
 
     @Override
-    public ResponseEntity doUploadAvr(MultipartFile file, UploadPicParam uploadParam){
+    public ResponseEntity doUploadAvr(MultipartFile file, UploadPicParam uploadParam, HttpServletRequest request){
 
         if(file==null) {
             return new ResponseEntity<>(ResponseResult.errResponse("文件上传失败，内容为空"),HttpStatus.BAD_REQUEST);
@@ -71,13 +75,13 @@ public class UploadServiceImpl implements UploadService {
             return new ResponseEntity<>(ResponseResult.errResponse("文件上传失败，文件格式错误"),HttpStatus.BAD_REQUEST);
         }
 
-        return getResponseEntity(file, uploadParam.getType(),path,filePath);
+        return getResponseEntity(file, uploadParam.getType(),path,filePath,request);
     }
 
 
 
     @Override
-    public ResponseEntity doUploadPic(MultipartFile[] files, UploadPicParam uploadParam){
+    public ResponseEntity doUploadPic(MultipartFile[] files, UploadPicParam uploadParam,HttpServletRequest request){
         if(files==null||files.length==0) {
             return new ResponseEntity<>(ResponseResult.errResponse("文件上传失败，内容为空"),HttpStatus.BAD_REQUEST);
         }
@@ -95,7 +99,7 @@ public class UploadServiceImpl implements UploadService {
         List<String> urlList = new ArrayList<>();
         for(int i = 0; i < files.length; i++) {
             MultipartFile file = files[i];
-            result = (Result) getResponseEntity(file, uploadParam.getType(),path,filePath).getBody();
+            result = (Result) getResponseEntity(file, uploadParam.getType(),path,filePath,request).getBody();
             //如果上传不成功
             if(result.getCode()!=200){
                 return new ResponseEntity<>(ResponseResult.errResponse("上传失败"+result.getMsg()),HttpStatus.BAD_REQUEST);
@@ -106,7 +110,7 @@ public class UploadServiceImpl implements UploadService {
     }
 
     @Override
-    public ResponseEntity doUploadVideo(MultipartFile file, UploadPicParam uploadParam) {
+    public ResponseEntity doUploadVideo(MultipartFile file, UploadPicParam uploadParam,HttpServletRequest request) {
 
         if(file==null) {
             return new ResponseEntity<>(ResponseResult.errResponse("文件上传失败，内容为空"),HttpStatus.BAD_REQUEST);
@@ -120,7 +124,7 @@ public class UploadServiceImpl implements UploadService {
         }
 
         String picType=uploadParam.getType();
-        return getResponseEntity(file, picType, videoPath,videoFilePath);
+        return getResponseEntity(file, picType, videoPath,videoFilePath,request);
 
     }
 
@@ -130,10 +134,10 @@ public class UploadServiceImpl implements UploadService {
      * @param type 文件归类
      * @return
      */
-    private ResponseEntity getResponseEntity(MultipartFile file, String type, String path,String filePath) {
+    private ResponseEntity getResponseEntity(MultipartFile file, String type, String path,String filePath,HttpServletRequest request) {
         String url;
         try {
-            url = fileUpload(file, type,path,filePath);
+            url = fileUpload(file, type,path,filePath,request);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(ResponseResult.errResponse("上传失败"+e.getMessage()), HttpStatus.BAD_REQUEST);
@@ -147,7 +151,7 @@ public class UploadServiceImpl implements UploadService {
      * @return 地址
      * @throws Exception 异常
      */
-    private String fileUpload(MultipartFile file, String type,String path,String filePath)throws Exception {
+    private String fileUpload(MultipartFile file, String type,String path,String filePath,HttpServletRequest request)throws Exception {
         String random = RandomUtil.getRandomNumString(8);
         int length = file.getOriginalFilename().split("\\.").length;
 
@@ -161,6 +165,8 @@ public class UploadServiceImpl implements UploadService {
         }
         file.transferTo(new File(filePath+type+"/"+fileName));
         String url = path+type+"/"+fileName;
+        //记录用户上传的图片
+        log.debug(JwtTokenUtil.parseToken(request.getHeader("Authorization"), "_secret")+"上传："+"url");
         return url;
     }
 

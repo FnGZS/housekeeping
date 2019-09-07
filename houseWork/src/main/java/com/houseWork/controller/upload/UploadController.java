@@ -2,6 +2,7 @@ package com.houseWork.controller.upload;
 
 import com.houseWork.entity.upload.UploadPicParam;
 import com.houseWork.service.upload.UploadService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/upload")
+@Api("文件上传")
+
 public class UploadController {
     @Autowired
     private UploadService uploadService;
@@ -26,8 +29,8 @@ public class UploadController {
      */
     @PostMapping("/pic")
     public ResponseEntity doUploadPic(HttpServletRequest request, UploadPicParam uploadParam,
-                                      @RequestParam(value = "files", required = false) MultipartFile[] files)  {
-        return uploadService.doUploadPic(files, uploadParam);
+                                      @RequestParam(value = "files") MultipartFile[] files)  {
+        return uploadService.doUploadPic(files, uploadParam,request);
     }
 
     /**
@@ -39,8 +42,8 @@ public class UploadController {
      */
     @PostMapping("/avatar")
     public ResponseEntity doUploadAvr(HttpServletRequest request, UploadPicParam uploadParam,
-                                      @RequestParam(value = "file", required = false) MultipartFile file) {
-        return uploadService.doUploadAvr(file, uploadParam);
+                                      @RequestParam(value = "file" ) MultipartFile file) {
+        return uploadService.doUploadAvr(file, uploadParam,request);
     }
     /**
      *  视频上传单个
@@ -51,7 +54,7 @@ public class UploadController {
      */
     @PostMapping("/video")
     public ResponseEntity doUploadVideo(HttpServletRequest request, UploadPicParam uploadParam,
-                                      @RequestParam(value = "file", required = false) MultipartFile file) {
-        return uploadService.doUploadVideo(file, uploadParam);
+                                      @RequestParam(value = "file") MultipartFile file) {
+        return uploadService.doUploadVideo(file, uploadParam,request);
     }
 }
