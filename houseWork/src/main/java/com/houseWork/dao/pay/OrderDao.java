@@ -6,12 +6,12 @@ import com.houseWork.entity.weixin.Order;
 
 import net.sf.jsqlparser.statement.update.Update;
 
+/**
+ * @author zzc
+ */
 @Mapper
 public interface OrderDao {
-	/**
-	 * 更新微信订单信息
-	 */
-	void updateOrder(Order order);
+
 	/**
 	 * 新增微信订单信息
 	 */

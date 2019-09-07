@@ -1,11 +1,5 @@
 package com.houseWork.service.pay.ipml;
 
-import java.util.List;
-
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.houseWork.dao.pay.PayOrderDao;
@@ -14,6 +8,11 @@ import com.houseWork.entity.pay.PayOrder;
 import com.houseWork.entity.pay.SearchPayOrderParam;
 import com.houseWork.service.pay.PayService;
 import com.houseWork.utils.OrderUtils;
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 @Service
 public class PayServiceImpl implements PayService{
 	
@@ -63,7 +62,7 @@ public class PayServiceImpl implements PayService{
 	}
 	/**
 	 * 获取订单详细信息
-	 * @param 系统订单实体
+	 * @param payOrder 系统订单实体
 	 * @return 系统订单实体
 	 */
 	private PayOrder getPayOrderDetailInfo(PayOrder payOrder) {

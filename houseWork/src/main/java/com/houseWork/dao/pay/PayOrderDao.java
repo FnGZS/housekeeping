@@ -1,31 +1,34 @@
 package com.houseWork.dao.pay;
 
-import java.util.List;
-import java.util.Map;
-
-import org.apache.ibatis.annotations.Mapper;
-
 import com.houseWork.entity.pay.PayOrder;
 import com.houseWork.entity.pay.SearchPayOrderParam;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 
+/**
+ * @author zzc
+ */
 @Mapper
+@Repository
 public interface PayOrderDao {
 	/**
 	 * 根据订单号获取订单，单个
-	 * @param orderId 订单id
+	 * @param id 订单id
 	 * @return 订单详情
 	 */
 	PayOrder getPayOrderById(String  id);
 	/**
 	 * 根据搜索条件获取订单（groupby goodsId(商品id)）
-	 * @param 条件实体
+	 * @param param 条件实体
 	 * @return 商品订单列表
 	 */
 	List<PayOrder> listPayOrderByCondition(SearchPayOrderParam param);
 	/**
 	 * 根据商品id获取订单（因为可能存在定金，尾款，所以用list接收）
-	 * @param 商品id
+	 * @param goodsId 商品id
 	 * @return 订单列表
 	 */
 	List<PayOrder> listPayOrderByGoodsId(String goodsId);

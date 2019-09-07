@@ -42,5 +42,4 @@ public class ResponseResult<T>{
     public static <T> Result<T> errResponse(String message) {
         return new Result<T>().setCode(ResultCode.FAIL).setMsg(message).setStatus(false);
     }
-
 }

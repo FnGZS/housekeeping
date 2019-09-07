@@ -35,7 +35,7 @@ public class PayController {
 	@GetMapping("/wx/{payOrderId}")
 	@ApiImplicitParam(paramType = "query", name = "payOrderId", value = "系统订单id", dataType = "String",required=true)	
 	public ResponseEntity<ResponseResult<OrderResponseInfo>>  payOrder(@PathVariable String payOrderId){
-		return null;	
+		return null;
 	}
 	@ApiOperation(value = "生成系统订单",notes = "生成系统订单")
 	@PostMapping("/payOrder")

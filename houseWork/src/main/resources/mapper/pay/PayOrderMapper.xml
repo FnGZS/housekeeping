@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.houseWork.dao.pay.PayOrderDao">
-	<sql id="PayOrderBasefield">
+	<sql id="PayOrderBackfields">
 		id,
 		goodsId,
 		payPrice,
@@ -30,10 +30,10 @@
 	<select id="getPayOrderById"
 		resultType="com.houseWork.entity.pay.PayOrder">
 		select
-		<include refid="PayOrderBasefield" />
+		<include refid="PayOrderBackfields" />
 		where id=#{id}
 	</select>
-	<select id="listPayOrderByClearnerId"
+	<select id="listPayOrderByCondition"
 		parameterType="com.houseWork.entity.pay.SearchPayOrderParam"
 		resultType="com.houseWork.entity.pay.PayOrder">
 		select id,
@@ -101,7 +101,7 @@
 	<select id="listPayOrderByGoodsId"
 		resultType="com.houseWork.entity.pay.PayOrder">
 		select
-		<include refid="PayOrderBasefield"></include>
+		<include refid="PayOrderBackfields"/>
 		where goodsId=#{goodsId}
 		group by goodsId
 		order by gmtCreated desc
