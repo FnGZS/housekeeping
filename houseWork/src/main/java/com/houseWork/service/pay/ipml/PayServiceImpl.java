@@ -55,9 +55,40 @@ public class PayServiceImpl implements PayService{
 	}	
 	@Override
 	public PayOrder insertPayOrder(PayOrder payOrder) {
-		payOrder.setGoodsId(OrderUtils.getGoodsCode(payOrder.getEmployerId().longValue()));
+		String goodsCodeId = OrderUtils.getGoodsCode(payOrder.getEmployerId().longValue());
+		//价格由后台生成
+		payOrder.setOrderState(0);
+		//总价
+		double totalPrice = 0;
+		//系数
+		double coefficient = 0.3;
+		//面积计算价格
+		double areUnit  = 50;
+		//时间计算价格
+		double timeUnit  = 50;
+		//判断计费类型
+		//如果按面积
+		if(payOrder.getChargingType()==0){
+			totalPrice = payOrder.getArea()*areUnit;
+		}
+		//如果按时长
+		if(payOrder.getChargingType()==1){
+			totalPrice = payOrder.getLongTime()*timeUnit;
+		}
+		payOrder.setTotalPrice(totalPrice);
+		//如果是开荒定金,生成30%的定金
+		if(payOrder.getGoodsType()==1){
+			payOrder.setPayPrice(totalPrice*coefficient);
+		}
+		else if(payOrder.getGoodsType()==2){
+			payOrder.setPayPrice(totalPrice-totalPrice*coefficient);
+		}
+		else {
+			payOrder.setPayPrice(totalPrice);
+		}
+		payOrder.setGoodsId(goodsCodeId);
 		payOrder.setId(OrderUtils.getOrderCode(payOrder.getEmployerId().longValue()));
-		payOrderDao.insertPayOrder(payOrder);	
+		payOrderDao.insertPayOrder(payOrder);
 		return payOrder;	
 	}
 

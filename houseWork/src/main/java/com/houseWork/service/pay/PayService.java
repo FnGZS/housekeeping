@@ -1,10 +1,10 @@
 package com.houseWork.service.pay;
 
-import java.util.List;
-
 import com.github.pagehelper.PageInfo;
 import com.houseWork.entity.pay.PayOrder;
 import com.houseWork.entity.pay.SearchPayOrderParam;
+
+import java.util.List;
 
 public interface PayService {
 	/**
@@ -42,4 +42,6 @@ public interface PayService {
 	 * @param goodsId 订单实体
 	 */
 	void deletePayOrder(String goodsId);
+
+
 }

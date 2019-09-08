@@ -1,14 +1,12 @@
 package com.houseWork.entity.pay;
 
-import java.util.Date;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.houseWork.entity.user.User;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.houseWork.dao.user.UserDao;
-import com.houseWork.entity.user.User;
-
-import lombok.Data;
+import javax.validation.constraints.Min;
+import java.util.Date;
 
 @Data
 public class PayOrder {
@@ -26,6 +24,7 @@ public class PayOrder {
 	private String videoUrl;
 	private Double area;
 	private Integer level;
+	@Min(value = 360,message = "不得小于三个小时")
 	private Integer longTime;
 	private Integer chargingType;
 	private Integer goodsType;

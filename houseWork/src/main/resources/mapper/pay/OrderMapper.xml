@@ -22,21 +22,21 @@
 	)
 	values
 	(
-	#{id,jdbcType=BIGINT},
-	#{appid,jdbcType=VARCHAR},
-	#{mch_id,jdbcType=VARCHAR},
-	#{nonce_str,jdbcType=VARCHAR},
-	#{sign,jdbcType=VARCHAR},
-	#{result_code,jdbcType=VARCHAR},
-	#{openid,jdbcType=VARCHAR},
-	#{trade_type,jdbcType=VARCHAR},
-	#{bank_type,jdbcType=VARCHAR},
-	#{total_fee,jdbcType=INTEGER},
-	#{cash_fee,jdbcType=INTEGER},
-	#{transaction_id,jdbcType=VARCHAR},
-	#{out_trade_no,jdbcType=VARCHAR},
-	#{gmt_created,jdbcType=TIMESTAMP},
-	#{gmt_modified,jdbcType=TIMESTAMP}
+	#{id},
+	#{appid},
+	#{mch_id },
+	#{nonce_str},
+	#{sign},
+	#{result_code},
+	#{openid},
+	#{trade_type},
+	#{bank_type},
+	#{total_fee},
+	#{cash_fee},
+	#{transaction_id},
+	#{out_trade_no},
+	#{gmt_created},
+	#{gmt_modified}
 	)
 </insert>
 </mapper>

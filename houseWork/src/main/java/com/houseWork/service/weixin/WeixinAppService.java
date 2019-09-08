@@ -126,11 +126,13 @@ public class WeixinAppService {
         return result;
     }
 
-    /**
+	/**
 	 * 微信支付
-	 * @params [param, ip, orederId, notifyUrl]
-	 * @return com.houseWork.service.weixin.domin.WeixinGeneralResult<com.houseWork.entity.weixin.OrderResponseInfo>
-	 * @date 2019/7/27 15:57
+	 * @param param
+	 * @param ip
+	 * @param orederId
+	 * @param notifyUrl
+	 * @return
 	 */
 	public static WeixinGeneralResult<OrderResponseInfo> wxPay(UserPayParam param, String ip, String orederId,
 			String notifyUrl) {
@@ -172,7 +174,8 @@ public class WeixinAppService {
 			}
 		} catch (Exception e) {
 			result.setCode(ResultCode.FAIL);
-			result.setMessage(e.getMessage());
+			result.setMessage("获取openid失败"+e.getMessage());
+			return result;
 		}
 
 		URI uri = URI.create(WeixinAppURL.PAY_URL);
@@ -241,15 +244,15 @@ public class WeixinAppService {
 			}
 		} catch (ClientProtocolException e) {
 			result.setCode(ResultCode.FAIL);
-			result.setMessage("小程序支付异常");
+			result.setMessage("小程序支付异常"+e.getMessage());
 			e.printStackTrace();
 		} catch (IOException e) {
 			result.setCode(ResultCode.FAIL);
-			result.setMessage("小程序支付异常");
+			result.setMessage("小程序支付异常"+e.getMessage());
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
 			result.setCode(ResultCode.FAIL);
-			result.setMessage("小程序支付异常");
+			result.setMessage("小程序支付异常"+e.getMessage());
 		}
 
 		return result;

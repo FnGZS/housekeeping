@@ -57,7 +57,7 @@ public class OrderUtils {
 	/**
 	 * 生成不带类别标头的编码
 	 * 
-	 * @param userId
+	 * @param userId 业主id
 	 */
 	private static synchronized String getCode(Long userId) {
 		userId = userId == null ? 10000 : userId;
