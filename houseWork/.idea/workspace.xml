@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="529d1f93-28c3-4c4b-8ac1-00d498197c89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_17.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/houseWork_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/houseWork_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_30.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/houseWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/houseWork.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/dict/DictDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/dict/DictDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/dict/DictController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/dict/DictController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/dict/DictProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/dict/DictProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/dict/DictEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/dict/DictEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/security/config/SpringSecurityConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/security/config/SpringSecurityConf.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -215,12 +213,7 @@
       <serviceView>
         <option name="contentProportion" value="0.19726962" />
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@19b8b985" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -285,7 +278,11 @@
       <workItem from="1567212517925" duration="13784000" />
       <workItem from="1567385439651" duration="24574000" />
       <workItem from="1567471316485" duration="2961000" />
-      <workItem from="1567492560672" duration="1632000" />
+      <workItem from="1567492560672" duration="9392000" />
+      <workItem from="1567558544045" duration="4785000" />
+      <workItem from="1567579704613" duration="4787000" />
+      <workItem from="1567644423461" duration="626000" />
+      <workItem from="1567996282630" duration="748000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1563946198723</created>
