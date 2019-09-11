@@ -22,11 +22,11 @@ public class DictEntity {
     @ApiModelProperty(value = "所属类型")
     private String type;
 
-    @Column(name = "key")
+    @Column(name = "k")
     @ApiModelProperty(value = "关键字")
-    private String key;
+    private String k;
 
-    @Column(name = "value")
+    @Column(name = "v")
     @ApiModelProperty("值")
-    private String value;
+    private String v;
 }

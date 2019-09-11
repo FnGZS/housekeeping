@@ -1,9 +1,9 @@
 package com.houseWork.controller.dict;
 
 
-import cn.hutool.core.lang.Dict;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.houseWork.entity.dict.DictEntity;
 import com.houseWork.entity.response.ResponseResult;
 import com.houseWork.service.dict.DictService;
 import io.swagger.annotations.Api;
@@ -30,24 +30,60 @@ public class DictController {
     private DictService dictService;
 
     @PostMapping("/seletAll")
-    @ApiModelProperty(value = "",notes = "")
+    @ApiModelProperty(value = "查找所有字典",notes = "查找所有字典")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "id", value = "id", dataType = "int"),
+            @ApiImplicitParam(paramType = "query", name = "key", value = "key", dataType = "String"),
+            @ApiImplicitParam(paramType = "query", name = "type", value = "type", dataType = "String"),
             @ApiImplicitParam(paramType = "query", name = "pageNum", value = "页码", required = false, dataType = "int"),
             @ApiImplicitParam(paramType = "query", name = "pageSize", value = "每页显示数量", required = false, dataType = "int")
     })
-    public ResponseEntity RseletAll(@RequestParam(required = false) Integer id,
-                                    @RequestParam(required = false) Integer key,
-                                    @RequestParam(required = false) Integer type,
+    public ResponseEntity RseletAll(@RequestParam(required = false,defaultValue = "-1") Integer id,
+                                    @RequestParam(required = false,defaultValue = "") String key,
+                                    @RequestParam(required = false,defaultValue = "") String type,
                                     @RequestParam(defaultValue = "0") Integer pageNum,
                                     @RequestParam(defaultValue = "10") Integer pageSize){
-        Map map = new HashMap();
+        Map<String,Object> map = new HashMap();
         map.put("id",id);
         map.put("type",type);
         map.put("key",key);
         PageHelper.startPage(pageNum, pageSize);
-        List<Dict> list = dictService.findByMap(map);
+        List<DictEntity> list = dictService.findByMap(map);
         PageInfo pageInfo = new PageInfo<>(list);
         return new ResponseEntity(ResponseResult.successResponse(pageInfo), HttpStatus.OK);
     }
+
+    @PostMapping("/add")
+    @ApiModelProperty(value = "添加字典",notes = "添加字典")
+    public ResponseEntity addDict(@RequestParam(value = "type", required = false, defaultValue = "") String type,
+                                  @RequestParam(value = "k", required = false, defaultValue = "") String k,
+                                  @RequestParam(value = "v", required = false, defaultValue = "") String v){
+        return new ResponseEntity(ResponseResult.successResponse(dictService.insert(DictEntity.builder()
+                .type(type)
+                .k(k)
+                .v(v)
+                .build())), HttpStatus.OK);
+    }
+
+    @PostMapping("/update")
+    @ApiModelProperty(value = "修改字典",notes = "修改字典")
+    public ResponseEntity updateDict(@RequestParam(value = "id", required = false, defaultValue = "") Integer id,
+                                     @RequestParam(value = "type", required = false, defaultValue = "") String type,
+                                     @RequestParam(value = "k", required = false, defaultValue = "") String k,
+                                     @RequestParam(value = "v", required = false, defaultValue = "") String v){
+        return new ResponseEntity(ResponseResult.successResponse(dictService.update(DictEntity.builder()
+                .id(id)
+                .type(type)
+                .k(k)
+                .v(v)
+                .build())),HttpStatus.OK);
+    }
+
+    @PostMapping("/delete")
+    @ApiModelProperty(value = "删除字典")
+    public ResponseEntity deleteDict(@RequestParam(value = "id", required = true) Integer id){
+        dictService.deleteById(id);
+        return new ResponseEntity(ResponseResult.successResponse(),HttpStatus.OK);
+    }
+
 }
