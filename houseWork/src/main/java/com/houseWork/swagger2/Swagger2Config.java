@@ -85,7 +85,7 @@ public class Swagger2Config {
         return new ApiInfoBuilder()
                 .title("API")
                 .description("绿泡泡小程序")
-                .termsOfServiceUrl("https://www.cnblogs.com/xiebq/")
+                .termsOfServiceUrl("https://www.cnblogs.com/houseWork/")
                 .version("1.0")
                 .build();
     }

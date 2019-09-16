@@ -2,12 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="529d1f93-28c3-4c4b-8ac1-00d498197c89" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_20_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_14.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_14.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_2_0_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/houseWork_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/houseWork_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_1_0_Final.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/dict/DictController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/dict/DictController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/dict/DictProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/dict/DictProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/dict/DictEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/dict/DictEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/houseWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/houseWork.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/security/config/SpringSecurityConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/security/config/SpringSecurityConf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/swagger2/Swagger2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/swagger2/Swagger2Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +236,12 @@
       <serviceView>
         <option name="contentProportion" value="0.19726962" />
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@200047d7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -282,7 +310,10 @@
       <workItem from="1567558544045" duration="4785000" />
       <workItem from="1567579704613" duration="4787000" />
       <workItem from="1567644423461" duration="626000" />
-      <workItem from="1567996282630" duration="748000" />
+      <workItem from="1567996282630" duration="3867000" />
+      <workItem from="1568188014137" duration="610000" />
+      <workItem from="1568623109753" duration="70000" />
+      <workItem from="1568623442554" duration="615000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1563946198723</created>

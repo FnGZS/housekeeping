@@ -95,7 +95,7 @@ public class SpringSecurityConf extends WebSecurityConfigurerAdapter {
 
         // 记住我
         http.rememberMe().rememberMeParameter("remember-me")
-                .userDetailsService(userDetailsService).tokenValiditySeconds(3000000);
+                .userDetailsService(userDetailsService).tokenValiditySeconds(9000000);
 
         http.exceptionHandling().accessDeniedHandler(accessDeniedHandler); // 无权访问 JSON 格式的数据
         http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class); // JWT Filter
