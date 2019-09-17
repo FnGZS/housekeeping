@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
             user.setRole("USER");
             user.setCreatTime(new Date());
             user.setBalance(0);
+            user.setPassword("123456");
             userDao.insert(user);
         }
     }

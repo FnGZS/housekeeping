@@ -1,8 +1,10 @@
 package com.houseWork.dao.cleaner;
 
 import com.houseWork.entity.cleaner.Cleaner;
+import com.houseWork.entity.cleaner.CleanerWorkDetail;
 import com.houseWork.entity.dict.DictEntity;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
@@ -45,4 +47,8 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
      * @return
      */
     Cleaner loadCleanerByName(@Param("name") String name);
+
+    /**保洁员排班**/
+    @Select("SELECT * FROM cleaner_work WHERE cid = #{cleanerId}")
+    List<CleanerWorkDetail> cleanerWork(Integer cleanerId);
 }

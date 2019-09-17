@@ -1,6 +1,7 @@
 package com.houseWork.service.cleaner;
 
 import com.houseWork.entity.cleaner.Cleaner;
+import com.houseWork.entity.cleaner.CleanerWorkDetail;
 
 import java.util.List;
 
@@ -39,4 +40,7 @@ public interface CleanerService {
      * @return
      */
     Cleaner loadCleanerByName(String name);
+
+    /**保洁员排班**/
+    List<CleanerWorkDetail> cleanerWork(Integer cleanerId);
 }
