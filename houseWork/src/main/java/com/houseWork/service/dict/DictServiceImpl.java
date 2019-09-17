@@ -45,4 +45,9 @@ public class DictServiceImpl implements DictService{
     public List<DictEntity> findByMap(Map<String, Object> params) {
         return dictDao.selectByMap(params);
     }
+
+    @Override
+    public DictEntity getDetail(String type, String k) {
+        return dictDao.getDetail(type,k);
+    }
 }

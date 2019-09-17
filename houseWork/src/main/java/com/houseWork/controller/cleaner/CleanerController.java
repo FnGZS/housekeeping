@@ -31,7 +31,7 @@ public class CleanerController {
             cleaner1 = cleanerService.loadCleanerByName(cleaner.getName());
             return new ResponseEntity(ResponseResult.successResponse(cleaner1), HttpStatus.OK);
         } else {
-            return new ResponseEntity(ResponseResult.errResponse("保洁员已存在"), HttpStatus.OK);
+            return new ResponseEntity(ResponseResult.errResponse("保洁员已存在"), HttpStatus.UNAUTHORIZED);
         }
     }
 

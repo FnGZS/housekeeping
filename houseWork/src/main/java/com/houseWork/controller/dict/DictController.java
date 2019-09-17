@@ -6,10 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.houseWork.entity.dict.DictEntity;
 import com.houseWork.entity.response.ResponseResult;
 import com.houseWork.service.dict.DictService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -84,6 +81,13 @@ public class DictController {
     public ResponseEntity deleteDict(@RequestParam(value = "id", required = true) Integer id){
         dictService.deleteById(id);
         return new ResponseEntity(ResponseResult.successResponse(),HttpStatus.OK);
+    }
+
+    @PostMapping("/dictDetail")
+    @ApiModelProperty(value = "字典详情", notes = "字典详情")
+    public ResponseEntity dictDetail(@RequestParam(value = "type", required = false, defaultValue = "") String type,
+                                     @RequestParam(value = "k", required = false, defaultValue = "") String k){
+        return new ResponseEntity(ResponseResult.successResponse(dictService.getDetail(type,k)),HttpStatus.OK);
     }
 
 }

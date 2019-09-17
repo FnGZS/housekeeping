@@ -4,4 +4,5 @@ import com.houseWork.entity.dict.DictEntity;
 import com.houseWork.service.BestService;
 
 public interface DictService extends BestService<DictEntity> {
+    DictEntity getDetail(String type, String k);
 }
