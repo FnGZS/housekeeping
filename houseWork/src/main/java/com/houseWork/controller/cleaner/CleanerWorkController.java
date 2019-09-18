@@ -28,6 +28,18 @@ public class CleanerWorkController {
     @ApiOperation(value = "保洁员排班", notes = "保洁员排班")
     public ResponseEntity cleanerWork(@ApiParam("保洁员id") @RequestParam(value = "cleanerId", defaultValue = "") Integer cleanerId){
         List<CleanerWorkDetail> list = cleanerService.cleanerWork(cleanerId);
-        return new ResponseEntity(ResponseResult.successResponse(), HttpStatus.OK);
+        return new ResponseEntity(ResponseResult.successResponse(list), HttpStatus.OK);
+    }
+
+    @PostMapping("/subscribe")
+    @ApiOperation(value = "预约")
+    public ResponseEntity subscribe(@ApiParam("保洁员id") @RequestParam(value = "cleanerId", defaultValue = "") Integer cleanerId,
+                                    @ApiParam("预约者id")  @RequestParam(value = "customerId", defaultValue = "") Integer customerId,
+                                    @ApiParam("预约时间") @RequestParam(value = "workTime", defaultValue = "") String workTime){
+        CleanerWorkDetail cleanerWorkDetail = new CleanerWorkDetail();
+        cleanerWorkDetail.setCid(cleanerId);
+        cleanerWorkDetail.setCustomerId(customerId);
+        cleanerWorkDetail.setWorkTime(workTime);
+        return new ResponseEntity(ResponseResult.successResponse(cleanerService.subscribe(cleanerWorkDetail)),HttpStatus.OK);
     }
 }

@@ -3,6 +3,7 @@ package com.houseWork.dao.cleaner;
 import com.houseWork.entity.cleaner.Cleaner;
 import com.houseWork.entity.cleaner.CleanerWorkDetail;
 import com.houseWork.entity.dict.DictEntity;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -51,4 +52,7 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
     /**保洁员排班**/
     @Select("SELECT * FROM cleaner_work WHERE cid = #{cleanerId}")
     List<CleanerWorkDetail> cleanerWork(Integer cleanerId);
+
+    @Insert("INSERT cid,customer_id,work_time,creat_time INTO cleaner_work VALUES ( #{cid}, #{customerId}, #{workTime}, now())")
+    CleanerWorkDetail subscribe(CleanerWorkDetail cleanerWorkDetail);
 }

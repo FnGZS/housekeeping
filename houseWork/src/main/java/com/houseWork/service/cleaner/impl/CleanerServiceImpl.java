@@ -44,4 +44,9 @@ public class CleanerServiceImpl implements CleanerService {
     public List<CleanerWorkDetail> cleanerWork(Integer cleanerId) {
         return cleanerDao.cleanerWork(cleanerId);
     }
+
+    @Override
+    public CleanerWorkDetail subscribe(CleanerWorkDetail cleanerWorkDetail) {
+        return cleanerDao.subscribe(cleanerWorkDetail);
+    }
 }
