@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="529d1f93-28c3-4c4b-8ac1-00d498197c89" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/cleaner/CleanerWorkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/cleaner/CleanerWorkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/cleaner/CleanerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/cleaner/CleanerDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/cleaner/CleanerWorkDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/cleaner/CleanerWorkDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/service/cleaner/CleanerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/service/cleaner/CleanerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/service/cleaner/impl/CleanerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/service/cleaner/impl/CleanerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/dict/DictController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/dict/DictController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/dict/DictEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/dict/DictEntity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,6 +83,7 @@
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.houseWork.security.config" />
       <recent name="com.houseWork.quartz.Task" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -94,12 +93,12 @@
       <recent name="com.hu.security" />
       <recent name="com.hu.redis" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\resources\mapper" />
       <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork" />
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\entity" />
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\utils" />
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\service" />
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\resources" />
+      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\user" />
+      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\quartzJob" />
+      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\account" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.houseWork.entity.response" />
@@ -108,12 +107,12 @@
       <recent name="com.hu.security.bean" />
       <recent name="com.hu.utils" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\resources\mapper" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork" />
-      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\user" />
-      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\quartzJob" />
-      <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\account" />
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\entity" />
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\utils" />
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\service" />
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -216,7 +215,7 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@67746236" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@96d7e60" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -292,7 +291,8 @@
       <workItem from="1568623109753" duration="70000" />
       <workItem from="1568623442554" duration="2269000" />
       <workItem from="1568683980680" duration="16140000" />
-      <workItem from="1568792623704" duration="3255000" />
+      <workItem from="1568792623704" duration="4127000" />
+      <workItem from="1568873960708" duration="10984000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1563946198723</created>

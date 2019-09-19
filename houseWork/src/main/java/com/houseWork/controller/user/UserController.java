@@ -121,7 +121,7 @@ public class UserController {
                     .build());
 
             // 生成令牌
-            final String token = JwtTokenUtil.generateToken(userInfo.getOpenId(), "_secret");
+            final String token = JwtTokenUtil.generateToken(userInfo.getNickName(), "_secret");
 
             // 返回 token
             return new ResponseEntity(ResponseResult.successResponse(new AuthenticationInfo(token,userInfo)),HttpStatus.OK);

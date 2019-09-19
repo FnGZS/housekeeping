@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Data
 @Builder
@@ -29,4 +30,7 @@ public class DictEntity {
     @Column(name = "v")
     @ApiModelProperty("值")
     private String v;
+
+    @Column(name = "create_time")
+    private Date createTime;
 }
