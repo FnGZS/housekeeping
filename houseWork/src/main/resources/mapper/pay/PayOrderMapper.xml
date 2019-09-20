@@ -95,7 +95,7 @@
 			and deflag=0
 		</where>
 		group by goodsId
-		order by gmtCreated desc
+		order by gmtCreated desc,,orderState desc
 	</select>
 
 	<select id="listPayOrderByGoodsId"
@@ -103,7 +103,6 @@
 		select
 		<include refid="PayOrderBackfields"/>
 		where goodsId=#{goodsId}
-		group by goodsId
 		order by gmtCreated desc
 	</select>
 	<update id="updatePayOrder"

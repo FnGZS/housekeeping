@@ -76,5 +76,12 @@ public class PayController {
 			,@RequestParam(defaultValue = "10")int pageSize){
 		return new ResponseEntity(ResponseResult.successResponse(payService.getPayOrderListByCondition(searchParam,pageNum,pageSize)), HttpStatus.OK);
 	}
+	@ApiOperation(value = "提现",notes = "提现")
+	@GetMapping("/cashWithdrawal")
+	public ResponseEntity cashWithdrawal(String clearnId,double cash){
+		String message = null;
+		return  new ResponseEntity(message,HttpStatus.OK);
+
+	}
 	
 }
