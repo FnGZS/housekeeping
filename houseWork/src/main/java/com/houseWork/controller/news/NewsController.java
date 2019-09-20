@@ -51,6 +51,12 @@ public class NewsController {
         return new ResponseEntity(ResponseResult.successResponse(newsService.update(news)), HttpStatus.OK);
     }
 
+    @PostMapping("/detail")
+    @ApiOperation(value = "详情")
+    public ResponseEntity detail(@RequestParam(value = "nid",required = false,defaultValue = "")Integer nid){
+        return new ResponseEntity(ResponseResult.successResponse(newsService.getDetail(nid)),HttpStatus.OK);
+    }
+
     @PostMapping("/getList")
     @ApiOperation(value = "列表")
     public ResponseEntity getList(@RequestParam(value = "title",required = false,defaultValue = "") String title,

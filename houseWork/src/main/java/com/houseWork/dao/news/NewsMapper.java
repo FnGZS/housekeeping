@@ -3,6 +3,8 @@ package com.houseWork.dao.news;
 
 import com.houseWork.entity.news.News;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
@@ -19,4 +21,7 @@ public interface NewsMapper extends Mapper<News>, MySqlMapper<News> {
 
     @SelectProvider(type = NewsProvider.class, method = "selectByMap")
     List<News> getNewsList(Map map);
+
+    @Select("SELECT * FROM news WHERE nid = #{nid}")
+    News getDetail(@Param("nid") Integer nid);
 }

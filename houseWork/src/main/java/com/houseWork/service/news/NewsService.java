@@ -13,4 +13,6 @@ public interface NewsService {
     News update(News news);
 
     List<News> getList(Map map);
+
+    News getDetail(Integer nid);
 }

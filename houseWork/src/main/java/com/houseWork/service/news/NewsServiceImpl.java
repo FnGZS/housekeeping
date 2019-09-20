@@ -2,6 +2,7 @@ package com.houseWork.service.news;
 
 import com.houseWork.dao.news.NewsMapper;
 import com.houseWork.entity.news.News;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,8 @@ import java.util.Map;
 
 @Service
 public class NewsServiceImpl implements NewsService{
+
+    @Autowired
     private NewsMapper newsMapper;
 
     @Override
@@ -31,5 +34,10 @@ public class NewsServiceImpl implements NewsService{
     @Override
     public List<News> getList(Map map) {
         return newsMapper.getNewsList(map);
+    }
+
+    @Override
+    public News getDetail(Integer nid) {
+        return newsMapper.getDetail(nid);
     }
 }

@@ -16,7 +16,7 @@ public class NewsProvider {
                 if (params.containsKey("isRecommend")&& StringUtils.isNotEmpty(params.get("isRecommend").toString())) {
                     WHERE(" isRecommend = #{isRecommend}");
                 }
-                ORDER_BY("id DESC");
+                ORDER_BY("nid DESC");
             }
         }.toString();
         return sql;
