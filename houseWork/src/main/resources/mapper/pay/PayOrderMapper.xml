@@ -13,6 +13,7 @@
 		address,
 		content,
 		picUrl,
+		unitPrice,
 		videoUrl,
 		area,
 		level,
@@ -21,7 +22,7 @@
 		goodsType,
 		logistics,
 		orderState,
-		delflag,
+		delFlag,
 		startTime,
 		endTime,
 		gmtCreated,
@@ -56,6 +57,7 @@
 		logistics,
 		orderState,
 		delflag,
+        unitPrice,
 		startTime,
 		endTime,
 		gmtCreated,
@@ -92,7 +94,7 @@
 			<if test="logistics != null">
 				and logistics=#{logistics}
 			</if>
-			and deflag=0
+			and deFlag=0
 		</where>
 		group by goodsId
 		order by gmtCreated desc,,orderState desc
@@ -139,6 +141,9 @@
 			<if test="videoUrl != null">
 				videoUrl=#{videoUrl},
 			</if>
+            <if test="unitPrice != null">
+                unitPrice=#{videoUrl},
+            </if>
 			<if test="level != null">
 				level=#{level},
 			</if>
@@ -157,8 +162,8 @@
 			<if test="orderState != null">
 				orderState=#{orderState},
 			</if>
-			<if test="delflag != null">
-				delflag=#{delflag},
+			<if test="delFlag != null">
+				delFlag=#{delFlag},
 			</if>
 			<if test="startTime != null">
 				startTime=#{startTime},
@@ -193,6 +198,7 @@
 		employerPhone,
 		address,
 		content,
+		unitPrice,
 		picUrl,
 		videoUrl,
 		area,
@@ -216,10 +222,11 @@
 		#{totalPrice},
 		#{employerId},
 		#{clearnerId},
-		#{{employerName},
+		#{employerName},
 		#{employerPhone},
 		#{address},
-		#{{content},
+		#{content},
+		#{unitPrice},
 		#{picUrl},
 		#{videoUrl},
 		#{area},
@@ -235,5 +242,66 @@
 		now(),
 		now()
 		)
+	</insert>
+
+	<insert id="insertRefundApply">
+	insert into refundApply
+	(
+	id,
+	goodsId,
+	refundType,
+	refundContent,
+	picUrl,
+	state,
+	picVideo,
+	gmtCreated,
+	gmtModified
+	)
+	values (
+	#{id},
+	#{goodsId},
+	#{refundType},
+	#{refundContent},
+	#{picUrl},
+	#{state},
+	#{picVideo},
+	now(),
+	now()
+	)
+	</insert>
+	<insert id="insertRefundOrder">
+	insert into refundOrder
+	(
+	id,
+	appid,
+	mch_id,
+	nonce_str,
+	sign,
+	transaction_id,
+	out_trade_no,
+	out_refund_no,
+	refund_id,
+	refund_fee,
+	total_fee,
+	cash_fee,
+	gmt_created,
+	gmt_modified
+	)
+	values
+	(
+	#{id,jdbcType=BIGINT},
+	#{appid,jdbcType=VARCHAR},
+	#{mch_id,jdbcType=VARCHAR},
+	#{nonce_str,jdbcType=VARCHAR},
+	#{sign,jdbcType=VARCHAR},
+	#{transaction_id,jdbcType=VARCHAR},
+	#{out_trade_no,jdbcType=VARCHAR},
+	#{out_refund_no,jdbcType=VARCHAR},
+	#{refund_id,jdbcType=VARCHAR},
+	#{refund_fee,jdbcType=INTEGER},
+	#{total_fee,jdbcType=INTEGER},
+	#{cash_fee,jdbcType=INTEGER},
+	now(),
+	now())
 	</insert>
 </mapper>

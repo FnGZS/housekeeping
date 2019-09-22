@@ -2,6 +2,7 @@ package com.houseWork.service.pay;
 
 import com.github.pagehelper.PageInfo;
 import com.houseWork.entity.pay.PayOrder;
+import com.houseWork.entity.pay.RefundApply;
 import com.houseWork.entity.pay.SearchPayOrderParam;
 
 import java.util.List;
@@ -42,6 +43,13 @@ public interface PayService {
 	 * @param goodsId 订单实体
 	 */
 	void deletePayOrder(String goodsId);
+
+	/**
+	 * 申请退款
+	 * @param refundApply 退款实体
+	 * @return 订单详情
+	 */
+	void insertRefundApply(RefundApply refundApply);
 
 
 }

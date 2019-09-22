@@ -5,7 +5,9 @@ import com.github.pagehelper.PageInfo;
 import com.houseWork.dao.pay.PayOrderDao;
 import com.houseWork.dao.user.UserDao;
 import com.houseWork.entity.pay.PayOrder;
+import com.houseWork.entity.pay.RefundApply;
 import com.houseWork.entity.pay.SearchPayOrderParam;
+import com.houseWork.service.dict.DictService;
 import com.houseWork.service.pay.PayService;
 import com.houseWork.utils.OrderUtils;
 import org.apache.commons.collections.CollectionUtils;
@@ -13,11 +15,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+/**
+ * @author zzc
+ */
 @Service
 public class PayServiceImpl implements PayService{
 	
 	@Autowired
 	private PayOrderDao payOrderDao;
+	@Autowired
+    private DictService dictService;
 	@Autowired UserDao userDao;
 	@Override
 	public PayOrder getPayOrderById(String id) {
@@ -60,12 +67,12 @@ public class PayServiceImpl implements PayService{
 		payOrder.setOrderState(0);
 		//总价
 		double totalPrice = 0;
-		//系数
-		double coefficient = 0.3;
+		//定金系数
+		double coefficient = Double.parseDouble(dictService.getDetail("DJSX","KHDJ").getV());
 		//面积计算价格
 		double areUnit  = 50;
 		//时间计算价格
-		double timeUnit  = 50;
+		double unitPrice  = payOrder.getUnitPrice();
 		//判断计费类型
 		//如果按面积
 		if(payOrder.getChargingType()==0){
@@ -73,7 +80,7 @@ public class PayServiceImpl implements PayService{
 		}
 		//如果按时长
 		if(payOrder.getChargingType()==1){
-			totalPrice = payOrder.getLongTime()*timeUnit;
+			totalPrice = payOrder.getLongTime()*unitPrice;
 		}
 		payOrder.setTotalPrice(totalPrice);
 		//如果是开荒定金,生成30%的定金
@@ -95,18 +102,24 @@ public class PayServiceImpl implements PayService{
 	@Override
 	public void deletePayOrder(String goodsId) {
 		PayOrder order = new PayOrder();
-		order.setDelflag(1);
+		order.setDelFlag(1);
 		order.setGoodsId(goodsId);
 		payOrderDao.updatePayOrder(order);
 	}
-	/**
+
+    @Override
+    public void insertRefundApply(RefundApply refundApply) {
+        payOrderDao.insertRefundApply(refundApply);
+    }
+
+    /**
 	 * 获取订单详细信息
 	 * @param payOrder 系统订单实体
 	 * @return 系统订单实体
 	 */
 	private PayOrder getPayOrderDetailInfo(PayOrder payOrder) {
 		//获取保洁人员信息
-		payOrder.setClearner(userDao.selectByPrimaryKey(payOrder.getClearnerId()));
+		payOrder.setCleaner(userDao.selectByPrimaryKey(payOrder.getClearnerId()));
 		//获取业主信息
 		payOrder.setEmployer(userDao.selectByPrimaryKey(payOrder.getEmployerId()));
 		return payOrder;

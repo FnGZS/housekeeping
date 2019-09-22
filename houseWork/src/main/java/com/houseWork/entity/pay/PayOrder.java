@@ -28,10 +28,10 @@ public class PayOrder {
 	private Integer longTime;
 	private Integer chargingType;
 	private Integer goodsType;
-
+	private Double unitPrice;
 	private Integer logistics;
 	private Integer orderState;
-	private Integer delflag;
+	private Integer delFlag;
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -48,6 +48,6 @@ public class PayOrder {
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date gmtModified;
-	private User clearner;
+	private User cleaner;
 	private User employer;
 }

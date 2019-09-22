@@ -1,7 +1,9 @@
 package com.houseWork.dao.pay;
 
 import com.houseWork.entity.pay.PayOrder;
+import com.houseWork.entity.pay.RefundApply;
 import com.houseWork.entity.pay.SearchPayOrderParam;
+import com.houseWork.entity.weixin.UserRefundInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -42,4 +44,16 @@ public interface PayOrderDao {
 	 * @param payOrder 订单实体
 	 */
 	void insertPayOrder(PayOrder payOrder);
+
+	/**
+	 * 插入申请退款信息
+	 * @param refundApply
+	 */
+	void insertRefundApply(RefundApply refundApply);
+
+	/**
+	 * 插入退款记录
+	 * @param refundApply
+	 */
+	void insertRefundOrder(UserRefundInfo refundApply);
 }

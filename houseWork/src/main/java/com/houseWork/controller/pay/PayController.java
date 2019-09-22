@@ -2,10 +2,12 @@
 package com.houseWork.controller.pay;
 
 import com.houseWork.entity.pay.PayOrder;
+import com.houseWork.entity.pay.RefundApply;
 import com.houseWork.entity.pay.SearchPayOrderParam;
 import com.houseWork.entity.response.ResponseResult;
 import com.houseWork.entity.weixin.OrderResponseInfo;
 import com.houseWork.entity.weixin.UserPayParam;
+import com.houseWork.entity.weixin.UserRefundParam;
 import com.houseWork.service.pay.PayService;
 import com.houseWork.service.weixin.WeixinAppService;
 import com.houseWork.service.weixin.domin.WeixinGeneralResult;
@@ -43,12 +45,12 @@ public class PayController {
 	}
 	@ApiOperation(value = "生成系统订单",notes = "生成系统订单")
 	@PostMapping("/payOrder")
-	public ResponseEntity<ResponseResult<PayOrder>> createPayOrder(PayOrder payOrder){
+	public ResponseEntity<ResponseResult<PayOrder>> createPayOrder(@RequestBody  PayOrder payOrder ){
 		return new ResponseEntity(payService.insertPayOrder(payOrder), HttpStatus.OK);
 	}
 	@ApiOperation(value = "更新系统订单",notes = "更新系统订单")
 	@PutMapping("/payOrder")
-	public ResponseEntity<ResponseResult<String>> updatePayOrder(PayOrder payOrder){
+	public ResponseEntity<ResponseResult<String>> updatePayOrder(@RequestBody PayOrder payOrder){
 		payService.updatePayOrder(payOrder);
 		return new ResponseEntity<ResponseResult<String>>(HttpStatus.OK);
 	}	
@@ -78,10 +80,45 @@ public class PayController {
 	}
 	@ApiOperation(value = "提现",notes = "提现")
 	@GetMapping("/cashWithdrawal")
-	public ResponseEntity cashWithdrawal(String clearnId,double cash){
+	public ResponseEntity cashWithdrawal(String cleanId,double cash){
 		String message = null;
 		return  new ResponseEntity(message,HttpStatus.OK);
 
 	}
-	
+    @ApiOperation(value = "申请退款",notes = "申请退款")
+    @PostMapping("/refundApply")
+    public ResponseEntity insertRefundApply(@RequestBody  RefundApply refundApply){
+         payService.insertRefundApply(refundApply);
+        return  new ResponseEntity(HttpStatus.OK);
+    }
+    @ApiOperation(value = "当天退单接口",notes = "当天退单接口")
+    @PostMapping("/refundApply/{orderId}")
+    public ResponseEntity refundOrder(@PathVariable String orderId){
+        UserRefundParam param = new UserRefundParam();
+        PayOrder order = payService.getPayOrderById(orderId);
+        if(order==null){
+            return  new ResponseEntity("订单不存在",HttpStatus.BAD_REQUEST);
+        }
+        param.setOrderId(order.getId());
+        param.setRefundFee(order.getPayPrice());
+        param.setTotalFee(order.getPayPrice());
+        order.setOrderState(4);
+        //如果是未付款订单
+        if(order.getOrderState() ==1){
+            //更新订单
+            payService.updatePayOrder(order);
+        }
+        //如果是非未付款订单
+        else {
+            //退款
+            WeixinGeneralResult result = WeixinAppService.refund(param);
+            if("400".equals(result.getCode())){
+                return  new ResponseEntity("退单失败",HttpStatus.BAD_REQUEST);
+            }
+            //更新订单
+            payService.updatePayOrder(order);
+        }
+
+        return  new ResponseEntity(HttpStatus.OK);
+    }
 }
