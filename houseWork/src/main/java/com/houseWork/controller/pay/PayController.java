@@ -1,18 +1,25 @@
 
 package com.houseWork.controller.pay;
 
+import com.alibaba.fastjson.JSON;
 import com.houseWork.entity.pay.PayOrder;
 import com.houseWork.entity.pay.RefundApply;
 import com.houseWork.entity.pay.SearchPayOrderParam;
 import com.houseWork.entity.response.ResponseResult;
+import com.houseWork.entity.user.User;
+import com.houseWork.entity.weixin.EnterprisePayParam;
 import com.houseWork.entity.weixin.OrderResponseInfo;
 import com.houseWork.entity.weixin.UserPayParam;
 import com.houseWork.entity.weixin.UserRefundParam;
 import com.houseWork.service.pay.PayService;
+import com.houseWork.service.user.UserService;
 import com.houseWork.service.weixin.WeixinAppService;
 import com.houseWork.service.weixin.domin.WeixinGeneralResult;
 import com.houseWork.service.weixin.weixinApp.WeixinAppURL;
+import com.houseWork.utils.DateUtil;
+import com.houseWork.utils.OrderUtils;
 import io.swagger.annotations.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,10 +30,12 @@ import java.util.List;
 @Api(tags="支付功能模块",description="支付功能模块")
 @RequestMapping("/pay")
 @RestController
+@Slf4j
 public class PayController {
 	@Autowired
 	private PayService payService;
-
+    @Autowired
+    private UserService userService;
 	@ApiOperation(value = "统一调起支付",notes = "统一调起支付")
 	@GetMapping("/wx/{payOrderId}")
 	@ApiImplicitParam(paramType = "query", name = "payOrderId", value = "系统订单id", dataType = "String",required=true)	
@@ -80,18 +89,32 @@ public class PayController {
 	}
 	@ApiOperation(value = "提现",notes = "提现")
 	@GetMapping("/cashWithdrawal")
-	public ResponseEntity cashWithdrawal(String cleanId,double cash){
-		String message = null;
-		return  new ResponseEntity(message,HttpStatus.OK);
-
+    @ApiImplicitParams({@ApiImplicitParam(paramType = "Integer", name = "保洁员微信id", value = "保洁员微信id", dataType = "String",required=true),
+            @ApiImplicitParam(paramType = "String", name = "提现金额", value = "提现金额", dataType = "String",required=true),
+            @ApiImplicitParam(paramType = "String", name = "code", value = "code", dataType = "String",required=true)})
+	public ResponseEntity cashWithdrawal(Integer cleanId,double cash,String platCode,HttpServletRequest request){
+        User user = userService.selectById(cleanId);
+        if(user==null||user.getBalance()==0||user.getBalance().doubleValue()<cash){
+            return new ResponseEntity("余额不足",HttpStatus.BAD_REQUEST);
+        }
+        EnterprisePayParam param = new EnterprisePayParam();
+        param.setPlatCode(platCode);
+        String orderId = OrderUtils.getTxCode(cleanId.longValue());
+        //获取ip
+        String ip = request.getRemoteAddr();
+	    WeixinAppService.enterprisePay(param,orderId,ip);
+        log.debug("提现:"+cleanId+":"+cash);
+		return  new ResponseEntity("提现成功",HttpStatus.OK);
 	}
     @ApiOperation(value = "申请退款",notes = "申请退款")
     @PostMapping("/refundApply")
     public ResponseEntity insertRefundApply(@RequestBody  RefundApply refundApply){
+	    //请勿重复提交
          payService.insertRefundApply(refundApply);
+
         return  new ResponseEntity(HttpStatus.OK);
     }
-    @ApiOperation(value = "当天退单接口",notes = "当天退单接口")
+    @ApiOperation(value = "退单接口",notes = "退单接口")
     @PostMapping("/refundApply/{orderId}")
     public ResponseEntity refundOrder(@PathVariable String orderId){
         UserRefundParam param = new UserRefundParam();
@@ -99,6 +122,12 @@ public class PayController {
         if(order==null){
             return  new ResponseEntity("订单不存在",HttpStatus.BAD_REQUEST);
         }
+        //开始时间
+        long startTime = DateUtil.getYmdTime(order.getStartTime()).getTime();
+        //比较这单的服务时间和准备退单的时间
+        if(startTime<=System.currentTimeMillis()){
+            return  new ResponseEntity("不能退当天的单",HttpStatus.BAD_REQUEST);
+		}
         param.setOrderId(order.getId());
         param.setRefundFee(order.getPayPrice());
         param.setTotalFee(order.getPayPrice());
@@ -112,13 +141,14 @@ public class PayController {
         else {
             //退款
             WeixinGeneralResult result = WeixinAppService.refund(param);
-            if("400".equals(result.getCode())){
+            if(HttpStatus.BAD_REQUEST.equals(result.getCode())){
+                log.error("退单失败:"+ JSON.toJSONString(order));
                 return  new ResponseEntity("退单失败",HttpStatus.BAD_REQUEST);
             }
             //更新订单
             payService.updatePayOrder(order);
         }
-
+        log.debug("退单成功:"+ JSON.toJSONString(order));
         return  new ResponseEntity(HttpStatus.OK);
     }
 }

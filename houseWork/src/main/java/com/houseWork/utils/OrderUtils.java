@@ -19,6 +19,7 @@ public class OrderUtils {
 	private static final String RETURN_ORDER = "3";// 退款类别头
 	private static final String REFUND_ORDER = "4";// 未付款重新支付别头
 	private static final String AGAIN_ORDER = "5";// 随即编码
+	private static final String TX_ORDER = "6";// 提现编码
 	private static final int[] r = new int[] { 7, 9, 6, 2, 8, 1, 3, 0, 5, 4 };// 用户id和随机数总长度
 	private static final int maxLength = 14;// 更具id进行加密+加随机数组成固定长度编码
 
@@ -107,5 +108,13 @@ public class OrderUtils {
 	 */
 	public static String getAgainCode(Long userId) {
 		return AGAIN_ORDER + getCode(userId);
+	}
+	/**
+	 *  * 提现单号
+	 *
+	 * @param userId
+	 */
+	public static String getTxCode(Long userId) {
+		return TX_ORDER + getCode(userId);
 	}
 }

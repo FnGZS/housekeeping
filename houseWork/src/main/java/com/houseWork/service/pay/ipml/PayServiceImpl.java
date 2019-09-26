@@ -69,14 +69,13 @@ public class PayServiceImpl implements PayService{
 		double totalPrice = 0;
 		//定金系数
 		double coefficient = Double.parseDouble(dictService.getDetail("DJSX","KHDJ").getV());
-		//面积计算价格
-		double areUnit  = 50;
-		//时间计算价格
+
+		//时间或面积计算价格
 		double unitPrice  = payOrder.getUnitPrice();
 		//判断计费类型
 		//如果按面积
 		if(payOrder.getChargingType()==0){
-			totalPrice = payOrder.getArea()*areUnit;
+			totalPrice = payOrder.getArea()*unitPrice;
 		}
 		//如果按时长
 		if(payOrder.getChargingType()==1){
