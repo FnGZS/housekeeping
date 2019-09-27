@@ -1,6 +1,8 @@
 package com.houseWork.entity.news;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
@@ -19,6 +21,8 @@ public class News {
     private String content;
 
     @Column(name = "creat_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date creatTime;
 
     @Column(name = "is_recommend")

@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="529d1f93-28c3-4c4b-8ac1-00d498197c89" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/news/NewsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/news/NewsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/news/NewsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/news/NewsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/news/NewsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/news/NewsProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/service/news/NewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/service/news/NewsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/service/news/NewsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/service/news/NewsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/news/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/news/News.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +213,7 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@57c485a7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1e8edd46" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -296,6 +292,8 @@
       <workItem from="1568792623704" duration="4127000" />
       <workItem from="1568873960708" duration="11654000" />
       <workItem from="1568943850193" duration="8194000" />
+      <workItem from="1569202398974" duration="4100000" />
+      <workItem from="1569572460434" duration="1313000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1563946198723</created>
