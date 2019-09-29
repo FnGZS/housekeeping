@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.houseWork.entity.pay.PayOrder;
 import com.houseWork.entity.pay.RefundApply;
 import com.houseWork.entity.pay.SearchPayOrderParam;
+import com.houseWork.entity.weixin.UserRefundInfo;
 
 import java.util.List;
 
@@ -51,5 +52,22 @@ public interface PayService {
 	 */
 	void insertRefundApply(RefundApply refundApply);
 
+	/**
+	 * 判断是否已经申请了退款
+	 * @param goodsId
+	 * @return
+	 */
+    boolean getRefundApply(String goodsId);
 
+	/**
+	 * 获取同意退款的退款订单
+	 * @return
+	 */
+	List<RefundApply> getRefundApplyToRefund();
+
+	/**
+	 * 插入退款记录
+	 * @param refundApply
+	 */
+	void insertRefundOrder(UserRefundInfo refundApply);
 }

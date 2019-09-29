@@ -7,10 +7,7 @@ import com.houseWork.entity.pay.RefundApply;
 import com.houseWork.entity.pay.SearchPayOrderParam;
 import com.houseWork.entity.response.ResponseResult;
 import com.houseWork.entity.user.User;
-import com.houseWork.entity.weixin.EnterprisePayParam;
-import com.houseWork.entity.weixin.OrderResponseInfo;
-import com.houseWork.entity.weixin.UserPayParam;
-import com.houseWork.entity.weixin.UserRefundParam;
+import com.houseWork.entity.weixin.*;
 import com.houseWork.service.pay.PayService;
 import com.houseWork.service.user.UserService;
 import com.houseWork.service.weixin.WeixinAppService;
@@ -48,7 +45,7 @@ public class PayController {
 		WeixinGeneralResult<OrderResponseInfo> result= WeixinAppService.wxPay(param,ip,payOrderId, WeixinAppURL.NOTIFY_URL);
 		//如果调起支付失败
 		if(result.getCode().code!=HttpStatus.OK.value()){
-			return new ResponseEntity("调起支付失败",HttpStatus.BAD_REQUEST);
+			return new ResponseEntity(result.getMessage(),HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity(result.getDataResult(),HttpStatus.OK);
 	}
@@ -109,6 +106,9 @@ public class PayController {
     @ApiOperation(value = "申请退款",notes = "申请退款")
     @PostMapping("/refundApply")
     public ResponseEntity insertRefundApply(@RequestBody  RefundApply refundApply){
+	    if(!payService.getRefundApply(refundApply.getGoodsId())){
+            return  new ResponseEntity("请勿重复提交",HttpStatus.BAD_REQUEST);
+        }
 	    //请勿重复提交
          payService.insertRefundApply(refundApply);
 
@@ -147,8 +147,10 @@ public class PayController {
             }
             //更新订单
             payService.updatePayOrder(order);
+            payService.insertRefundOrder((UserRefundInfo) result.getDataResult());
         }
         log.debug("退单成功:"+ JSON.toJSONString(order));
+
         return  new ResponseEntity(HttpStatus.OK);
     }
 }

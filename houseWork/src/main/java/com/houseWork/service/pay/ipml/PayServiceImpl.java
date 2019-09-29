@@ -7,6 +7,7 @@ import com.houseWork.dao.user.UserDao;
 import com.houseWork.entity.pay.PayOrder;
 import com.houseWork.entity.pay.RefundApply;
 import com.houseWork.entity.pay.SearchPayOrderParam;
+import com.houseWork.entity.weixin.UserRefundInfo;
 import com.houseWork.service.dict.DictService;
 import com.houseWork.service.pay.PayService;
 import com.houseWork.utils.OrderUtils;
@@ -111,7 +112,24 @@ public class PayServiceImpl implements PayService{
         payOrderDao.insertRefundApply(refundApply);
     }
 
-    /**
+    @Override
+    public boolean getRefundApply(String goodsId) {
+
+        return payOrderDao.getRefundApply(goodsId)==null;
+    }
+
+    @Override
+    public List<RefundApply> getRefundApplyToRefund() {
+
+        return payOrderDao.getRefundApplyToRefund();
+    }
+
+	@Override
+	public void insertRefundOrder(UserRefundInfo refundApply) {
+		payOrderDao.insertRefundOrder(refundApply);
+	}
+
+	/**
 	 * 获取订单详细信息
 	 * @param payOrder 系统订单实体
 	 * @return 系统订单实体

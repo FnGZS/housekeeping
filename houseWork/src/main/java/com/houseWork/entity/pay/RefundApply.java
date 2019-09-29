@@ -15,7 +15,7 @@ public class RefundApply {
     @ApiModelProperty("编号")
     private Integer id;
     @ApiModelProperty("商品id")
-    private Integer goodsId;
+    private String goodsId;
     @ApiModelProperty("退款类型（字典表中获取）")
     private Integer refundType;
     @ApiModelProperty("退款类型（字典表中获取）名称")

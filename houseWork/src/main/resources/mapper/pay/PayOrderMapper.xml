@@ -107,7 +107,13 @@
 		where goodsId=#{goodsId}
 		order by gmtCreated desc
 	</select>
-	<update id="updatePayOrder"
+    <select id="getRefundApply" resultType="com.houseWork.entity.pay.RefundApply">
+        select * from refundApply where goodsId=#{goodsId} limit 1
+    </select>
+    <select id="getRefundApplyToRefund" resultType="com.houseWork.entity.pay.RefundApply">
+
+	</select>
+    <update id="updatePayOrder"
 		parameterType="com.houseWork.entity.pay.PayOrder">
 		update
 		<set>

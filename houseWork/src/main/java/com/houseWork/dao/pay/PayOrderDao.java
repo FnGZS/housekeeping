@@ -46,14 +46,27 @@ public interface PayOrderDao {
 	void insertPayOrder(PayOrder payOrder);
 
 	/**
-	 * 插入申请退款信息
+	 * 插入申请退款记录信息
 	 * @param refundApply
 	 */
 	void insertRefundApply(RefundApply refundApply);
+
+	/**
+	 * 获取申请退款记录信息
+	 * @param goodsId 商品编号
+	 */
+	RefundApply getRefundApply(String goodsId);
 
 	/**
 	 * 插入退款记录
 	 * @param refundApply
 	 */
 	void insertRefundOrder(UserRefundInfo refundApply);
+
+	/**
+	 * 获取要退款的订单
+	 * @return
+	 */
+	List<RefundApply> getRefundApplyToRefund();
 }
+
