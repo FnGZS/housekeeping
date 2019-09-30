@@ -1,24 +1,11 @@
 package com.houseWork.scheduler.task;
 
-import cn.hutool.http.HttpStatus;
-import com.alibaba.fastjson.JSONObject;
 import com.houseWork.dao.pay.PayOrderDao;
-import com.houseWork.entity.pay.PayOrder;
-import com.houseWork.entity.pay.RefundApply;
-import com.houseWork.entity.weixin.UserRefundInfo;
-import com.houseWork.entity.weixin.UserRefundParam;
 import com.houseWork.service.pay.PayService;
 import com.houseWork.service.user.UserService;
-import com.houseWork.service.weixin.WeixinAppService;
-import com.houseWork.service.weixin.domin.WeixinGeneralResult;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Component
 @Slf4j
@@ -34,7 +21,7 @@ public class PayOrderTask {
      * 自动退款
      *
      * @throws InterruptedException
-     */
+
     @Scheduled(cron = "* * 0/5  * * *")
     public void autoRefund() {
 
@@ -136,12 +123,12 @@ public class PayOrderTask {
             }
         }
     }
-
+     */
     /**
      * 自动增加清洁员账户余额
      *
      * @throws InterruptedException
-     */
+
     @Scheduled(cron = "* * 0/5  * * *")
     @Transactional(rollbackFor = Exception.class)
     public void autoPayToClearner() {
@@ -154,5 +141,5 @@ public class PayOrderTask {
 
     }
 
-
+     */
 }

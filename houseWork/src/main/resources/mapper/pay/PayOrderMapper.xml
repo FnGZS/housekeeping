@@ -111,8 +111,9 @@
         select * from refundApply where goodsId=#{goodsId} limit 1
     </select>
     <select id="getRefundApplyToRefund" resultType="com.houseWork.entity.pay.RefundApply">
-
-	</select>
+        select r.* from refundApply r left  join payOrder p on p.goodsId=r.goodsId
+        where p.orderState=1 and  r.gmtCreated between DATE_SUB(now(),interval 6 hour ) and now()
+    </select>
     <update id="updatePayOrder"
 		parameterType="com.houseWork.entity.pay.PayOrder">
 		update
