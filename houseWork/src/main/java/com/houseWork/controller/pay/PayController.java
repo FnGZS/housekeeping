@@ -24,7 +24,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-@Api(tags="支付功能模块",description="支付功能模块")
+/**
+ * @author zzc
+ */
+@Api(tags="订单及支付功能接口",description="订单及支付功能接口")
 @RequestMapping("/pay")
 @RestController
 @Slf4j
@@ -60,11 +63,11 @@ public class PayController {
 		payService.updatePayOrder(payOrder);
 		return new ResponseEntity<ResponseResult<String>>(HttpStatus.OK);
 	}	
-	@ApiOperation(value = "删除系统订单",notes = "删除系统订单")
+	@ApiOperation(value = "删除系统订单（假删除）",notes = "删除系统订单（假删除）")
 	@DeleteMapping("/payOrder/{goodsId}")
 	public ResponseEntity<ResponseResult<String>> deletePayOrder(@PathVariable @ApiParam("商品编号")String goodsId){
 		payService.deletePayOrder(goodsId);
-		return new ResponseEntity<ResponseResult<String>>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	@ApiOperation(value = "根据系统内部订单编号获取详情",notes = "根据系统内部订单编号获取详情")
 	@GetMapping("/payOrder/{id}")
@@ -78,17 +81,17 @@ public class PayController {
 	}
 	@ApiOperation(value = "根据各种条件得到系统订单列表",notes = "根据各种条件得到系统订单列表")
 	@GetMapping("/payOrder")
-	@ApiImplicitParams({@ApiImplicitParam(paramType = "int", name = "页码", value = "页码", dataType = "String",required=true),
-			@ApiImplicitParam(paramType = "int", name = "显示条数", value = "显示条数", dataType = "String",required=true)})
+	@ApiImplicitParams({@ApiImplicitParam(paramType = "int", name = "页码", value = "页码", dataType = "string",required=true),
+			@ApiImplicitParam(paramType = "int", name = "显示条数", value = "显示条数", dataType = "string",required=true)})
 	public ResponseEntity<ResponseResult<List<PayOrder>>> getPayOrderListByCondition(SearchPayOrderParam searchParam,@RequestParam(defaultValue = "0")int pageNum
 			,@RequestParam(defaultValue = "10")int pageSize){
 		return new ResponseEntity(ResponseResult.successResponse(payService.getPayOrderListByCondition(searchParam,pageNum,pageSize)), HttpStatus.OK);
 	}
 	@ApiOperation(value = "提现",notes = "提现")
 	@GetMapping("/cashWithdrawal")
-    @ApiImplicitParams({@ApiImplicitParam(paramType = "Integer", name = "保洁员微信id", value = "保洁员微信id", dataType = "String",required=true),
-            @ApiImplicitParam(paramType = "String", name = "提现金额", value = "提现金额", dataType = "String",required=true),
-            @ApiImplicitParam(paramType = "String", name = "code", value = "code", dataType = "String",required=true)})
+    @ApiImplicitParams({@ApiImplicitParam(paramType = "Integer", name = "保洁员微信id", value = "保洁员微信id", dataType = "string",required=true),
+            @ApiImplicitParam(paramType = "string", name = "提现金额", value = "提现金额", dataType = "string",required=true),
+            @ApiImplicitParam(paramType = "string", name = "微信提供的code", value = "微信提供的code", dataType = "string",required=true)})
 	public ResponseEntity cashWithdrawal(Integer cleanId,double cash,String platCode,HttpServletRequest request){
         User user = userService.selectById(cleanId);
         if(user==null||user.getBalance()==0||user.getBalance().doubleValue()<cash){
@@ -111,7 +114,6 @@ public class PayController {
         }
 	    //请勿重复提交
          payService.insertRefundApply(refundApply);
-
         return  new ResponseEntity(HttpStatus.OK);
     }
     @ApiOperation(value = "退单接口",notes = "退单接口")
@@ -150,7 +152,6 @@ public class PayController {
             payService.insertRefundOrder((UserRefundInfo) result.getDataResult());
         }
         log.debug("退单成功:"+ JSON.toJSONString(order));
-
         return  new ResponseEntity(HttpStatus.OK);
     }
 }

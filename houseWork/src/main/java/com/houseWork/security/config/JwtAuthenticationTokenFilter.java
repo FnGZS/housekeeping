@@ -1,6 +1,7 @@
 package com.houseWork.security.config;
 
 import com.houseWork.utils.JwtTokenUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +24,7 @@ import java.io.IOException;
  */
 
 @Component
+@Slf4j
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -31,7 +33,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
         String authHeader = request.getHeader("Authorization");
-
+        log.info("Jwt验证");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             final String authToken = authHeader.substring("Bearer ".length());
 
@@ -49,7 +51,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
                 }
             }
         }
-
+        log.info("Jwt验证完毕");
         chain.doFilter(request, response);
     }
 }

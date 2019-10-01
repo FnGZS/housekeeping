@@ -2,6 +2,7 @@ package com.houseWork.service.pay.ipml;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.houseWork.dao.cleaner.CleanerDao;
 import com.houseWork.dao.pay.PayOrderDao;
 import com.houseWork.dao.user.UserDao;
 import com.houseWork.entity.pay.PayOrder;
@@ -27,6 +28,8 @@ public class PayServiceImpl implements PayService{
 	@Autowired
     private DictService dictService;
 	@Autowired UserDao userDao;
+	@Autowired
+	private CleanerDao cleanerDao;
 	@Override
 	public PayOrder getPayOrderById(String id) {
 		return getPayOrderDetailInfo(payOrderDao.getPayOrderById(id));
@@ -69,7 +72,7 @@ public class PayServiceImpl implements PayService{
 		//总价
 		double totalPrice = 0;
 		//定金系数
-		double coefficient = Double.parseDouble(dictService.getDetail("DJSX","KHDJ").getV());
+		double coefficient = Double.parseDouble(dictService.getDetail("DJSX","DJKH").getV());
 
 		//时间或面积计算价格
 		double unitPrice  = payOrder.getUnitPrice();
@@ -136,11 +139,9 @@ public class PayServiceImpl implements PayService{
 	 */
 	private PayOrder getPayOrderDetailInfo(PayOrder payOrder) {
 		//获取保洁人员信息
-		payOrder.setCleaner(userDao.selectByPrimaryKey(payOrder.getClearnerId()));
+		payOrder.setCleaner(null);
 		//获取业主信息
 		payOrder.setEmployer(userDao.selectByPrimaryKey(payOrder.getEmployerId()));
 		return payOrder;
 	}
-
-
 }

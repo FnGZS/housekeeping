@@ -6,9 +6,11 @@ import com.houseWork.service.pay.PayService;
 import com.houseWork.utils.OrderUtils;
 import com.houseWork.utils.XmlToMapUtils;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,8 +23,11 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author zzc
+ */
 @RestController
-@Api("支付回调模块")
+@Api(tags="支付回调接口",description="支付回调接口")
 @RequestMapping("/pay/callBack")
 @Slf4j
 public class PayCallBackController {
@@ -35,7 +40,8 @@ public class PayCallBackController {
     private PayService payService;
     @Autowired
     private OrderDao orderDao;
-    @RequestMapping(value = "/wxNotify")
+    @ApiOperation(value = "支付回调",notes = "支付回调")
+    @GetMapping (value = "/wxNotify")
     public void wxNotify(HttpServletRequest request, HttpServletResponse response) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
         String line = null;
@@ -49,7 +55,7 @@ public class PayCallBackController {
         String resXml = "";
         Map<String, Object> resultMap = XmlToMapUtils.getResult(notityXml);
         //每次支付回调都打日志
-        log.debug("支付回调：" + notityXml);
+
         String returnCode = (String) resultMap.get("return_code");
         if (returnCode.equals("SUCCESS")) {
             //校验签名
@@ -70,7 +76,7 @@ public class PayCallBackController {
             resXml = "<xml>" + "<return_code><![CDATA[FAIL]]></return_code>"
                     + "<return_msg><![CDATA[报文为空]]></return_msg>" + "</xml> ";
         }
-
+        log.debug("支付回调：" + notityXml+":"+resXml);
 
         BufferedOutputStream out = new BufferedOutputStream(
                 response.getOutputStream());
@@ -81,10 +87,9 @@ public class PayCallBackController {
     }
     @Transactional
     public Boolean updateOrderByWxNotify(Map map){
-        Boolean flag =false;
         PayOrder order =  payService.getPayOrderById(map.get("out_trade_no").toString());
         if(order==null){
-            return flag;
+            return false;
         }
         order.setOrderState(1);
         payService.updatePayOrder(order);
@@ -96,6 +101,6 @@ public class PayCallBackController {
             payService.insertPayOrder(order);
         }
         orderDao.insertOrder(map);
-        return flag;
+        return true;
     }
 }

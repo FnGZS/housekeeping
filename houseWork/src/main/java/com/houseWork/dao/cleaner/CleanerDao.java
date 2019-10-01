@@ -55,4 +55,11 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
 
     @Insert("INSERT cid,customer_id,work_time,creat_time INTO cleaner_work VALUES ( #{cid}, #{customerId}, #{workTime}, now())")
     CleanerWorkDetail subscribe(CleanerWorkDetail cleanerWorkDetail);
+
+    /**
+     * 根据id获取保洁员
+     * @param id
+     * @return
+     */
+    Cleaner getCleanerById(Integer id);
 }

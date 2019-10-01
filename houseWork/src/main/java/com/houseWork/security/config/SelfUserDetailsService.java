@@ -3,6 +3,7 @@ package com.houseWork.security.config;
 import com.houseWork.dao.Jwt.JwtAuthenticationTokenMapper;
 import com.houseWork.entity.user.User;
 import com.houseWork.service.user.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,6 +24,7 @@ import java.util.Set;
  * @author zjw
  */
 @Component
+@Slf4j
 public class SelfUserDetailsService implements UserDetailsService {
     @Autowired
     JwtAuthenticationTokenMapper jwtAuthenticationTokenMapper;
@@ -33,7 +35,7 @@ public class SelfUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //构建用户信息的逻辑(取数据库/LDAP等用户信息)
-
+        log.info("开始获取用户角色权限");
         User userinfo = userService.findByname(username);
 
         SelfUserDetails userInfo = new SelfUserDetails();

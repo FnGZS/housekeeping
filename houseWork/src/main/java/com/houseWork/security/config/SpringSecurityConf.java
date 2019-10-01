@@ -1,5 +1,6 @@
 package com.houseWork.security.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -18,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * @author zjw
  */
 @Configuration
+@Slf4j
 public class SpringSecurityConf extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -50,7 +52,7 @@ public class SpringSecurityConf extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+        log.info("security请求控制初始化完毕");
         // 去掉 CSRF
         http.csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // 使用 JWT，关闭token
