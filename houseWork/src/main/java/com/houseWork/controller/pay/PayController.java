@@ -75,7 +75,7 @@ public class PayController {
 		return new ResponseEntity(ResponseResult.successResponse(payService.getPayOrderById(id)),HttpStatus.OK);
 	}
 	@ApiOperation(value = "根据系统商品订单编号获取详情",notes = "根据系统商品订单编号获取详情")
-	@GetMapping("/payOrder/goods")
+	@GetMapping("/payOrder/goods/{goodsId}")
 	public ResponseEntity<ResponseResult<List<PayOrder>>> getPayOrderByGoodsId(@PathVariable @ApiParam("商品编号") String goodsId){
 		return new ResponseEntity(ResponseResult.successResponse(payService.listPayOrderByGoodsId(goodsId)),HttpStatus.OK);
 	}
@@ -89,7 +89,7 @@ public class PayController {
 	}
 	@ApiOperation(value = "提现",notes = "提现")
 	@GetMapping("/cashWithdrawal")
-    @ApiImplicitParams({@ApiImplicitParam(paramType = "Integer", name = "保洁员微信id", value = "保洁员微信id", dataType = "string",required=true),
+    @ApiImplicitParams({@ApiImplicitParam(paramType = "In0teger", name = "保洁员微信id", value = "保洁员微信id", dataType = "string",required=true),
             @ApiImplicitParam(paramType = "string", name = "提现金额", value = "提现金额", dataType = "string",required=true),
             @ApiImplicitParam(paramType = "string", name = "微信提供的code", value = "微信提供的code", dataType = "string",required=true)})
 	public ResponseEntity cashWithdrawal(Integer cleanId,double cash,String platCode,HttpServletRequest request){

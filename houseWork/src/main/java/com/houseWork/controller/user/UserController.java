@@ -155,8 +155,9 @@ public class UserController {
             @ApiImplicitParam(paramType = "query", name = "id", value = "id", dataType = "int")
     })
     public ResponseEntity seletById(@RequestParam Integer id){ return new ResponseEntity(ResponseResult.successResponse(userService.selectById(id)), HttpStatus.OK);}
+    @ApiOperation(value = "生成token",notes = "生成token")
     @GetMapping("/token")
     public String getTokenByUserNickName(String nickName){
-        return JwtTokenUtil.generateToken(nickName, "_secret");
+        return "Bearer "+JwtTokenUtil.generateToken(nickName, "_secret");
     }
 }

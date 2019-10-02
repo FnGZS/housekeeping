@@ -32,6 +32,7 @@
 		resultType="com.houseWork.entity.pay.PayOrder">
 		select
 		<include refid="PayOrderBackfields" />
+		from payOrder
 		where id=#{id}
 	</select>
 	<select id="listPayOrderByCondition"
@@ -62,6 +63,7 @@
 		endTime,
 		gmtCreated,
 		gmtModified
+		from payOrder
 		<where>
 			<if test="clearnerId != null">
 				clearnerId=#{clearnerId}
@@ -82,9 +84,7 @@
 					</otherwise>
 				</choose>
 			</if>
-			<if test="clearnerId != null">
-				and clearnerId=#{clearnerId}
-			</if>
+
 			<if test="chargingType != null">
 				and chargingType=#{clearnerId}
 			</if>
@@ -94,16 +94,17 @@
 			<if test="logistics != null">
 				and logistics=#{logistics}
 			</if>
-			and deFlag=0
+			and delFlag=0
 		</where>
 		group by goodsId
-		order by gmtCreated desc,,orderState desc
+		order by gmtCreated desc,orderState desc
 	</select>
 
 	<select id="listPayOrderByGoodsId"
 		resultType="com.houseWork.entity.pay.PayOrder">
 		select
 		<include refid="PayOrderBackfields"/>
+		from payOrder
 		where goodsId=#{goodsId}
 		order by gmtCreated desc
 	</select>
@@ -117,6 +118,7 @@
     <update id="updatePayOrder"
 		parameterType="com.houseWork.entity.pay.PayOrder">
 		update
+		payOrder
 		<set>
 			<if test="payPrice != null">
 				payPrice=#{payPrice},

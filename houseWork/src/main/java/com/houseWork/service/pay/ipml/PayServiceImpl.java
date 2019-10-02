@@ -45,7 +45,7 @@ public class PayServiceImpl implements PayService{
 				payOrder = getPayOrderDetailInfo(payOrder);
 			}
 		}
-		PageInfo<List<PayOrder>>  pageInfo = new PageInfo<List<PayOrder>>();
+		PageInfo<List<PayOrder>>  pageInfo = new PageInfo(payOrderList);
 		return pageInfo;
 	}
 	@Override
