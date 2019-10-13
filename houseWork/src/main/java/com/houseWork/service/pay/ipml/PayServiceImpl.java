@@ -66,7 +66,7 @@ public class PayServiceImpl implements PayService{
 	}	
 	@Override
 	public PayOrder insertPayOrder(PayOrder payOrder) {
-		String goodsCodeId = OrderUtils.getGoodsCode(payOrder.getEmployerId().longValue());
+		String goodsCodeId = OrderUtils.getGoodsCode(userDao.selectByOpenId(payOrder.getEmployerId()).getId().longValue());
 		//价格由后台生成
 		payOrder.setOrderState(0);
 		//总价
@@ -97,7 +97,8 @@ public class PayServiceImpl implements PayService{
 			payOrder.setPayPrice(totalPrice);
 		}
 		payOrder.setGoodsId(goodsCodeId);
-		payOrder.setId(OrderUtils.getOrderCode(payOrder.getEmployerId().longValue()));
+		//根据业主的id生成订单编号
+		payOrder.setId(OrderUtils.getOrderCode(userDao.selectByOpenId(payOrder.getEmployerId()).getId().longValue()));
 		payOrderDao.insertPayOrder(payOrder);
 		return payOrder;	
 	}
@@ -141,7 +142,7 @@ public class PayServiceImpl implements PayService{
 		//获取保洁人员信息
 		payOrder.setCleaner(null);
 		//获取业主信息
-		payOrder.setEmployer(userDao.selectByPrimaryKey(payOrder.getEmployerId()));
+		payOrder.setEmployer(userDao.selectByOpenId(payOrder.getEmployerId()));
 		return payOrder;
 	}
 }

@@ -25,8 +25,8 @@ public class PayOrder {
 	private Double payPrice;
 	@ApiModelProperty("总价")
 	private Double totalPrice;
-	@ApiModelProperty("业主id")
-	private Integer employerId;
+	@ApiModelProperty("业主openid")
+	private String employerId;
 	@ApiModelProperty("保洁员id")
 	private Integer clearnerId;
 	@ApiModelProperty("业主名字")

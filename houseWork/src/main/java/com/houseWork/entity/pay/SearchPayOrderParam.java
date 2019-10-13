@@ -8,8 +8,8 @@ import lombok.Data;
 public class SearchPayOrderParam {
 	@ApiModelProperty("保洁人员id")
 	private Integer clearnerId;
-	@ApiModelProperty("业主id")
-	private Integer employerId;
+	@ApiModelProperty("业主openid")
+	private String employerId;
 	@ApiModelProperty("0,普通清洁，1开荒，不传为全部，下同")
 	private Integer goodsWay;
 	@ApiModelProperty("如果为开荒选填 1开荒定金，2开荒尾款.")

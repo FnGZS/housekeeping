@@ -1,7 +1,9 @@
 package com.houseWork.controller.pay;
 
 import com.houseWork.dao.pay.OrderDao;
+import com.houseWork.dao.user.UserDao;
 import com.houseWork.entity.pay.PayOrder;
+import com.houseWork.entity.user.User;
 import com.houseWork.service.pay.PayService;
 import com.houseWork.utils.OrderUtils;
 import com.houseWork.utils.XmlToMapUtils;
@@ -40,6 +42,8 @@ public class PayCallBackController {
     private PayService payService;
     @Autowired
     private OrderDao orderDao;
+    @Autowired
+    private UserDao userDao;
     @ApiOperation(value = "支付回调",notes = "支付回调")
     @GetMapping (value = "/wxNotify")
     public void wxNotify(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -95,7 +99,8 @@ public class PayCallBackController {
         payService.updatePayOrder(order);
         //如果为开荒定金订单自动生成插入开荒尾款订单
         if(order.getGoodsType()==1){
-            order.setId(OrderUtils.getOrderCode(order.getEmployerId().longValue()));
+            User user = userDao.selectByOpenId(order.getEmployerId());
+            order.setId(OrderUtils.getOrderCode(user.getId().longValue()));
             order.setOrderState(0);
             order.setGoodsType(2);
             payService.insertPayOrder(order);
