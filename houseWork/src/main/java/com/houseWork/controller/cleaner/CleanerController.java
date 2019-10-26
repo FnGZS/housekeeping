@@ -59,6 +59,9 @@ public class CleanerController {
         if (name != null && name.length() > 0) {
             name = name.replaceAll(" ", "");
         }
+        if (place != null && place.length() > 0) {
+            place = place.replaceAll(" ", "");
+        }
         List<Cleaner> list = cleanerService.findCleaners(name, place, price, total);
         PageHelper.startPage(pageNum, pageSize);
         PageInfo<Cleaner> pageInfo = new PageInfo<>(list);

@@ -32,7 +32,7 @@
                 name like '%${name}%'
             </if>
             <if test="place != null">
-                and place = #{place}
+                and place like '%${place}%'
             </if>
         </where>
         order by price
