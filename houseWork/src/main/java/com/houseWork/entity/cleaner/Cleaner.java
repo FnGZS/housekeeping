@@ -25,13 +25,17 @@ public class Cleaner implements Serializable {
     @ApiModelProperty(value = "姓名", required = false)
     private String name;
 
+    @Column(name = "card")
+    @ApiModelProperty(value = "证件", required = false)
+    private String card;
+
     @Column(name = "telephone")
     @ApiModelProperty(value = "手机号", required = false)
     private String telephone;
 
-    @Column(name = "show")
+    @Column(name = "introduction")
     @ApiModelProperty(value = "简介", required = false)
-    private String show;
+    private String introduction;
 
     @Column(name = "time")
     @ApiModelProperty(value = "工龄", required = false)
@@ -54,7 +58,7 @@ public class Cleaner implements Serializable {
     private String place;
 
     @Column(name = "price")
-    @ApiModelProperty(value = "评分", required = false)
+    @ApiModelProperty(value = "价格", required = false)
     private Double price;
 
     @Column(name = "type")

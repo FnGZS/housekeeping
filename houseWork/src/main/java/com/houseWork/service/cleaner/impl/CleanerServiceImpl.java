@@ -31,8 +31,8 @@ public class CleanerServiceImpl implements CleanerService {
     }
 
     @Override
-    public List<Cleaner> findCleaners(String namelike, String sortName, String sortOrder) {
-        return cleanerDao.findCleaners(namelike, sortName, sortOrder);
+    public List<Cleaner> findCleaners(String name, String place, Integer price, Integer total) {
+        return cleanerDao.findCleaners(name, place, price, total);
     }
 
     @Override

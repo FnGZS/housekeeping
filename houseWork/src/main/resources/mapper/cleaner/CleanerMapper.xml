@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.nbytsoft.projects.sys.dao.MenuDao">
+<mapper namespace="com.houseWork.dao.cleaner.CleanerDao">
     <insert id="addCleaner" parameterType="com.houseWork.entity.cleaner.Cleaner">
-		INSERT INTO cleaner (name,telephone,show,time,total,back,score,place,price,type,work)
-		VALUES (#{cleaner.name},#{cleaner.telephone},#{cleaner.show},#{cleaner.time},#{cleaner.total},#{cleaner.back},#{cleaner.score},#{cleaner.place},#{cleaner.state},#{cleaner.type},#{cleaner.work})
+		INSERT INTO cleaner (name,card,telephone,introduction,time,total,back,score,place,price,type,work)
+		VALUES (#{cleaner.name},#{cleaner.card},#{cleaner.telephone},#{cleaner.introduction},#{cleaner.time},#{cleaner.total},#{cleaner.back},#{cleaner.score},#{cleaner.place},#{cleaner.price},#{cleaner.type},#{cleaner.work})
 	</insert>
     <delete id="deleteCleaners" parameterType="java.util.List">
         DELETE FROM cleaner
@@ -16,25 +16,45 @@
         <foreach collection="list" item="cleaner" index="index" open="" close="" separator=";">
             UPDATE cleaner
             <set>
-                name=#{cleaner.name},telephone=#{cleaner.telephone},show=#{cleaner.show},time=#{cleaner.time},
-                total#{cleaner.total},back=#{cleaner.back},score#{cleaner.score},place=#{cleaner.place},
-                state=#{cleaner.state},type=#{cleaner.type},work=#{cleaner.work}
+                name=#{cleaner.name},telephone=#{cleaner.telephone},introduction=#{cleaner.introduction},time=#{cleaner.time},
+                total=#{cleaner.total},back=#{cleaner.back},score=#{cleaner.score},place=#{cleaner.place},
+                price=#{cleaner.price},type=#{cleaner.type},work=#{cleaner.work},card=#{cleaner.card}
             </set>
             <where>
                 id=#{cleaner.id}
             </where>
         </foreach>
     </update>
-    <select id="findCleaners" parameterType="java.lang.Long" resultType="com.houseWork.entity.cleaner.Cleaner">
+    <select id="findCleaners" resultType="com.houseWork.entity.cleaner.Cleaner">
         SELECT * FROM cleaner
-        <if test="namelike !=null">
-            where name like '%'+#{namelike}+'%'
+        <where>
+            <if test="name != null">
+                name like '%${name}%'
+            </if>
+            <if test="place != null">
+                and place = #{place}
+            </if>
+        </where>
+        <if test="price == 0">
+            order by price
         </if>
-        <if test="sortName !=null">
-            order by ${sortName} ${sortOrder}
+        <if test="price == 1">
+            order by price asc
+        </if>
+        <if test="price == 2">
+            order by price desc
+        </if>
+        <if test="total == 0">
+            order by total
+        </if>
+        <if test="total == 1">
+            order by total asc
+        </if>
+        <if test="total == 2">
+            order by total desc
         </if>
     </select>
-    <select id="loadCleanerByName" resultType="com.houseWork.entity.cleaner.Cleaner" >
+    <select id="loadCleanerByName" resultType="com.houseWork.entity.cleaner.Cleaner">
         select * from cleaner where name=#{name}
     </select>
 </mapper>

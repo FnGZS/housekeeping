@@ -5,11 +5,12 @@ import com.github.pagehelper.PageInfo;
 import com.houseWork.entity.cleaner.Cleaner;
 import com.houseWork.entity.response.ResponseResult;
 import com.houseWork.service.cleaner.CleanerService;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class CleanerController {
 
     @PostMapping(value = "/addCleaner")
     @ApiOperation(value = "添加保洁员", notes = "添加保洁员")
-    public ResponseEntity addCleaner(@RequestBody @Validated @ApiParam(value = "输入保洁员信息") Cleaner cleaner) {
+    public ResponseEntity addCleaner(@RequestBody @ApiParam(value = "输入保洁员信息") Cleaner cleaner) {
         Cleaner cleaner1 = cleanerService.loadCleanerByName(cleaner.getName());
         if (cleaner1 == null) {
             cleanerService.addCleaner(cleaner);
@@ -51,22 +52,14 @@ public class CleanerController {
 
     @PostMapping(value = "/findMenus")
     @ApiOperation(value = "查询保洁员", notes = "查询保洁员")
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "query", name = "namelike", value = "like条件", required = false, dataType = "String"),
-            @ApiImplicitParam(paramType = "query", name = "sortName", value = "排序条件", dataType = "String"),
-            @ApiImplicitParam(paramType = "query", name = "sortOrder", value = "排序规则", dataType = "String"),
-            @ApiImplicitParam(paramType = "query", name = "pageNum", value = "页码", dataType = "Integer"),
-            @ApiImplicitParam(paramType = "query", name = "pageSize", value = "每页显示数量", dataType = "Integer")})
-    public ResponseEntity findCleaners(@RequestParam(required = false) String namelike, @RequestParam(required = false) String sortName,
-                                    @RequestParam(required = false) String sortOrder, @RequestParam(defaultValue = "0") Integer pageNum,
-                                    @RequestParam(defaultValue = "1000") Integer pageSize) {
-        if (namelike != null) {
-            namelike = namelike.replaceAll(" ", "");
-            if (namelike.isEmpty()) {
-                namelike = null;
-            }
+    public ResponseEntity findCleaners(@RequestParam(required = false) String name, @RequestParam(required = false) String place,
+                                       @RequestParam(required = false) Integer price, @RequestParam(required = false) Integer total,
+                                       @RequestParam(defaultValue = "0") Integer pageNum,
+                                       @RequestParam(defaultValue = "1000") Integer pageSize) {
+        if (name != null && name.length() > 0) {
+            name = name.replaceAll(" ", "");
         }
-        List<Cleaner> list = cleanerService.findCleaners(namelike, sortName, sortOrder);
+        List<Cleaner> list = cleanerService.findCleaners(name, place, price, total);
         PageHelper.startPage(pageNum, pageSize);
         PageInfo<Cleaner> pageInfo = new PageInfo<>(list);
         return new ResponseEntity(ResponseResult.successResponse(pageInfo), HttpStatus.OK);
