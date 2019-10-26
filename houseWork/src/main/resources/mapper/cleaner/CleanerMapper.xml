@@ -35,23 +35,22 @@
                 and place = #{place}
             </if>
         </where>
+        order by price
         <if test="price == 0">
-            order by price
+            ,
         </if>
         <if test="price == 1">
-            order by price asc
+            asc,
         </if>
         <if test="price == 2">
-            order by price desc
+            desc,
         </if>
-        <if test="total == 0">
-            order by total
-        </if>
+        total
         <if test="total == 1">
-            order by total asc
+            asc
         </if>
         <if test="total == 2">
-            order by total desc
+            desc
         </if>
     </select>
     <select id="loadCleanerByName" resultType="com.houseWork.entity.cleaner.Cleaner">
