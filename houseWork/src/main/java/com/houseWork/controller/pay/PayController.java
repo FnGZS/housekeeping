@@ -89,7 +89,7 @@ public class PayController {
 	}
 	@ApiOperation(value = "提现",notes = "提现")
 	@GetMapping("/cashWithdrawal")
-    @ApiImplicitParams({@ApiImplicitParam(paramType = "In0teger", name = "保洁员微信id", value = "保洁员微信id", dataType = "string",required=true),
+    @ApiImplicitParams({@ApiImplicitParam(paramType = "Integer", name = "保洁员微信id", value = "保洁员微信id", dataType = "string",required=true),
             @ApiImplicitParam(paramType = "string", name = "提现金额", value = "提现金额", dataType = "string",required=true),
             @ApiImplicitParam(paramType = "string", name = "微信提供的code", value = "微信提供的code", dataType = "string",required=true)})
 	public ResponseEntity cashWithdrawal(Integer cleanId,double cash,String platCode,HttpServletRequest request){

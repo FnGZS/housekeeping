@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.houseWork.dao.user.UserFormDao">
+
+    <insert id="insertFormId">
+  insert into user_form
+  (
+  id,
+  userId,
+  openId,
+  formId,
+  gmtCreated,
+  gmtModified
+  )values(
+  #{id},
+  #{userId},
+  #{openId},
+   #{formId},
+   now(),
+   now()
+  )
+    </insert>
+    <delete id="deleteFormId">
+     delete from user_form where id=#{id}
+    </delete>
+    <select id="getFormId" resultType="com.houseWork.entity.weixin.UserFormDO">
+      select id,userId,formId,openId from  user_form
+      where openId=#{openId}
+      order by gmtCreated asc
+      limit 1
+    </select>
+</mapper>

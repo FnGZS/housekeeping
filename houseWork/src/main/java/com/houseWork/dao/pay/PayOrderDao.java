@@ -68,5 +68,9 @@ public interface PayOrderDao {
 	 * @return
 	 */
 	List<RefundApply> getRefundApplyToRefund();
+	/**
+	 * 将超时的已预定订单关闭
+	 */
+	void updateOrderStatusClose();
 }
 

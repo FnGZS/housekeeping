@@ -3,6 +3,21 @@
 <mapper namespace="com.houseWork.dao.pay.BillDao">
 
     <insert id="insertBill">
-
+    insert into bill(
+    id,
+    userId,
+    type,
+    price,
+    gmtCreated
+    )values(
+    #{id},
+    #{userId},
+    #{type},
+    #{price},
+    #{gmtCreated)
+    )
     </insert>
+    <select id="getBillList" resultType="com.houseWork.entity.pay.Bill">
+    select id, userId, type, price, gmtCreated from bill where userId=#{userId}
+    </select>
 </mapper>
