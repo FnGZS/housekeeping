@@ -1,22 +1,26 @@
 package com.houseWork.scheduler.task;
 
 import com.houseWork.dao.pay.PayOrderDao;
-import com.houseWork.service.pay.PayService;
-import com.houseWork.service.user.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
 public class PayOrderTask {
-    @Autowired
+    /*@Autowired
     private UserService userService;
     @Autowired
-    private PayService payService;
+    private PayService payService;*/
     @Autowired
     private PayOrderDao payOrderDao;
 
+    @Scheduled(cron = "0 0/1 * * * ?")
+    public void autoClose(){
+        payOrderDao.updateOrderStatusClose();
+        log.info("定时关闭已预约订单");
+    }
     /**
      * 自动退款
      *
@@ -140,6 +144,6 @@ public class PayOrderTask {
         //为雇主加积分
 
     }
-
      */
+
 }

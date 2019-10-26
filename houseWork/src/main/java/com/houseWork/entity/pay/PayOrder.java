@@ -56,7 +56,7 @@ public class PayOrder {
 	private Double unitPrice;
 	@ApiModelProperty("服务状态：0.未清洁，1已清洁")
 	private Integer logistics;
-	@ApiModelProperty("订单状态")
+	@ApiModelProperty("订单状态 1预约中2预约成功，3预约失败4，已关闭")
 	private Integer orderState;
 	@ApiModelProperty("是否删除（0删除1未删除）")
 	private Integer delFlag;

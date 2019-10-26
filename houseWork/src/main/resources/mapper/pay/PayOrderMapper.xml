@@ -193,7 +193,10 @@
 			</if>
 		</where>
 	</update>
-	<insert id="insertPayOrder"
+    <update id="updateOrderStatusClose">
+		update payOrder set orderState = 4 where orderState=3 and date_add(endTime,interval 5 minute) &lt; now()
+	</update>
+    <insert id="insertPayOrder"
 		parameterType="com.houseWork.entity.pay.PayOrder">
 
 		insert into payOrder
