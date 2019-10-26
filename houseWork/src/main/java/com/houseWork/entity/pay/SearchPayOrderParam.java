@@ -16,7 +16,7 @@ public class SearchPayOrderParam {
 	private Integer goodsType;
 	@ApiModelProperty("计费方式(0,面积,1平方)")
 	private Integer chargingType;
-	@ApiModelProperty("订单状态0.待付款1.付全款2.付定金3.付尾款4.申请退款，5已退款")
+	@ApiModelProperty("订单状态 1预约中2预约成功，3预约失败4，已关闭")
 	private Integer orderState;
 	@ApiModelProperty("服务状态：0.未清洁，1已清洁")
 	private Integer logistics;
