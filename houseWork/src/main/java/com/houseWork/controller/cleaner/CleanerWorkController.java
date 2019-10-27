@@ -37,14 +37,16 @@ public class CleanerWorkController {
     public ResponseEntity subscribe(@ApiParam("保洁员id") @RequestParam(value = "cleanerId", defaultValue = "") Integer cleanerId,
                                     @ApiParam("预约单id") @RequestParam(value = "customerId", defaultValue = "") Integer appointmentId,
                                     @ApiParam("预约时间") @RequestParam(value = "workTime", defaultValue = "") String workTime,
-                                    @ApiParam("预约单id") @RequestParam(value = "workDate", defaultValue = "") Date workDate,
-                                    @ApiParam("预约单id") @RequestParam(value = "status", defaultValue = "") Integer status) {
+                                    @ApiParam("日期") @RequestParam(value = "workDate", defaultValue = "") Date workDate,
+                                    @ApiParam("上午状态") @RequestParam(value = "statusMor", defaultValue = "") Integer statusMor,
+                                    @ApiParam("下午状态") @RequestParam(value = "statusAft", defaultValue = "") Integer statusAft) {
         CleanerWorkDetail cleanerWorkDetail = new CleanerWorkDetail();
         cleanerWorkDetail.setCid(cleanerId);
         cleanerWorkDetail.setAppointmentId(appointmentId);
         cleanerWorkDetail.setWorkTime(workTime);
         cleanerWorkDetail.setWorkDate(workDate);
-        cleanerWorkDetail.setStatus(status);
+        cleanerWorkDetail.setStatusMor(statusMor);
+        cleanerWorkDetail.setStatusAft(statusAft);
         return new ResponseEntity(ResponseResult.successResponse(cleanerService.subscribe(cleanerWorkDetail)), HttpStatus.OK);
     }
 }
