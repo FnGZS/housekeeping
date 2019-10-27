@@ -56,6 +56,14 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
     Cleaner loadCleanerByName(@Param("name") String name);
 
     /**
+     * 查询保洁员（id）
+     *
+     * @param id
+     * @return
+     */
+    Cleaner loadCleanerById(@Param("id") Integer id);
+
+    /**
      * 保洁员排班
      **/
     @Select("SELECT * FROM cleaner_work WHERE cid = #{cleanerId}")
@@ -66,6 +74,7 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
 
     @Select("SELECT * FROM cleaner_work WHERE appointment_id = #{appointmentId}")
     CleanerWorkDetail getByAppointmentId(Integer appointmentId);
+
     /**
      * 根据id获取保洁员
      *

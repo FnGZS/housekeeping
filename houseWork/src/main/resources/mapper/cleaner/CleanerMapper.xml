@@ -56,4 +56,7 @@
     <select id="loadCleanerByName" resultType="com.houseWork.entity.cleaner.Cleaner">
         select * from cleaner where name=#{name}
     </select>
+    <select id="loadCleanerById" resultType="com.houseWork.entity.cleaner.Cleaner">
+        select * from cleaner where id=#{id}
+    </select>
 </mapper>

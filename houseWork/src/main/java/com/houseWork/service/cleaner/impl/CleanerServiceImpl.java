@@ -41,6 +41,11 @@ public class CleanerServiceImpl implements CleanerService {
     }
 
     @Override
+    public Cleaner loadCleanerById(Integer id) {
+        return cleanerDao.loadCleanerById(id);
+    }
+
+    @Override
     public List<CleanerWorkDetail> cleanerWork(Integer cleanerId) {
         return cleanerDao.cleanerWork(cleanerId);
     }

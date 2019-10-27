@@ -67,4 +67,11 @@ public class CleanerController {
         PageInfo<Cleaner> pageInfo = new PageInfo<>(list);
         return new ResponseEntity(ResponseResult.successResponse(pageInfo), HttpStatus.OK);
     }
+
+    @PostMapping(value = "/loadCleanerById")
+    @ApiOperation(value = "通过id查保洁员详细信息", notes = "通过id查保洁员详细信息")
+    public ResponseEntity loadCleanerById(@RequestParam Integer id) {
+        Cleaner cleaner = cleanerService.loadCleanerById(id);
+        return new ResponseEntity(ResponseResult.successResponse(cleaner), HttpStatus.OK);
+    }
 }

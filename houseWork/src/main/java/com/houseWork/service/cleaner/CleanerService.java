@@ -48,6 +48,14 @@ public interface CleanerService {
     Cleaner loadCleanerByName(String name);
 
     /**
+     * 查询保洁员（id）
+     *
+     * @param id
+     * @return
+     */
+    Cleaner loadCleanerById(Integer id);
+
+    /**
      * 保洁员排班
      **/
     List<CleanerWorkDetail> cleanerWork(Integer cleanerId);
