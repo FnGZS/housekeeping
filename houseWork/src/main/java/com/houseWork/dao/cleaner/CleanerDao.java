@@ -69,7 +69,7 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
     @Select("SELECT * FROM cleaner_work WHERE cid = #{cleanerId}")
     List<CleanerWorkDetail> cleanerWork(Integer cleanerId);
 
-    @Insert("INSERT cid,appointment_id,work_time,creat_time INTO cleaner_work VALUES ( #{cid}, #{appointmentId}, #{workTime}, now())")
+    @Insert("INSERT cid,appointment_id,work_time,creat_time,work_date,status INTO cleaner_work VALUES ( #{cid}, #{appointmentId}, #{workTime}, now(), #{workDate}, #{status})")
     CleanerWorkDetail subscribe(CleanerWorkDetail cleanerWorkDetail);
 
     @Select("SELECT * FROM cleaner_work WHERE appointment_id = #{appointmentId}")

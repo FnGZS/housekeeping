@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -26,7 +27,7 @@ public class CleanerWorkController {
 
     @PostMapping("/cleanerWork")
     @ApiOperation(value = "保洁员排班", notes = "保洁员排班")
-    public ResponseEntity cleanerWork(@ApiParam("保洁员id") @RequestParam(value = "cleanerId", defaultValue = "") Integer cleanerId){
+    public ResponseEntity cleanerWork(@ApiParam("保洁员id") @RequestParam(value = "cleanerId", defaultValue = "") Integer cleanerId) {
         List<CleanerWorkDetail> list = cleanerService.cleanerWork(cleanerId);
         return new ResponseEntity(ResponseResult.successResponse(list), HttpStatus.OK);
     }
@@ -34,12 +35,16 @@ public class CleanerWorkController {
     @PostMapping("/subscribe")
     @ApiOperation(value = "预约")
     public ResponseEntity subscribe(@ApiParam("保洁员id") @RequestParam(value = "cleanerId", defaultValue = "") Integer cleanerId,
-                                    @ApiParam("预约单id")  @RequestParam(value = "customerId", defaultValue = "") Integer appointmentId,
-                                    @ApiParam("预约时间") @RequestParam(value = "workTime", defaultValue = "") String workTime){
+                                    @ApiParam("预约单id") @RequestParam(value = "customerId", defaultValue = "") Integer appointmentId,
+                                    @ApiParam("预约时间") @RequestParam(value = "workTime", defaultValue = "") String workTime,
+                                    @ApiParam("预约单id") @RequestParam(value = "workDate", defaultValue = "") Date workDate,
+                                    @ApiParam("预约单id") @RequestParam(value = "status", defaultValue = "") Integer status) {
         CleanerWorkDetail cleanerWorkDetail = new CleanerWorkDetail();
         cleanerWorkDetail.setCid(cleanerId);
         cleanerWorkDetail.setAppointmentId(appointmentId);
         cleanerWorkDetail.setWorkTime(workTime);
-        return new ResponseEntity(ResponseResult.successResponse(cleanerService.subscribe(cleanerWorkDetail)),HttpStatus.OK);
+        cleanerWorkDetail.setWorkDate(workDate);
+        cleanerWorkDetail.setStatus(status);
+        return new ResponseEntity(ResponseResult.successResponse(cleanerService.subscribe(cleanerWorkDetail)), HttpStatus.OK);
     }
 }
