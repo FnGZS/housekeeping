@@ -54,7 +54,7 @@
 		level,
 		longTime,
 		chargingType,
-		Max(goodsType),
+		Max(goodsType) goodsType,
 		logistics,
 		orderState,
 		delFlag,
@@ -86,7 +86,7 @@
 			</if>
 
 			<if test="chargingType != null">
-				and chargingType=#{clearnerId}
+				and chargingType=#{chargingType}
 			</if>
 			<if test="orderState != null">
 				and orderState=#{orderState}

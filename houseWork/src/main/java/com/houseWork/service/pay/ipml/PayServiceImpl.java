@@ -140,7 +140,7 @@ public class PayServiceImpl implements PayService{
 	 */
 	private PayOrder getPayOrderDetailInfo(PayOrder payOrder) {
 		//获取保洁人员信息
-		payOrder.setCleaner(null);
+		payOrder.setCleaner(cleanerDao.getCleanerById(payOrder.getClearnerId()));
 		//获取业主信息
 		payOrder.setEmployer(userDao.selectByOpenId(payOrder.getEmployerId()));
 		return payOrder;
