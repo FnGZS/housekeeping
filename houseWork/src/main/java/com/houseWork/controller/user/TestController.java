@@ -2,9 +2,11 @@ package com.houseWork.controller.user;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.houseWork.entity.test.Test;
 import com.houseWork.entity.response.ResponseResult;
+import com.houseWork.entity.test.Test;
+import com.houseWork.entity.user.User;
 import com.houseWork.service.test.TestService;
+import com.houseWork.service.user.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -29,14 +31,17 @@ public class TestController {
     @Autowired
     private TestService testService;
 
+    @Autowired
+    private UserService userService;
+
     @PostMapping("/insert")
-    @ApiOperation(value = "添加试卷",notes = "添加试卷")
+    @ApiOperation(value = "添加试卷", notes = "添加试卷")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "title", value = "title", dataType = "String"),
             @ApiImplicitParam(paramType = "query", name = "content", value = "content", dataType = "String")
     })
     public ResponseEntity insertTest(@RequestParam String title,
-                                     @RequestParam String content){
+                                     @RequestParam String content) {
         return new ResponseEntity(ResponseResult.successResponse(testService.insert(Test.builder()
                 .title(title)
                 .testContent(content)
@@ -55,14 +60,14 @@ public class TestController {
     public ResponseEntity selecteByMap(@RequestParam Integer id,
                                        @RequestParam String title,
                                        @RequestParam(defaultValue = "0") Integer pageNum,
-                                       @RequestParam(defaultValue = "10") Integer pageSize){
+                                       @RequestParam(defaultValue = "10") Integer pageSize) {
         Map map = new HashMap();
-        map.put("id",id);
-        map.put("title",title);
-        PageHelper.startPage(pageNum,pageSize);
+        map.put("id", id);
+        map.put("title", title);
+        PageHelper.startPage(pageNum, pageSize);
         List<Test> list = testService.findByMap(map);
         PageInfo<Test> pageInfo = new PageInfo<>(list);
-        return new ResponseEntity(ResponseResult.successResponse(pageInfo),HttpStatus.OK);
+        return new ResponseEntity(ResponseResult.successResponse(pageInfo), HttpStatus.OK);
     }
 
     @PostMapping("/selectOne")
@@ -71,18 +76,31 @@ public class TestController {
             @ApiImplicitParam(paramType = "query", name = "id", value = "id", dataType = "String"),
             @ApiImplicitParam(paramType = "query", name = "title", value = "title", dataType = "String")
     })
-    public ResponseEntity selectOne(@RequestParam Integer id){
+    public ResponseEntity selectOne(@RequestParam Integer id) {
         return new ResponseEntity(ResponseResult.successResponse(testService.getById(id)), HttpStatus.OK);
     }
 
     @PostMapping("/delete")
-    @ApiOperation(value = "根据id删除",notes = "根据id删除")
+    @ApiOperation(value = "根据id删除", notes = "根据id删除")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "id", value = "id", dataType = "String")
     })
-    public ResponseEntity delete(@RequestParam Integer id){
+    public ResponseEntity delete(@RequestParam Integer id) {
         testService.deleteById(id);
-        return new ResponseEntity(ResponseResult.successResponse(),HttpStatus.OK);
+        return new ResponseEntity(ResponseResult.successResponse(), HttpStatus.OK);
     }
 
+    @PostMapping("/submit")
+    @ApiOperation(value = "提交", notes = "提交")
+    public ResponseEntity submit(@RequestParam Integer id, @RequestParam(defaultValue = "true") Boolean state) {
+        if (state == false) {
+            return new ResponseEntity(ResponseResult.errResponse("未通过"), HttpStatus.BAD_REQUEST);
+        }
+        Map map = new HashMap();
+        map.put("id", id);
+        map.put("role", "CLEANER");
+        userService.updateUser(map);
+        User user = userService.selectById(id);
+        return new ResponseEntity(ResponseResult.successResponse(user), HttpStatus.OK);
+    }
 }
