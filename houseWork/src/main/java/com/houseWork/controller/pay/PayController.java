@@ -61,7 +61,7 @@ public class PayController {
 	@PutMapping("/payOrder")
 	public ResponseEntity<ResponseResult<String>> updatePayOrder(@RequestBody PayOrder payOrder){
 		payService.updatePayOrder(payOrder);
-		return new ResponseEntity<ResponseResult<String>>(HttpStatus.OK);
+		return new ResponseEntity(new ResponseResult<>(),HttpStatus.OK);
 	}	
 	@ApiOperation(value = "删除系统订单（假删除）",notes = "删除系统订单（假删除）")
 	@DeleteMapping("/payOrder/{goodsId}")
