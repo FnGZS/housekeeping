@@ -55,13 +55,13 @@ public class PayController {
 	@ApiOperation(value = "生成系统订单",notes = "生成系统订单")
 	@PostMapping("/payOrder")
 	public ResponseEntity<ResponseResult<PayOrder>> createPayOrder(@RequestBody  PayOrder payOrder ){
-		return new ResponseEntity(payService.insertPayOrder(payOrder), HttpStatus.OK);
+		return new ResponseEntity(ResponseResult.successResponse(payService.insertPayOrder(payOrder)), HttpStatus.OK);
 	}
 	@ApiOperation(value = "更新系统订单",notes = "更新系统订单")
 	@PutMapping("/payOrder")
 	public ResponseEntity<ResponseResult<String>> updatePayOrder(@RequestBody PayOrder payOrder){
 		payService.updatePayOrder(payOrder);
-		return new ResponseEntity(new ResponseResult<>(),HttpStatus.OK);
+		return new ResponseEntity(ResponseResult.successResponse(),HttpStatus.OK);
 	}	
 	@ApiOperation(value = "删除系统订单（假删除）",notes = "删除系统订单（假删除）")
 	@DeleteMapping("/payOrder/{goodsId}")
