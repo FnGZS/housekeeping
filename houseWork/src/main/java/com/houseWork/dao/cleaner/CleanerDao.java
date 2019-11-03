@@ -11,6 +11,7 @@ import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> {
@@ -35,6 +36,20 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
      * @param list
      */
     void updateCleaners(@Param("list") List<Cleaner> list);
+
+    /**
+     * 修改保洁员排班
+     *
+     * @param map
+     */
+    void updateCleanerWorkDetail(Map map);
+
+    /**
+     * 删除保洁员排班
+     *
+     * @param map
+     */
+    void deleteCleanerWorkDetail(Map map);
 
     /**
      * 查询保洁员（模糊）
@@ -66,10 +81,10 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
     /**
      * 保洁员排班
      **/
-    @Select("SELECT * FROM cleaner_work WHERE cid = #{cleanerId} and work_date > now() and work_date < DATE_ADD(now(),INTERVAL 7 DAY)")
+
     List<CleanerWorkDetail> cleanerWork(Integer cleanerId);
 
-    @Insert("INSERT cid,appointment_id,work_time,creat_time,work_date,status_mor,status_aft INTO cleaner_work VALUES ( #{cid}, #{appointmentId}, #{workTime}, now(), #{workDate}, #{statusMor}, #{statusAft})")
+    @Insert("INSERT cid,appointment_id,creat_time,work_date,type INTO cleaner_work VALUES ( #{cid}, #{appointmentId}, now(), #{workDate}, #{type},)")
     CleanerWorkDetail subscribe(CleanerWorkDetail cleanerWorkDetail);
 
     @Select("SELECT * FROM cleaner_work WHERE appointment_id = #{appointmentId}")

@@ -13,7 +13,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/cleaner")
@@ -43,14 +46,30 @@ public class CleanerController {
         return new ResponseEntity(ResponseResult.successResponse("删除成功"), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/updateMenus")
+    @PostMapping(value = "/updateCleanerWorkDetail")
+    @ApiOperation(value = "修改保洁员排班", notes = "修改保洁员排班")
+    public ResponseEntity updateCleanerWorkDetail(@RequestParam Integer cid, @RequestParam(required = false) Date workDate,
+                                                  @RequestParam(required = false) String type) {
+        Map map = new HashMap();
+        map.put("id", cid);
+        map.put("workDate", workDate);
+        map.put("type", type);
+        if (workDate == null) {
+            cleanerService.deleteCleanerWorkDetail(map);
+            return new ResponseEntity(ResponseResult.successResponse("删除成功"), HttpStatus.OK);
+        }
+        cleanerService.updateCleanerWorkDetail(map);
+        return new ResponseEntity(ResponseResult.successResponse("修改成功"), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/updateCleaners")
     @ApiOperation(value = "修改保洁员", notes = "修改保洁员")
     public ResponseEntity updateCleaners(@RequestBody @ApiParam(value = "输入保洁员信息") List<Cleaner> list) {
         cleanerService.updateCleaners(list);
         return new ResponseEntity(ResponseResult.successResponse(list), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/findMenus")
+    @PostMapping(value = "/findCleaners")
     @ApiOperation(value = "查询保洁员", notes = "查询保洁员")
     public ResponseEntity findCleaners(@RequestParam(required = false) String name, @RequestParam(required = false) String place,
                                        @RequestParam(required = false) Integer price, @RequestParam(required = false) Integer total,

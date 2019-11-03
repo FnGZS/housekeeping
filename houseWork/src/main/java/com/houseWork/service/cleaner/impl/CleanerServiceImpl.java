@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service("cleanerService")
 public class CleanerServiceImpl implements CleanerService {
@@ -48,6 +49,16 @@ public class CleanerServiceImpl implements CleanerService {
     @Override
     public List<CleanerWorkDetail> cleanerWork(Integer cleanerId) {
         return cleanerDao.cleanerWork(cleanerId);
+    }
+
+    @Override
+    public void updateCleanerWorkDetail(Map map) {
+        cleanerDao.updateCleanerWorkDetail(map);
+    }
+
+    @Override
+    public void deleteCleanerWorkDetail(Map map) {
+        cleanerDao.deleteCleanerWorkDetail(map);
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.houseWork.entity.cleaner.Cleaner;
 import com.houseWork.entity.cleaner.CleanerWorkDetail;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CleanerService {
 
@@ -59,6 +60,20 @@ public interface CleanerService {
      * 保洁员排班
      **/
     List<CleanerWorkDetail> cleanerWork(Integer cleanerId);
+
+    /**
+     * 修改保洁员排班
+     *
+     * @param map
+     */
+    void updateCleanerWorkDetail(Map map);
+
+    /**
+     * 删除保洁员排班
+     *
+     * @param map
+     */
+    void deleteCleanerWorkDetail(Map map);
 
     CleanerWorkDetail subscribe(CleanerWorkDetail cleanerWorkDetail);
 }

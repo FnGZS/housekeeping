@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.houseWork.dao.cleaner.CleanerDao">
+    <resultMap id="BaseResultMap" type="com.houseWork.entity.cleaner.CleanerWorkDetail">
+        <id property="cid" column="cid" jdbcType="INTEGER"/>
+        <result property="appointmentId" column="appointment_id" jdbcType="INTEGER"/>
+        <result property="workDate" column="work_date" jdbcType="DATE"/>
+        <result property="type" column="status_mor" jdbcType="VARCHAR"/>
+        <result property="createTime" column="creat_time" jdbcType="DATE"/>
+        <collection property="appointments" ofType="com.houseWork.entity.appointment.Appointment">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="billingType" column="billing_type" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="area" column="area" jdbcType="NUMERIC"/>
+            <result property="appointmentTime" column="appointment_time" jdbcType="DATE"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="cleanerId" column="clearner_id" jdbcType="INTEGER"/>
+        </collection>
+    </resultMap>
     <insert id="addCleaner" parameterType="com.houseWork.entity.cleaner.Cleaner">
 		INSERT INTO cleaner (name,card,telephone,introduction,time,total,back,score,place,price,type,work)
 		VALUES (#{cleaner.name},#{cleaner.card},#{cleaner.telephone},#{cleaner.introduction},#{cleaner.time},#{cleaner.total},#{cleaner.back},#{cleaner.score},#{cleaner.place},#{cleaner.price},#{cleaner.type},#{cleaner.work})
@@ -25,6 +43,21 @@
             </where>
         </foreach>
     </update>
+    <update id="updateCleanerWorkDetail" parameterType="java.util.Map">
+        UPDATE cleaner_work
+        <set>
+            work_date=#{workDate}, type=#{type}
+        </set>
+        <where>
+            cid=#{cid}
+        </where>
+    </update>
+    <delete id="deleteCleanerWorkDetail" parameterType="java.util.Map">
+        delete from cleaner_work
+        <where>
+            cid=#{cid} and work_date=#{workDate} and type=#{type}
+        </where>
+    </delete>
     <select id="findCleaners" resultType="com.houseWork.entity.cleaner.Cleaner">
         SELECT * FROM cleaner
         <where>
@@ -58,5 +91,13 @@
     </select>
     <select id="loadCleanerById" resultType="com.houseWork.entity.cleaner.Cleaner">
         select * from cleaner where id=#{id}
+    </select>
+    <select id="cleanerWork" resultMap="BaseResultMap">
+        SELECT * FROM cleaner_work a
+        left join appointment b on b.id = a.appointment_id
+        <where>
+            a.cid = #{cleanerId} and a.work_date <![CDATA[ <> ]]> now()
+            and a.work_date <![CDATA[ <> ]]> DATE_ADD(now(),INTERVAL 7 DAY)
+        </where>
     </select>
 </mapper>
