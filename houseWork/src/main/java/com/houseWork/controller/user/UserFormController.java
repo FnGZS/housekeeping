@@ -1,5 +1,6 @@
 package com.houseWork.controller.user;
 
+import com.houseWork.entity.response.ResponseResult;
 import com.houseWork.entity.user.MessagePutParam;
 import com.houseWork.entity.user.UserFormParam;
 import com.houseWork.service.user.UserFormService;
@@ -35,6 +36,6 @@ public class UserFormController {
     @PostMapping("/insertForm")
     public ResponseEntity insertFormId(@RequestBody UserFormParam param) {
         userFormService.insertFormId(param);
-        return  new ResponseEntity(HttpStatus.OK);
+        return  new ResponseEntity(ResponseResult.successResponse(),HttpStatus.OK);
     }
 }

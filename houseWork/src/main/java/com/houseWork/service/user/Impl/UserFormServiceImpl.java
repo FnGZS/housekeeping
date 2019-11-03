@@ -2,6 +2,7 @@ package com.houseWork.service.user.Impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.houseWork.dao.user.UserFormDao;
+import com.houseWork.entity.response.ResponseResult;
 import com.houseWork.entity.user.MessagePutParam;
 import com.houseWork.entity.user.UserFormParam;
 import com.houseWork.entity.weixin.MessageInfo;
@@ -30,7 +31,7 @@ public class UserFormServiceImpl implements UserFormService {
 
         UserFormDO formDO = userFormDao.getFormId(param.getOpenId());
         if(formDO==null) {
-            return new ResponseEntity("发送失败", HttpStatus.FAILED_DEPENDENCY);
+            return new ResponseEntity(ResponseResult.successResponse("发送失败"), HttpStatus.FAILED_DEPENDENCY);
         }
         MessageInfo info = new MessageInfo();
         info.setTouser(formDO.getOpenId());
@@ -44,10 +45,10 @@ public class UserFormServiceImpl implements UserFormService {
         log.info(JSONObject.toJSONString(response));;
         if(response.getCode().code!=200) {
 
-            return new ResponseEntity(response.getMessage(), HttpStatus.FAILED_DEPENDENCY);
+            return new ResponseEntity(ResponseResult.successResponse(response.getMessage()), HttpStatus.FAILED_DEPENDENCY);
         }
         userFormDao.deleteFormId(formDO.getId());
-        return new ResponseEntity("发送成功", HttpStatus.OK);
+        return new ResponseEntity(ResponseResult.successResponse("发送失败"), HttpStatus.OK);
     }
     @Override
     public void insertFormId(UserFormParam param) {
@@ -56,7 +57,7 @@ public class UserFormServiceImpl implements UserFormService {
         formDO.setFormId(param.getFormId());
         formDO.setOpenId(param.getOpenId());
         formDO.setUserId(param.getUserId());
-
+        userFormDao.insertFormId(formDO);
 
     }
 
