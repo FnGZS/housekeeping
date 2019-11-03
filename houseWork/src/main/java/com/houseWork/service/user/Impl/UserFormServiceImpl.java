@@ -44,11 +44,10 @@ public class UserFormServiceImpl implements UserFormService {
         WeixinGeneralResult response = WeixinAppService.messagePut(info);
         log.info(JSONObject.toJSONString(response));;
         if(response.getCode().code!=200) {
-
             return new ResponseEntity(ResponseResult.successResponse(response.getMessage()), HttpStatus.FAILED_DEPENDENCY);
         }
         userFormDao.deleteFormId(formDO.getId());
-        return new ResponseEntity(ResponseResult.successResponse("发送失败"), HttpStatus.OK);
+        return new ResponseEntity(ResponseResult.successResponse("发送成功"), HttpStatus.OK);
     }
     @Override
     public void insertFormId(UserFormParam param) {
