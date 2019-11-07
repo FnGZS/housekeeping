@@ -1,5 +1,6 @@
 package com.houseWork.security.bean;
 
+import com.houseWork.entity.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -19,4 +20,6 @@ public class AuthenticationInfo<T> implements Serializable {
     private final  String token;
 
     private final T user;
+
+    private User userDetail;
 }

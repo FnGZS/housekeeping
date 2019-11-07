@@ -123,8 +123,9 @@ public class UserController {
             // 生成令牌
             final String token = JwtTokenUtil.generateToken(userInfo.getNickName(), "_secret");
 
+            User userDetail = userService.selectByOpenId(userInfo.getOpenId());
             // 返回 token
-            return new ResponseEntity(ResponseResult.successResponse(new AuthenticationInfo(token,userInfo)),HttpStatus.OK);
+            return new ResponseEntity(ResponseResult.successResponse(new AuthenticationInfo(token,userInfo,userDetail)),HttpStatus.OK);
         }
 
         final UserDetails jwtUser  = userDetailsService.loadUserByUsername(authorizationUser.getUsername());
@@ -136,8 +137,9 @@ public class UserController {
         // 生成令牌
         final String token = JwtTokenUtil.generateToken(jwtUser.getUsername(), "_secret");
 
+        User userDetail = userService.findByname(jwtUser.getUsername());
         // 返回 token
-        return new ResponseEntity(ResponseResult.successResponse(new AuthenticationInfo(token,jwtUser)),HttpStatus.OK);
+        return new ResponseEntity(ResponseResult.successResponse(new AuthenticationInfo(token,jwtUser,userDetail)),HttpStatus.OK);
     }
 
     @PostMapping("/deciphering")

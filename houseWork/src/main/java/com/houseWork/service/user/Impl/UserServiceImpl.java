@@ -49,4 +49,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User selectById(Integer id) { return userDao.selectByPrimaryKey(id);}
 
+    @Override
+    public User selectByOpenId(String openId) {
+        return userDao.selectByOpenId(openId);
+    }
+
+
 }

@@ -40,4 +40,6 @@ public interface UserService {
     void updateUser(Map map);
 
     User selectById(Integer id);
+
+    User selectByOpenId(String openId);
 }

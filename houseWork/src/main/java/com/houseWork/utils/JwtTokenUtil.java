@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class JwtTokenUtil {
 
-    private static int expirationSeconds = 30000;
+    private static int expirationSeconds = 99999999;
 
 //    private static InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("jwt.jks"); // 寻找证书文件
 //    private static PrivateKey privateKey = null;
