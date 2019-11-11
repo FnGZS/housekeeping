@@ -98,7 +98,7 @@ public class UserController {
     @PostMapping(value = "/jwtLogin")
     @ApiOperation(value = "登录授权", notes = "登录授权")
 //    @Cacheable(value = "proUserLogin", key = "#authorizationUser.getUsername()")
-    public ResponseEntity login(@Validated @RequestBody AuthorizationUser authorizationUser) {
+    public ResponseEntity login(@Validated AuthorizationUser authorizationUser) {
         //小程序登录
         if(!StringUtil.isEmpty(authorizationUser.getPlatCode())){
 
@@ -162,5 +162,16 @@ public class UserController {
     @GetMapping("/token")
     public String getTokenByUserNickName(String nickName){
         return "Bearer "+JwtTokenUtil.generateToken(nickName, "_secret");
+    }
+    @PostMapping("/delete")
+    @ApiOperation(value = "删除用户",notes = "删除用户")
+    @ApiImplicitParams(
+            @ApiImplicitParam(paramType = "query", name = "id", value = "id", dataType = "int")
+    )
+    public ResponseEntity delete(@RequestParam Integer id){
+        userService.delete(User.builder()
+                .id(id)
+                .build());
+        return new ResponseEntity(ResponseResult.successResponse(),HttpStatus.OK);
     }
 }

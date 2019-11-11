@@ -44,4 +44,9 @@
             </if>
         </where>
     </update>
+
+    <delete id="deleteById" parameterType="com.houseWork.entity.user.User">
+        delete from user
+        where id=#{id}
+    </delete>
 </mapper>

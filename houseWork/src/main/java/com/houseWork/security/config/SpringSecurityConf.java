@@ -79,7 +79,7 @@ public class SpringSecurityConf extends WebSecurityConfigurerAdapter {
                 .antMatchers("/webjars/**").anonymous()
                 .antMatchers("/*/api-docs").anonymous()
                 // swagger end
-
+                .antMatchers("/upload/**").permitAll()
                 .anyRequest()
                 .access("@rbacauthorityservice.hasPermission(request,authentication)") // RBAC 动态 url 认证
 

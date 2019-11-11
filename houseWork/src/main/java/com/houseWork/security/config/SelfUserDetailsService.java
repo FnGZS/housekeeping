@@ -37,16 +37,16 @@ public class SelfUserDetailsService implements UserDetailsService {
         //构建用户信息的逻辑(取数据库/LDAP等用户信息)
         log.info("开始获取用户角色权限");
         User userinfo = userService.findByname(username);
+            SelfUserDetails userInfo = new SelfUserDetails();
+                userInfo.setUsername(userinfo.getUsername());
+                userInfo.setPassword(new BCryptPasswordEncoder().encode(userinfo.getPassword()));
+                Set authoritiesSet = new HashSet();
+                GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + userinfo.getRole());
+                authoritiesSet.add(authority);
+                userInfo.setAuthorities(authoritiesSet);
+                return userInfo;
 
-        SelfUserDetails userInfo = new SelfUserDetails();
-        userInfo.setUsername(userinfo.getUsername());
-        userInfo.setPassword(new BCryptPasswordEncoder().encode(userinfo.getPassword()));
 
-        Set authoritiesSet = new HashSet();
-        GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + userinfo.getRole());
-        authoritiesSet.add(authority);
-        userInfo.setAuthorities(authoritiesSet);
 
-        return userInfo;
     }
 }

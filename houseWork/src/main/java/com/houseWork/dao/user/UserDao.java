@@ -35,7 +35,7 @@ public interface UserDao extends Mapper<User>, MySqlMapper<User> {
      * 查找用户
      */
     List<User> selectByMap(Map map);
-
+    int deleteById(User user);
     /**
      * 查找byOpenId
      */

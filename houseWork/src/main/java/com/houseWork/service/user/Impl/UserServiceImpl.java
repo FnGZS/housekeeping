@@ -50,6 +50,9 @@ public class UserServiceImpl implements UserService {
     public User selectById(Integer id) { return userDao.selectByPrimaryKey(id);}
 
     @Override
+    public void delete(User build) { userDao.deleteById(build); }
+
+    @Override
     public User selectByOpenId(String openId) {
         return userDao.selectByOpenId(openId);
     }

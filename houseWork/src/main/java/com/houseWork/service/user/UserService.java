@@ -38,6 +38,13 @@ public interface UserService {
      * @date 2019/7/24 14:34
      */
     void updateUser(Map map);
+    /**
+     * 删除用户
+     * @params [map]
+     * @return void
+     * @date 2019/7/24 14:34
+     */
+    void delete(User build);
 
     User selectById(Integer id);
 
