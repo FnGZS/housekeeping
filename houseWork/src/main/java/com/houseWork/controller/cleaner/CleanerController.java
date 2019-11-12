@@ -39,10 +39,10 @@ public class CleanerController {
         }
     }
 
-    @PostMapping(value = "/deleteCleaners")
+    @PostMapping(value = "/deleteCleaner")
     @ApiOperation(value = "删除保洁员", notes = "删除保洁员")
-    public ResponseEntity deleteCleaners(@RequestBody @ApiParam(value = "输入保洁员信息") List<Cleaner> list) {
-        cleanerService.deleteCleaners(list);
+    public ResponseEntity deleteCleaner(@RequestParam Integer id) {
+        cleanerService.deleteCleaner(id);
         return new ResponseEntity(ResponseResult.successResponse("删除成功"), HttpStatus.OK);
     }
 
@@ -73,7 +73,7 @@ public class CleanerController {
     @ApiOperation(value = "查询保洁员", notes = "查询保洁员")
     public ResponseEntity findCleaners(@RequestParam(required = false) String name, @RequestParam(required = false) String place,
                                        @RequestParam(required = false) Integer price, @RequestParam(required = false) Integer total,
-                                       @RequestParam(defaultValue = "0") Integer pageNum,
+                                       @RequestParam(required = false) String type, @RequestParam(defaultValue = "0") Integer pageNum,
                                        @RequestParam(defaultValue = "1000") Integer pageSize) {
         if (name != null && name.length() > 0) {
             name = name.replaceAll(" ", "");
@@ -81,7 +81,10 @@ public class CleanerController {
         if (place != null && place.length() > 0) {
             place = place.replaceAll(" ", "");
         }
-        List<Cleaner> list = cleanerService.findCleaners(name, place, price, total);
+        if (type != null && type.length() > 0) {
+            type = type.replaceAll(" ", "");
+        }
+        List<Cleaner> list = cleanerService.findCleaners(name, place, price, total, type);
         PageHelper.startPage(pageNum, pageSize);
         PageInfo<Cleaner> pageInfo = new PageInfo<>(list);
         return new ResponseEntity(ResponseResult.successResponse(pageInfo), HttpStatus.OK);
@@ -92,5 +95,12 @@ public class CleanerController {
     public ResponseEntity loadCleanerById(@RequestParam Integer id) {
         Cleaner cleaner = cleanerService.loadCleanerById(id);
         return new ResponseEntity(ResponseResult.successResponse(cleaner), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/addUserCleaner")
+    @ApiOperation(value = "申请保洁员", notes = "申请保洁员")
+    public ResponseEntity addUserCleaner(@RequestParam Integer cid, @RequestParam Integer uid) {
+        cleanerService.addUserCleaner(cid, uid);
+        return new ResponseEntity(ResponseResult.successResponse("申请成功"), HttpStatus.OK);
     }
 }

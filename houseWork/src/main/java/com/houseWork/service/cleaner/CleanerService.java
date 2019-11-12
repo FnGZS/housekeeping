@@ -18,9 +18,9 @@ public interface CleanerService {
     /**
      * 删除保洁员
      *
-     * @param list
+     * @param id
      */
-    void deleteCleaners(List<Cleaner> list);
+    void deleteCleaner(Integer id);
 
     /**
      * 修改保洁员
@@ -36,9 +36,10 @@ public interface CleanerService {
      * @param place
      * @param price
      * @param total
+     * @param type
      * @return
      */
-    List<Cleaner> findCleaners(String name, String place, Integer price, Integer total);
+    List<Cleaner> findCleaners(String name, String place, Integer price, Integer total, String type);
 
     /**
      * 查询保洁员（名称）
@@ -76,4 +77,12 @@ public interface CleanerService {
     void deleteCleanerWorkDetail(Map map);
 
     CleanerWorkDetail subscribe(CleanerWorkDetail cleanerWorkDetail);
+
+    /**
+     * 申请保洁员
+     *
+     * @param cid
+     * @param uid
+     */
+    void addUserCleaner(Integer cid, Integer uid);
 }

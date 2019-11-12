@@ -22,8 +22,8 @@ public class CleanerServiceImpl implements CleanerService {
     }
 
     @Override
-    public void deleteCleaners(List<Cleaner> list) {
-        cleanerDao.deleteCleaners(list);
+    public void deleteCleaner(Integer id) {
+        cleanerDao.deleteCleaner(id);
     }
 
     @Override
@@ -32,8 +32,8 @@ public class CleanerServiceImpl implements CleanerService {
     }
 
     @Override
-    public List<Cleaner> findCleaners(String name, String place, Integer price, Integer total) {
-        return cleanerDao.findCleaners(name, place, price, total);
+    public List<Cleaner> findCleaners(String name, String place, Integer price, Integer total, String type) {
+        return cleanerDao.findCleaners(name, place, price, total, type);
     }
 
     @Override
@@ -64,5 +64,10 @@ public class CleanerServiceImpl implements CleanerService {
     @Override
     public CleanerWorkDetail subscribe(CleanerWorkDetail cleanerWorkDetail) {
         return cleanerDao.subscribe(cleanerWorkDetail);
+    }
+
+    @Override
+    public void addUserCleaner(Integer cid, Integer uid) {
+        cleanerDao.addUserCleaner(cid, uid);
     }
 }

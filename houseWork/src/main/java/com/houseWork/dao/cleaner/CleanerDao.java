@@ -26,9 +26,9 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
     /**
      * 删除保洁员
      *
-     * @param list
+     * @param id
      */
-    void deleteCleaners(@Param("list") List<Cleaner> list);
+    void deleteCleaner(@Param("id") Integer id);
 
     /**
      * 修改保洁员
@@ -58,9 +58,10 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
      * @param place
      * @param price
      * @param total
+     * @param type
      * @return
      */
-    List<Cleaner> findCleaners(@Param("name") String name, @Param("place") String place, @Param("price") Integer price, @Param("total") Integer total);
+    List<Cleaner> findCleaners(@Param("name") String name, @Param("place") String place, @Param("price") Integer price, @Param("total") Integer total, @Param("type") String type);
 
     /**
      * 查询保洁员（名称）
@@ -97,4 +98,12 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
      * @return
      */
     Cleaner getCleanerById(Integer id);
+
+    /**
+     * 申请保洁员
+     *
+     * @param cid
+     * @param uid
+     */
+    void addUserCleaner(@Param("cid") Integer cid, @Param("uid") Integer uid);
 }

@@ -12,7 +12,6 @@
             <result property="billingType" column="billing_type" jdbcType="VARCHAR"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="phone" column="phone" jdbcType="VARCHAR"/>
-            <result property="image" column="image" jdbcType="VARCHAR"/>
             <result property="address" column="address" jdbcType="VARCHAR"/>
             <result property="area" column="area" jdbcType="NUMERIC"/>
             <result property="appointmentTime" column="appointment_time" jdbcType="DATE"/>
@@ -24,12 +23,9 @@
 		INSERT INTO cleaner (name,card,telephone,introduction,time,total,back,score,place,price,type,work)
 		VALUES (#{cleaner.name},#{cleaner.card},#{cleaner.telephone},#{cleaner.introduction},#{cleaner.time},#{cleaner.total},#{cleaner.back},#{cleaner.score},#{cleaner.place},#{cleaner.price},#{cleaner.type},#{cleaner.work})
 	</insert>
-    <delete id="deleteCleaners" parameterType="java.util.List">
+    <delete id="deleteCleaner" parameterType="integer">
         DELETE FROM cleaner
-        WHERE id IN
-        <foreach collection="list" item="list" open="(" close=")" separator=",">
-            #{list.id}
-        </foreach>
+        WHERE id = #{id}
     </delete>
     <update id="updateCleaners" parameterType="java.util.List">
         <foreach collection="list" item="cleaner" index="index" open="" close="" separator=";">
@@ -71,6 +67,9 @@
             <if test="place != null">
                 and a.place like '%${place}%'
             </if>
+            <if test="type != null">
+                and a.type like '%${type}%'
+            </if>
         </where>
         order by a.price
         <if test="price == 0">
@@ -107,4 +106,8 @@
             and a.work_date <![CDATA[ <> ]]> DATE_ADD(now(),INTERVAL 7 DAY)
         </where>
     </select>
+    <insert id="addUserCleaner" parameterType="integer">
+		INSERT INTO user_cleaner_mapper (cid,uid,create_time)
+		VALUES (#{cid},#{uid},now())
+	</insert>
 </mapper>
