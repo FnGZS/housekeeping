@@ -98,7 +98,7 @@ public class UserController {
     @PostMapping(value = "/jwtLogin")
     @ApiOperation(value = "登录授权", notes = "登录授权")
 //    @Cacheable(value = "proUserLogin", key = "#authorizationUser.getUsername()")
-    public ResponseEntity login(@Validated AuthorizationUser authorizationUser) {
+    public ResponseEntity login(@Validated @RequestBody AuthorizationUser authorizationUser) {
         //小程序登录
         if(!StringUtil.isEmpty(authorizationUser.getPlatCode())){
 
@@ -129,6 +129,9 @@ public class UserController {
         }
 
         final UserDetails jwtUser  = userDetailsService.loadUserByUsername(authorizationUser.getUsername());
+        if(jwtUser == null){
+            return new ResponseEntity(ResponseResult.successResponse("账号不存在"), HttpStatus.OK);
+        }
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         if(!encoder.matches(authorizationUser.getPassword(),jwtUser.getPassword())){
             throw new AccountExpiredException("密码错误");
