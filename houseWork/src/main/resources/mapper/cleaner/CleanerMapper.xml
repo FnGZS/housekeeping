@@ -60,16 +60,19 @@
         </where>
     </delete>
     <select id="findCleaners" resultType="com.houseWork.entity.cleaner.Cleaner">
-        SELECT * FROM cleaner
+        SELECT a.*,c.id uid,c.username
+        FROM cleaner a
+        left join user_cleaner_mapper b on a.id = b.cid
+        left join user c on b.uid = c.id
         <where>
             <if test="name != null">
-                name like '%${name}%'
+                a.name like '%${name}%'
             </if>
             <if test="place != null">
-                and place like '%${place}%'
+                and a.place like '%${place}%'
             </if>
         </where>
-        order by price
+        order by a.price
         <if test="price == 0">
             ,
         </if>
@@ -82,7 +85,7 @@
         <if test="price == null">
             ,
         </if>
-        total
+        a.total
         <if test="total == 1">
             asc
         </if>
