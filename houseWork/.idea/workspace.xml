@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="529d1f93-28c3-4c4b-8ac1-00d498197c89" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/dict/DictDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/dao/dict/DictDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/cleaner/Cleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/cleaner/Cleaner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/service/user/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/service/user/Impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/cleaner/CleanerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/cleaner/CleanerMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -255,7 +251,7 @@
       <workItem from="1573125183743" duration="4542000" />
       <workItem from="1573453994962" duration="8072000" />
       <workItem from="1573523030195" duration="99000" />
-      <workItem from="1573523487655" duration="7149000" />
+      <workItem from="1573523487655" duration="12668000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1563946198723</created>

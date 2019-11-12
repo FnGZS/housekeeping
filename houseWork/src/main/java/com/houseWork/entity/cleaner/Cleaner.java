@@ -67,7 +67,7 @@ public class Cleaner implements Serializable {
 
     @Column(name = "type")
     @ApiModelProperty(value = "类型", required = false)
-    private Long type;
+    private String type;
 
     @Column(name = "work")
     @ApiModelProperty(value = "排班", required = false)
