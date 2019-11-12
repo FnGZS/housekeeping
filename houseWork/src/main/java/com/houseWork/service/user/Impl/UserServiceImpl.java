@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService {
             map.put("password",user.getPassword());
             map.put("telephone",user.getTelephone());
             map.put("image",user.getImage());
+            map.put("sex",user.getSex());
             userDao.update(map);
         }else {
             user.setRole("USER");

@@ -12,6 +12,7 @@
             <result property="billingType" column="billing_type" jdbcType="VARCHAR"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="image" column="image" jdbcType="VARCHAR"/>
             <result property="address" column="address" jdbcType="VARCHAR"/>
             <result property="area" column="area" jdbcType="NUMERIC"/>
             <result property="appointmentTime" column="appointment_time" jdbcType="DATE"/>
@@ -34,7 +35,7 @@
         <foreach collection="list" item="cleaner" index="index" open="" close="" separator=";">
             UPDATE cleaner
             <set>
-                name=#{cleaner.name},telephone=#{cleaner.telephone},introduction=#{cleaner.introduction},time=#{cleaner.time},
+                name=#{cleaner.name},telephone=#{cleaner.telephone},image=#{cleaner.image},introduction=#{cleaner.introduction},time=#{cleaner.time},
                 total=#{cleaner.total},back=#{cleaner.back},score=#{cleaner.score},place=#{cleaner.place},
                 price=#{cleaner.price},type=#{cleaner.type},work=#{cleaner.work},card=#{cleaner.card}
             </set>
@@ -77,6 +78,9 @@
         </if>
         <if test="price == 2">
             desc,
+        </if>
+        <if test="price == null">
+            ,
         </if>
         total
         <if test="total == 1">

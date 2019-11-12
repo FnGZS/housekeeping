@@ -25,6 +25,10 @@ public class Cleaner implements Serializable {
     @ApiModelProperty(value = "姓名", required = false)
     private String name;
 
+    @Column(name = "image")
+    @ApiModelProperty(value = "照片", required = false)
+    private String image;
+
     @Column(name = "card")
     @ApiModelProperty(value = "证件", required = false)
     private String card;

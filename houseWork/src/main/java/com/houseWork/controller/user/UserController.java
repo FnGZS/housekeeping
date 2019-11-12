@@ -79,7 +79,7 @@ public class UserController {
     public ResponseEntity updateUser(@RequestParam Integer id,
                                      @RequestParam String username,
                                      @RequestParam String openId,
-                                     @RequestParam String password,
+                                     @RequestParam(required = false) String password,
                                      @RequestParam String telephone,
                                      @RequestParam String role,
                                      @RequestParam String image){
