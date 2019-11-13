@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +47,7 @@ public class CleanerController {
 
     @PostMapping(value = "/updateCleanerWorkDetail")
     @ApiOperation(value = "修改保洁员排班", notes = "修改保洁员排班")
-    public ResponseEntity updateCleanerWorkDetail(@RequestParam Integer cid, @RequestParam(required = false) Date workDate,
+    public ResponseEntity updateCleanerWorkDetail(@RequestParam Integer cid, @RequestParam(required = false) String workDate,
                                                   @RequestParam(required = false) String type) {
         Map map = new HashMap();
         map.put("id", cid);

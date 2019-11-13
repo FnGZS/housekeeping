@@ -13,7 +13,7 @@ import java.util.List;
 public class CleanerWorkDetail {
     private Integer cid;
     private Integer appointmentId;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date workDate;
     private String type;
 

@@ -40,7 +40,7 @@
             </where>
         </foreach>
     </update>
-    <update id="updateCleanerWorkDetail" parameterType="java.util.Map">
+    <update id="updateCleanerWorkDetail" parameterType="com.houseWork.entity.cleaner.CleanerWorkDetail">
         UPDATE cleaner_work
         <set>
             work_date=#{workDate}, type=#{type}
@@ -104,6 +104,7 @@
         <where>
             a.cid = #{cleanerId} and a.work_date <![CDATA[ <> ]]> now()
             and a.work_date <![CDATA[ <> ]]> DATE_ADD(now(),INTERVAL 7 DAY)
+            and a.creat_time is not null
         </where>
     </select>
     <insert id="addUserCleaner" parameterType="integer">
