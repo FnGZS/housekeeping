@@ -79,4 +79,6 @@ public class Cleaner implements Serializable {
     @Column(name = "username")
     @ApiModelProperty(value = "用户名", required = false)
     private String username;
+    @ApiModelProperty(value = "openid", required = false)
+    private String openid;
 }

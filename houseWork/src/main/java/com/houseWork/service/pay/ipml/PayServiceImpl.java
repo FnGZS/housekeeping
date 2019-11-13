@@ -5,9 +5,11 @@ import com.github.pagehelper.PageInfo;
 import com.houseWork.dao.cleaner.CleanerDao;
 import com.houseWork.dao.pay.PayOrderDao;
 import com.houseWork.dao.user.UserDao;
+import com.houseWork.entity.cleaner.Cleaner;
 import com.houseWork.entity.pay.PayOrder;
 import com.houseWork.entity.pay.RefundApply;
 import com.houseWork.entity.pay.SearchPayOrderParam;
+import com.houseWork.entity.user.User;
 import com.houseWork.entity.weixin.UserRefundInfo;
 import com.houseWork.service.dict.DictService;
 import com.houseWork.service.pay.PayService;
@@ -139,8 +141,13 @@ public class PayServiceImpl implements PayService{
 	 * @return 系统订单实体
 	 */
 	private PayOrder getPayOrderDetailInfo(PayOrder payOrder) {
+        Cleaner cleaner = cleanerDao.loadCleanerById(payOrder.getClearnerId());
+        User clearnUser =  userDao.selectByPrimaryKey(cleaner.getUid());
+        if(clearnUser!=null){
+            cleaner.setOpenid(clearnUser.getOpenId());
+        }
 		//获取保洁人员信息
-		payOrder.setCleaner(cleanerDao.loadCleanerById(payOrder.getClearnerId()));
+		payOrder.setCleaner(cleaner);
 		//获取业主信息
 		payOrder.setEmployer(userDao.selectByOpenId(payOrder.getEmployerId()));
 		return payOrder;
