@@ -21,9 +21,13 @@ public class Test {
     @ApiModelProperty(value = "标题")
     private String title;
 
+    @Column(name = "answer")
+    @ApiModelProperty(value = "答案")
+    private String answer;
+
     @Column(name = "content")
     @ApiModelProperty(value = "内容")
-    private String testContent;
+    private String content;
 
     @Column(name = "create_time")
     @ApiModelProperty(value = "创建时间")
