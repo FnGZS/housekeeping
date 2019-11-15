@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="529d1f93-28c3-4c4b-8ac1-00d498197c89" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/user/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/controller/user/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/houseWork/entity/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/user/TestMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/user/TestMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +50,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1PzJC9FvOSVz4wXl1y20w39CZta" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="添加" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -65,7 +65,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java/com" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/houseWork/dao" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -94,26 +94,26 @@
       <recent name="com.hu.security" />
       <recent name="com.hu.redis" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork" />
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\entity" />
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\utils" />
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\service" />
-      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\resources" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.houseWork.entity.response" />
-      <recent name="com.houseWork.utils" />
-      <recent name="com.houseWork.entity" />
-      <recent name="com.hu.security.bean" />
-      <recent name="com.hu.utils" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\resources\mapper" />
       <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork" />
       <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\user" />
       <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\quartzJob" />
       <recent name="F:\idea\ideaArtifacts\GeRenCeShi\SpringBootPro\src\main\resources\mapper\account" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.houseWork.service.cleanRecommend" />
+      <recent name="com.houseWork.entity.cleanRecommend" />
+      <recent name="com.houseWork.dao.cleanRecommend" />
+      <recent name="com.houseWork.controller.cleanRecommend" />
+      <recent name="com.houseWork.dao.banner" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\a\Documents\GitHub\housekeeping\houseWork\src\main\java\com\houseWork\dao" />
+      <recent name="C:\Users\a\Documents\GitHub\housekeeping\houseWork\src\main\java\com\houseWork\dao\news" />
+      <recent name="C:\Users\a\Documents\GitHub\housekeeping\houseWork\src\main\java\com\houseWork\service\Banner" />
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork" />
+      <recent name="F:\eclipse\workSpace\housekeeping\houseWork\src\main\java\com\houseWork\entity" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -152,7 +152,7 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4783f108" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@491543a4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -254,6 +254,7 @@
       <workItem from="1573453994962" duration="8072000" />
       <workItem from="1573523030195" duration="99000" />
       <workItem from="1573523487655" duration="12668000" />
+      <workItem from="1573801316715" duration="4852000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1563946198723</created>
