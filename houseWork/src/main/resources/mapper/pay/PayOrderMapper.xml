@@ -116,7 +116,7 @@
         where p.orderState=1 and  r.gmtCreated between DATE_SUB(now(),interval 6 hour ) and now()
     </select>
     <select id="listPayOrderCountByCondition" resultType="java.util.Map">
-		select count(1) as total ,IFNULL (sum(if(orderState==1,1,0)),0) wait,IFNULL (sum(if(orderState==2,1,0)),0) successs,IFNULL (sum(if(orderState==3,1,0)),0) fail,IFNULL (sum(if(orderState==4,1,0)),0) close
+		select count(1) as total ,IFNULL (sum(if(orderState=1,1,0)),0) wait,IFNULL (sum(if(orderState=2,1,0)),0) successs,IFNULL (sum(if(orderState=3,1,0)),0) fail,IFNULL (sum(if(orderState=4,1,0)),0) close
 		 from
 		(select * from payOrder
 		<where>
