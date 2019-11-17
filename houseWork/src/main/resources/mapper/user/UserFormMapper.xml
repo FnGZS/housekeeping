@@ -26,7 +26,7 @@
     <select id="getFormId" resultType="com.houseWork.entity.weixin.UserFormDO">
       select id,userId,formId,openId from  user_form
       where openId=#{openId}
-      order by gmtCreated asc
+      order by gmtCreated desc
       limit 1
     </select>
 </mapper>
