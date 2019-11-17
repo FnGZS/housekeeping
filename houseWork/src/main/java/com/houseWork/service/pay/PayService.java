@@ -7,7 +7,11 @@ import com.houseWork.entity.pay.SearchPayOrderParam;
 import com.houseWork.entity.weixin.UserRefundInfo;
 
 import java.util.List;
+import java.util.Map;
 
+/**
+ * @author zzc
+ */
 public interface PayService {
 	/**
 	 * 根据订单号获取订单，单个
@@ -28,6 +32,12 @@ public interface PayService {
 	 * @return
 	 */
 	PageInfo<List<PayOrder>>  getPayOrderListByCondition(SearchPayOrderParam searchParam,int pageNum,int pageSize);
+	/**
+	 * 根据条件获取商品订单列表数量
+	 * @param searchParam 搜索条件
+	 * @return
+	 */
+	Map<String,Integer> getPayOrderListByCondition(SearchPayOrderParam searchParam);
 	/**
 	 * 更新订单信息（删除同样也是更新，假删除）
 	 * @param payOrder 订单实体

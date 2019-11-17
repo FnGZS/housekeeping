@@ -107,6 +107,13 @@
             and a.creat_time is not null
         </where>
     </select>
+    <select id="loadCleanerById2" resultType="com.houseWork.entity.cleaner.Cleaner">
+        select c.*,uc.*,u.open_id from  cleaner c
+         left join user_cleaner_mapper uc on c.id = uc.cid
+         left join user u on u.id = uc.uid
+         where c.id=#{id}
+         limit 1
+    </select>
     <insert id="addUserCleaner" parameterType="integer">
 		INSERT INTO user_cleaner_mapper (cid,uid,create_time)
 		VALUES (#{cid},#{uid},now())

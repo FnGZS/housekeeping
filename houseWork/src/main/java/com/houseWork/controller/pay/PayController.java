@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
+
 /**
  * @author zzc
  */
@@ -87,6 +89,11 @@ public class PayController {
 			,@RequestParam(defaultValue = "10")int pageSize){
 		return new ResponseEntity(ResponseResult.successResponse(payService.getPayOrderListByCondition(searchParam,pageNum,pageSize)), HttpStatus.OK);
 	}
+    @ApiOperation(value = "根据各种条件得到系统订单列表数量",notes = "根据各种条件得到系统订单列表数量")
+    @GetMapping("/payOrder/count")
+    public ResponseEntity<ResponseResult<Map>>getPayOrderListByCondition(SearchPayOrderParam searchParam){
+        return new ResponseEntity(ResponseResult.successResponse(payService.getPayOrderListByCondition(searchParam)), HttpStatus.OK);
+    }
 	@ApiOperation(value = "提现",notes = "提现")
 	@GetMapping("/cashWithdrawal")
     @ApiImplicitParams({@ApiImplicitParam(paramType = "Integer", name = "cleanId", value = "保洁员id", dataType = "string",required=true),

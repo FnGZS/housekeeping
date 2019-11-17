@@ -78,6 +78,13 @@ public interface CleanerDao extends Mapper<DictEntity>, MySqlMapper<DictEntity> 
      * @return
      */
     Cleaner loadCleanerById(@Param("id") Integer id);
+    /**
+     * 查询保洁员（id）关联中间表
+     *
+     * @param id
+     * @return
+     */
+    Cleaner loadCleanerById2(@Param("id") Integer id);
 
     /**
      * 保洁员排班

@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -28,6 +29,12 @@ public interface PayOrderDao {
 	 * @return 商品订单列表
 	 */
 	List<PayOrder> listPayOrderByCondition(SearchPayOrderParam param);
+	/**
+	 * 根据搜索条件获取订单（groupby goodsId(商品id)） 数量
+	 * @param param 条件实体
+	 * @return 商品订单列表
+	 */
+	Map<String,Integer> listPayOrderCountByCondition(SearchPayOrderParam param);
 	/**
 	 * 根据商品id获取订单（因为可能存在定金，尾款，所以用list接收）
 	 * @param goodsId 商品id

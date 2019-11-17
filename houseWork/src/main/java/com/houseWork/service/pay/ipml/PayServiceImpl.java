@@ -9,7 +9,6 @@ import com.houseWork.entity.cleaner.Cleaner;
 import com.houseWork.entity.pay.PayOrder;
 import com.houseWork.entity.pay.RefundApply;
 import com.houseWork.entity.pay.SearchPayOrderParam;
-import com.houseWork.entity.user.User;
 import com.houseWork.entity.weixin.UserRefundInfo;
 import com.houseWork.service.dict.DictService;
 import com.houseWork.service.pay.PayService;
@@ -19,6 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+
 /**
  * @author zzc
  */
@@ -50,7 +51,15 @@ public class PayServiceImpl implements PayService{
 		PageInfo<List<PayOrder>>  pageInfo = new PageInfo(payOrderList);
 		return pageInfo;
 	}
-	@Override
+
+    @Override
+    public Map<String,Integer> getPayOrderListByCondition(SearchPayOrderParam searchParam) {
+        Map<String,Integer>  map = payOrderDao.listPayOrderCountByCondition(searchParam);
+
+        return map;
+    }
+
+    @Override
 	public List<PayOrder> listPayOrderByGoodsId(String goodsId) {
 		List<PayOrder> payOrderList = payOrderDao.listPayOrderByGoodsId(goodsId);
 		if (CollectionUtils.isNotEmpty(payOrderList)) {
@@ -141,11 +150,8 @@ public class PayServiceImpl implements PayService{
 	 * @return 系统订单实体
 	 */
 	private PayOrder getPayOrderDetailInfo(PayOrder payOrder) {
-        Cleaner cleaner = cleanerDao.loadCleanerById(payOrder.getClearnerId());
-        User clearnUser =  userDao.selectByPrimaryKey(cleaner.getUid());
-        if(clearnUser!=null){
-            cleaner.setOpenid(clearnUser.getOpenId());
-        }
+        Cleaner cleaner = cleanerDao.loadCleanerById2(payOrder.getClearnerId());
+
 		//获取保洁人员信息
 		payOrder.setCleaner(cleaner);
 		//获取业主信息

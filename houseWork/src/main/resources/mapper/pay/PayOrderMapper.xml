@@ -115,6 +115,45 @@
         select r.* from refundApply r left  join payOrder p on p.goodsId=r.goodsId
         where p.orderState=1 and  r.gmtCreated between DATE_SUB(now(),interval 6 hour ) and now()
     </select>
+    <select id="listPayOrderCountByCondition" resultType="java.util.Map">
+		select count(1) as total ,IFNULL (sum(if(orderState==1,1,0)),0) wait,IFNULL (sum(if(orderState==2,1,0)),0) successs,IFNULL (sum(if(orderState==3,1,0)),0) fail,IFNULL (sum(if(orderState==4,1,0)),0) close
+		 from
+		(select * from payOrder
+		<where>
+			<if test="clearnerId != null">
+				clearnerId=#{clearnerId}
+			</if>
+			<if test="employerId != null">
+				and employerId=#{employerId}
+			</if>
+			<if test="goodsWay != null">
+				<choose>
+					<when test="goodsType != null">
+						and goodsType=#{goodsType}
+					</when>
+					<when test="goodsWays == 0">
+						and goodsType=#{goodsWays}
+					</when>
+					<otherwise>
+						and goodsType!=#{goodsWay}
+					</otherwise>
+				</choose>
+			</if>
+
+			<if test="chargingType != null">
+				and chargingType=#{chargingType}
+			</if>
+			<if test="orderState != null">
+				and orderState=#{orderState}
+			</if>
+			<if test="logistics != null">
+				and logistics=#{logistics}
+			</if>
+			and delFlag=0
+		</where>
+		group by goodsId )a
+
+	</select>
     <update id="updatePayOrder"
 		parameterType="com.houseWork.entity.pay.PayOrder">
 		update
