@@ -82,6 +82,7 @@ public class UserController {
                                      @RequestParam(required = false) String password,
                                      @RequestParam String telephone,
                                      @RequestParam String role,
+                                     @RequestParam String examineStatus,
                                      @RequestParam String image){
         Map map = new HashMap();
         map.put("id",id);
@@ -91,6 +92,7 @@ public class UserController {
         map.put("telephone",telephone);
         map.put("role",role);
         map.put("image",image);
+        map.put("examineStatus",examineStatus);
         userService.updateUser(map);
         return new ResponseEntity(ResponseResult.successResponse(),HttpStatus.OK);
     }

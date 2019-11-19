@@ -37,6 +37,9 @@
             <if test="sex != null">
                 sex = #{sex},
             </if>
+            <if test="examineStatus != null">
+                examineStatus = #{examineStatus},
+            </if>
         </set>
         <where>
             <if test="id != null and id != ''">

@@ -111,7 +111,7 @@ public class TestController {
         }
         Map map = new HashMap();
         map.put("id", id);
-        map.put("role", "CLEANER");
+        map.put("examineStatus", 1);
         userService.updateUser(map);
         User user = userService.selectById(id);
         return new ResponseEntity(ResponseResult.successResponse(user), HttpStatus.OK);

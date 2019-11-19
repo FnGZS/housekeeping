@@ -41,6 +41,10 @@ public class User implements Serializable {
     @ApiModelProperty(value = "用户角色")
     private String role;
 
+    @Column(name = "examineStatus")
+    @ApiModelProperty(value = "考核状态")
+    private Integer examineStatus;
+
     @Column(name = "image")
     @ApiModelProperty(value = "用户头像")
     private String image;
