@@ -34,7 +34,7 @@ public class UploadServiceImpl implements UploadService {
     /**
      * 保存图片地址的前缀
      */
-    protected String filePath = "/www/wwwroot/www.sxscott.com/housework/image/";
+    protected String filePath = "/www/wwwroot/www.sxscott.com/houseworkManager/housework/image/";
 
     /**
      * 访问图片地址的前缀
@@ -43,7 +43,7 @@ public class UploadServiceImpl implements UploadService {
     /**
      * 保存图片地址的前缀
      */
-    protected String videoFilePath = "/www/wwwroot/www.sxscott.com/housework/video/";
+    protected String videoFilePath = "/www/wwwroot/www.sxscott.com/houseworkManager/housework/video/";
     /**
      * 图片文件扩展名限制
      */
