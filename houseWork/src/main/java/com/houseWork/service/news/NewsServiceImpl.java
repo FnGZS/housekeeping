@@ -1,6 +1,7 @@
 package com.houseWork.service.news;
 
 import com.houseWork.dao.news.NewsMapper;
+import com.houseWork.entity.news.JYZParam;
 import com.houseWork.entity.news.News;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,15 @@ public class NewsServiceImpl implements NewsService{
     @Override
     public News getDetail(Integer nid) {
         return newsMapper.getDetail(nid);
+    }
+
+    @Override
+    public void addjyz(JYZParam param) {
+        newsMapper.addjyz(param);
+    }
+
+    @Override
+    public List<JYZParam> getjyz() {
+        return newsMapper.getjyz();
     }
 }

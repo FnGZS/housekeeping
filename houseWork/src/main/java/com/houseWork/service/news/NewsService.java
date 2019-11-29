@@ -1,5 +1,6 @@
 package com.houseWork.service.news;
 
+import com.houseWork.entity.news.JYZParam;
 import com.houseWork.entity.news.News;
 
 import java.util.List;
@@ -15,4 +16,8 @@ public interface NewsService {
     List<News> getList(Map map);
 
     News getDetail(Integer nid);
+
+    void addjyz(JYZParam param);
+
+    List<JYZParam> getjyz();
 }
