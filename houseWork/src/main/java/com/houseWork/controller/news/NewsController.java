@@ -88,15 +88,11 @@ public class NewsController {
     }
 
     @PostMapping("/selectjyz")
+    @ApiOperation("查找加油站")
     public ResponseEntity<ListResponseEntity<JYZParam>> select(
-            @RequestParam(required = false, defaultValue = "1") Integer page,
-            @RequestParam(required = false, defaultValue = "20") Integer size
     ){
-        PageHelper.startPage(page,size);
         List<JYZParam> list = newsService.getjyz();
-        ListResponseEntity listResponse = new ListResponseEntity();
-        listResponse.setList(list);
-        return new ResponseEntity(ResponseResult.successResponse(listResponse),HttpStatus.OK);
+        return new ResponseEntity(ResponseResult.successResponse(list),HttpStatus.OK);
     }
 
 }
